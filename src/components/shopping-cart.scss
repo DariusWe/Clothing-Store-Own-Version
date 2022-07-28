@@ -1,0 +1,22 @@
+.shopping-cart-container {
+    position: absolute;
+    top: 85px;
+    right: 6vw;
+    width: 320px;
+    min-height: 120px;
+    padding: 20px 30px; 
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 3px 3px 14px -10px #222;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+
+    .shopping-cart-empty {
+        margin: auto;
+    }
+
+    button {
+        margin-top: 20px;
+    }
+}

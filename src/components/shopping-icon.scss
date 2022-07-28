@@ -1,0 +1,24 @@
+.shopping-icon-container {
+    display: inline;
+    margin-left: 12px;
+    cursor: pointer;
+    color: #222;
+    font-size: 20px;
+
+    .shopping-icon-counter {
+        display: inline-flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        width: 18px;
+        height: 18px;
+        border-radius: 100%;
+        background-color: orange;
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        top: -12px;
+        left: -5px;
+        z-index: 4;
+    }
+}

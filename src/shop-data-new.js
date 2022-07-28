@@ -1,0 +1,460 @@
+/*
+
+*/
+
+export const SHOP_DATA_MEN = [
+  {
+    id: 1,
+    title: "T-Shirts & Vests",
+    items: [
+      {
+        id: 1,
+        name: "Nike Shirt Grey",
+        imageUrl: "https://i.ibb.co/s3KHrGp/14882183-1-grey.webp",
+        price: 49,
+      },
+      {
+        id: 2,
+        name: "Lakers Tricot purple",
+        imageUrl: "https://i.ibb.co/RbFZK4x/201479428-1-purple.webp",
+        price: 35,
+      },
+      {
+        id: 3,
+        name: "Nike Shirt Yellow",
+        imageUrl: "https://i.ibb.co/60pD68L/201596702-1-orange.webp",
+        price: 35,
+      },
+      {
+        id: 4,
+        name: "Classic White Shirt",
+        imageUrl: "https://i.ibb.co/W26K4Wt/201613574-1-white.webp",
+        price: 49,
+      },
+      {
+        id: 5,
+        name: "Original Club Shirt White",
+        imageUrl: "https://i.ibb.co/jzXT88x/201829282-1-white.webp",
+        price: 55,
+      },
+      {
+        id: 6,
+        name: "Nike Shirt pink",
+        imageUrl: "https://i.ibb.co/w4GBLct/201958374-1-arcticorange.webp",
+        price: 29,
+      },
+      {
+        id: 7,
+        name: "Nike Shirt With Print",
+        imageUrl: "https://i.ibb.co/8DP395S/201962686-1-sail.webp",
+        price: 29,
+      },
+      {
+        id: 8,
+        name: "White Classic Shirt",
+        imageUrl: "https://i.ibb.co/R6NLTfV/202093215-1-blue.webp",
+        price: 49,
+      },
+      {
+        id: 9,
+        name: "Adidas Shirt White",
+        imageUrl: "https://i.ibb.co/4Yjdtyw/202292259-1-white.webp",
+        price: 35,
+      },
+      {
+        id: 10,
+        name: "The North Face Short White",
+        imageUrl: "https://i.ibb.co/m04tGn0/202540360-1-white.webp",
+        price: 55,
+      },
+      {
+        id: 11,
+        name: "White Shirt With Print",
+        imageUrl: "https://i.ibb.co/tPqnY6Y/203238901-1-white.webp",
+        price: 29,
+      },
+      {
+        id: 12,
+        name: "Washed Black Shirt",
+        imageUrl: "https://i.ibb.co/5WrCyRm/203470245-1-washedblack.webp",
+        price: 35,
+      },
+    ],
+  },
+];
+
+export const SHOP_DATA_WOMEN = [
+  {
+    title: "Dresses",
+    items: [
+      {
+        id: 1,
+        name: "Navy Satin Dress",
+        imageUrl: "https://i.ibb.co/PYgM57X/14943915-1-navy.webp",
+        price: 49,
+      },
+      {
+        id: 2,
+        name: "Red Midi One Shoulder Dress",
+        imageUrl: "https://i.ibb.co/WFd0XQb/21705665-1-red.webp",
+        price: 35,
+      },
+      {
+        id: 3,
+        name: "Button Down Floral Dress In Blue ",
+        imageUrl: "https://i.ibb.co/qMB6Zp9/200932485-1-metallicjacquard.webp",
+        price: 35,
+      },
+      {
+        id: 4,
+        name: "Autumn Button Down Dress",
+        imageUrl: "https://i.ibb.co/CJbtRBh/201342081-1-multi.webp",
+        price: 49,
+      },
+      {
+        id: 5,
+        name: "Green Floral Dress",
+        imageUrl: "https://i.ibb.co/0Z7JQsY/202066714-1-multi.webp",
+        price: 55,
+      },
+      {
+        id: 6,
+        name: "Short Leopard Dress",
+        imageUrl: "https://i.ibb.co/SQs8fzG/202430619-1-animalprint.webp",
+        price: 29,
+      },
+      {
+        id: 7,
+        name: "Classic Dress In Black",
+        imageUrl: "https://i.ibb.co/QDkhK0d/202856239-1-black.webp",
+        price: 29,
+      },
+      {
+        id: 8,
+        name: "Button Down Dress In Red",
+        imageUrl: "https://i.ibb.co/RhY92FL/202905880-1-red.webp",
+        price: 49,
+      },
+      {
+        id: 9,
+        name: "Light Summer Dress White",
+        imageUrl: "https://i.ibb.co/Q9mFY4R/203618649-1-polkadot.webp",
+        price: 35,
+      },
+      {
+        id: 10,
+        name: "Short Green Floral Dress",
+        imageUrl: "https://i.ibb.co/wsbsxRB/203052857-1-greenfloral.webp",
+        price: 55,
+      },
+      {
+        id: 11,
+        name: "Colorful Dress",
+        imageUrl: "https://i.ibb.co/s1z77kV/203351169-1-mixedditsy.webp",
+        price: 29,
+      },
+      {
+        id: 12,
+        name: "White Dress",
+        imageUrl: "https://i.ibb.co/Kw8gZmd/203381360-1-white.webp",
+        price: 35,
+      },
+    ],
+  },
+  {
+    title: "Tops",
+    items: [
+      {
+        id: 13,
+        name: "White Top",
+        imageUrl: "https://i.ibb.co/18mQYJx/13004129-1-white.webp",
+        price: 20,
+      },
+      {
+        id: 14,
+        name: "Striped Shirt",
+        imageUrl: "https://i.ibb.co/r7DpHtY/20385623-1-blackwhite.webp",
+        price: 29,
+      },
+      {
+        id: 15,
+        name: "White V-Shaped Top",
+        imageUrl: "https://i.ibb.co/w6mHnKF/20833232-1-white.webp",
+        price: 14,
+      },
+      {
+        id: 16,
+        name: "T-Shaped Top In Black",
+        imageUrl: "https://i.ibb.co/YTN4Fv8/21031583-1-black.webp",
+        price: 14,
+      },
+      {
+        id: 17,
+        name: "Black Top",
+        imageUrl: "https://i.ibb.co/47Gtbsh/22707145-1-black.webp",
+        price: 29,
+      },
+      {
+        id: 18,
+        name: "Another Black Top",
+        imageUrl: "https://i.ibb.co/dMkxspY/24424272-1-black.webp",
+        price: 14,
+      },
+      {
+        id: 19,
+        name: "Yet Another Top",
+        imageUrl: "https://i.ibb.co/7gzG4xz/201667783-1-black.webp",
+        price: 20,
+      },
+      {
+        id: 20,
+        name: "White T-Shirt",
+        imageUrl: "https://i.ibb.co/p1pG15b/201668115-1-white.webp",
+        price: 29,
+      },
+      {
+        id: 21,
+        name: "Red Weird Shirts",
+        imageUrl: "https://i.ibb.co/B2gw8cH/201913777-1-red.webp",
+        price: 29,
+      },
+      {
+        id: 22,
+        name: "Floral Autumn Top",
+        imageUrl: "https://i.ibb.co/RDMnmR3/202477785-1-softfloral.webp",
+        price: 35,
+      },
+      {
+        id: 23,
+        name: "Black & White Oversize Top",
+        imageUrl: "https://i.ibb.co/qFrjWjG/202871347-1-monogrid.webp",
+        price: 39,
+      },
+      {
+        id: 24,
+        name: "Some White Top",
+        imageUrl: "https://i.ibb.co/bHhPdsJ/203086022-1-white.webp",
+        price: 14,
+      },
+    ],
+  },
+  {
+    title: "Blazers",
+    items: [
+      {
+        id: 25,
+        name: "Black Oversize Blazer",
+        imageUrl: "https://i.ibb.co/xM4yfbz/200941032-1-black.webp",
+        price: 125,
+      },
+      {
+        id: 26,
+        name: "Some White Blazer",
+        imageUrl: "https://i.ibb.co/XSPDGDN/203381374-1-white.webp",
+        price: 90,
+      },
+      {
+        id: 27,
+        name: "Crazy Pink Suit",
+        imageUrl: "https://i.ibb.co/RDgFbGW/202887485-1-pink.webp",
+        price: 90,
+      },
+      {
+        id: 28,
+        name: "Pink And Orange Blazer",
+        imageUrl: "https://i.ibb.co/zfLRdZc/202779477-1-multi.webp",
+        price: 165,
+      },
+      {
+        id: 29,
+        name: "White Classic Suit",
+        imageUrl: "https://i.ibb.co/hDJ6R4b/202655577-1-white.webp",
+        price: 185,
+      },
+      {
+        id: 30,
+        name: "Tan Trench",
+        imageUrl: "https://i.ibb.co/d2NgW0S/202314291-1-natural.webp",
+        price: 185,
+      },
+      {
+        id: 31,
+        name: "Oversized Suit Natural Colors",
+        imageUrl: "https://i.ibb.co/brLr4c8/202175835-1-orange.webp",
+        price: 185,
+      },
+      {
+        id: 32,
+        name: "Another White Blazer",
+        imageUrl: "https://i.ibb.co/x33d865/202114427-1-ecru.webp",
+        price: 185,
+      },
+      {
+        id: 33,
+        name: "Blazer in Black",
+        imageUrl: "https://i.ibb.co/VwdPfpC/202089009-1-black.webp",
+        price: 185,
+      },
+      {
+        id: 34,
+        name: "Beige Blazer",
+        imageUrl: "https://i.ibb.co/yWbZRHC/201850783-1-camel.webp",
+        price: 185,
+      },
+      {
+        id: 35,
+        name: "Another Black Suit",
+        imageUrl: "https://i.ibb.co/XFstS3k/201174004-1-black.webp",
+        price: 185,
+      },
+      {
+        id: 36,
+        name: "Black Lether Blazer",
+        imageUrl: "https://i.ibb.co/9GjnMRG/200955086-1-black.webp",
+        price: 185,
+      },
+    ],
+  },
+  {
+    title: "Hoodies & Sweatshirts",
+    items: [
+      {
+        id: 37,
+        name: "Mineral Pink Teddy Jacket",
+        imageUrl: "https://i.ibb.co/zf3wn5c/24285880-1-mineralpink.webp",
+        price: 25,
+      },
+      {
+        id: 38,
+        name: "Nike Hoodie Black",
+        imageUrl: "https://i.ibb.co/xqzHQ5d/24298384-1-black.webp",
+        price: 29,
+      },
+      {
+        id: 39,
+        name: "No Brand Hoodie Black",
+        imageUrl: "https://i.ibb.co/b3L5v89/200741981-1-black.webp",
+        price: 80,
+      },
+      {
+        id: 40,
+        name: "Pink Adidas Sweatshirt",
+        imageUrl: "https://i.ibb.co/hM3jBdY/200754828-1-piink.webp",
+        price: 80,
+      },
+      {
+        id: 41,
+        name: "Adidas Top Black",
+        imageUrl: "https://i.ibb.co/93xQVPS/201263259-1-black.webp",
+        price: 45,
+      },
+      {
+        id: 42,
+        name: "Sweatshirt With Trees And Stuff",
+        imageUrl: "https://i.ibb.co/nsKtfps/201798977-1-greymarl.webp",
+        price: 35,
+      },
+      {
+        id: 43,
+        name: "Brown Long Top",
+        imageUrl: "https://i.ibb.co/kJmDfF9/201817255-1-brown.webp",
+        price: 20,
+      },
+      {
+        id: 44,
+        name: "White Pullover",
+        imageUrl: "https://i.ibb.co/cvkPnTZ/202110773-1-white.webp",
+        price: 20,
+      },
+      {
+        id: 45,
+        name: "White Sweatshirt with Print",
+        imageUrl: "https://i.ibb.co/DpwbRZ7/202466315-1-white.webp",
+        price: 20,
+      },
+      {
+        id: 46,
+        name: "Green Sweatshirt with Print",
+        imageUrl: "https://i.ibb.co/HrLcLKT/202466331-1-midgreen.webp",
+        price: 20,
+      },
+      {
+        id: 47,
+        name: "Cozy Sweatshirt In Orange",
+        imageUrl: "https://i.ibb.co/GVBwcCc/203108596-1-orange.webp",
+        price: 20,
+      },
+      {
+        id: 48,
+        name: "Santa Monica Gray Sweatshirt",
+        imageUrl: "https://i.ibb.co/cTx44xQ/203614528-1-grey.webp",
+        price: 20,
+      },
+    ],
+  },
+  {
+    title: "Shorts",
+    items: [
+      {
+        id: 49,
+        name: "Black Tight Shorts",
+        imageUrl: "https://i.ibb.co/fSZTxFH/22961578-1-black.webp",
+        price: 25,
+      },
+      {
+        id: 50,
+        name: "Black Sport Shorts",
+        imageUrl: "https://i.ibb.co/Sc9t6hp/200234264-1-black.webp",
+        price: 20,
+      },
+      {
+        id: 51,
+        name: "Mini Jeans",
+        imageUrl: "https://i.ibb.co/mtnPmtB/200850297-1-midblue.webp",
+        price: 25,
+      },
+      {
+        id: 52,
+        name: "Adidas Shorts Black",
+        imageUrl: "https://i.ibb.co/hXc03D2/201108998-1-black.webp",
+        price: 25,
+      },
+      {
+        id: 53,
+        name: "White Mini Trousers",
+        imageUrl: "https://i.ibb.co/qgCJW5J/201421035-1-stone.webp",
+        price: 40,
+      },
+      {
+        id: 54,
+        name: "Shorts Olive Green With Pockets",
+        imageUrl: "https://i.ibb.co/bNXyJbk/201421081-1-khaki.webp",
+        price: 25,
+      },
+      {
+        id: 55,
+        name: "White Mini",
+        imageUrl: "https://i.ibb.co/KsTY6PT/202500502-1-white.webp",
+        price: 25,
+      },
+      {
+        id: 56,
+        name: "Jeans Shorts",
+        imageUrl: "https://i.ibb.co/7bcpQSq/202662179-1-blue.webp",
+        price: 25,
+      },
+      {
+        id: 57,
+        name: "Oversized Jeans Shorts",
+        imageUrl: "https://i.ibb.co/r7J0cGS/202743798-1-blue.webp",
+        price: 25,
+      },
+      {
+        id: 58,
+        name: "Leggins Shorts Black",
+        imageUrl: "https://i.ibb.co/BjZbXY1/203060311-1-black.webp",
+        price: 25,
+      },
+    ],
+  },
+];
