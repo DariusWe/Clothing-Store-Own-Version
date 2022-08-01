@@ -1,9 +1,12 @@
 .shopping-icon-container {
     display: inline;
-    margin-left: 12px;
     cursor: pointer;
     color: #222;
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: -2px;
+    margin-right: -6px;
+    margin-left: -2px;
+
 
     .shopping-icon-counter {
         display: inline-flex;
@@ -13,12 +16,11 @@
         width: 18px;
         height: 18px;
         border-radius: 100%;
-        background-color: orange;
+        background-color: #111;
         color: white;
         font-size: 12px;
         font-weight: 700;
-        top: -12px;
-        left: -5px;
-        z-index: 4;
+        top: -10px;
+        left: -4px;
     }
 }

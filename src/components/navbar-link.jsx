@@ -1,13 +1,22 @@
 import "./navbar-link.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { GenderInUrlContext } from "../contexts/genderInUrlContext";
 
-const NavbarLink = ({title, sex}) => {
-    const navigate = useNavigate();
-    return (
-        <span className="navbar-second-link" onClick={() => navigate(`/${sex}/${title}`)}>{title}</span>
-    );
-}
+const NavbarLink = ({ category }) => {
+  const { title, titleSanitized } = category;
+  const navigate = useNavigate();
+  const location = useLocation();
+  const gender = useContext(GenderInUrlContext);
+
+  return (
+    <span
+      className={location.pathname.includes(titleSanitized) ? "navbar-second-link is-active" : "navbar-second-link"}
+      onClick={() => navigate(`/${gender}/${titleSanitized}`)}
+    >
+      {title}
+    </span>
+  );
+};
 
 export default NavbarLink;
-
-// onClick={() => navigate("/women/dresses")}

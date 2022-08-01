@@ -1,5 +1,5 @@
 /*
-- Next Steps: Second Header pull categories from productsContext
+- On Sign-up or sign-in: Navigate to women or men landingpage depending on gender.
 - Next Steps: Checkout Page
 
 - Make a sticky, changing (on scroll) header, that always shows the most important information.

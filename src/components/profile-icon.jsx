@@ -9,7 +9,7 @@ const ProfileIcon = (props) => {
 
   return (
     <div className="profile-icon" onClick={() => (profilePopupIsOpen ? setProfilePopupIsOpen(false) : setProfilePopupIsOpen(true))}>
-      <i className="fa-regular fa-user"></i>
+      <i className="fa-solid fa-user"></i>
       {/* <span className="sign-in-text">Sign in</span> */}
     </div>
   );

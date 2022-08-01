@@ -1,6 +1,24 @@
 .products-page-container {
+    padding-top: 0px;
+
+  .products-page-title {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: #333;
+    text-transform: uppercase;
+    padding: 26px 40px;
+  }
+  .products-page-description {
+    padding: 0 40px;
+    margin-bottom: 40px;
+    width: 50%;
+    font-size: 15px;
+  }
+  .products-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 40px 40px;
+    margin: 40px;
+  }
 }

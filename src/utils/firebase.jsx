@@ -71,16 +71,11 @@ const tmpFunc3 = async () => {
 
 // ---------------------------------------------------------------------------------------------
 
-export const getProductsFromFirestore = async () => {
-  // Another method is to set a listener (probably recommended)
-  const colRef = collection(db, "product-categories");
-  const querySnapshot = await getDocs(query(colRef, orderBy("id")));
-  return querySnapshot;
-};
 
-export const getProductsFromFirestoreV2 = async (sex) => {
+
+export const getProductsFromFirestore = async (gender) => {
   // Another method is to set a listener (probably recommended)
-  const colRef = collection(db, `product-categories-${sex}`);
+  const colRef = collection(db, `product-categories-${gender}`);
   const querySnapshot = await getDocs(query(colRef, orderBy("id")));
   return querySnapshot;
 };
