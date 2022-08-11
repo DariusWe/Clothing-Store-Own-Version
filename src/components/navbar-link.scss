@@ -1,20 +1,20 @@
 .navbar-second-link {
-    display: inline-block;
-    color: #111;
-    //color: white;
-    padding: 2px 0;
-    // text-transform: uppercase;
+  display: inline-block;
+  color: #111;
+  //color: white;
+  padding: 2px 0;
+  // text-transform: uppercase;
 
-    &:hover {
-        cursor: pointer;
-         text-decoration: underline #aaa;
-         text-underline-offset: 4px;
-    }
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline #aaa;
+    text-underline-offset: 4px;
+  }
 }
 
-.categories-list .is-active {
-    // text-decoration: underline;
-    // text-decoration-color: #444;
-    // text-underline-offset: 4px;
-    box-shadow: 0px -10px 0 rgb(218, 218, 218) inset;
+.is-active {
+  // text-decoration: underline;
+  // text-decoration-color: #444;
+  // text-underline-offset: 4px;
+  box-shadow: 0px -10px 0 rgb(218, 218, 218) inset;
 }

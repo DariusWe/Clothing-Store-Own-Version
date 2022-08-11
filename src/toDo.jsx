@@ -1,4 +1,5 @@
 /*
+- replace logo with a logo component
 - On Sign-up or sign-in: Navigate to women or men landingpage depending on gender.
 - Next Steps: Checkout Page
 

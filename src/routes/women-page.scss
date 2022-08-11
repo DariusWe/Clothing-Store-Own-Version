@@ -1,0 +1,88 @@
+.women-page-container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 3.6vw);
+  margin-left: 40px;
+
+  .left-section {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+
+      &:first-child {
+        margin-left: calc(-10% + 40px); // Weird random formula that provides ~same percentages on FHD and Laptop Screen 
+      
+      }
+    }
+  }
+
+  .right-section {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 45px;
+
+    h2 {
+      font-size: 34px;
+      margin-bottom: 4px;
+      font-weight: 900;
+      // color: hsl(184, 42%, 86%);
+      color: #222;
+      //font-family: "Stardom", sans-serif;
+      text-transform: uppercase;
+      //font-family: "Bebas Neue", sans-serif;
+      //font-family: "Excon", sans-serif;
+      //font-family: "Italiana";
+      
+    }
+
+    span {
+      display: block;
+      font-weight: 400;
+      font-style: italic;
+      color: #888;
+      margin-bottom: 15px;
+    }
+
+    .link {
+      margin-top: 30px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+  }
+
+  // .women-page-section {
+  //   display: flex;
+  //   overflow-x: hidden;
+  //   // border: 10px solid black;
+  //   // border-bottom: 0px solid black;
+  //   border-top: 0;
+  //   margin: 40px;
+}
+// }
+
+//   .collection-heading {
+//     position: absolute;
+//     bottom: 25%;
+//     padding-left: 40px;
+
+//     h2 {
+//       font-size: 248px;
+//       font-weight: 900;
+//       // color: hsl(184, 42%, 86%);
+//       color: rgb(135, 197, 201);
+//       color: rgba(255, 255, 255, 0.9);
+//       font-family: "Stardom", sans-serif;
+//       //font-family: "Bebas Neue", sans-serif;
+//       //font-family: "Excon", sans-serif;
+//       //font-family: "Italiana";
+//     }
+//   }
+// }

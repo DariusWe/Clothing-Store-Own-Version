@@ -1,20 +1,29 @@
 .shopping-cart-item-container {
     display: flex;
-    margin: 10px 0;
+    margin: 15px 0;
 
-    .shopping-cart-item-img-container {
-        height: 70px;
+    .shopping-cartitem-img-container {
+        //height: 160px;
         overflow: hidden;
     }
 
     img {
-        width: 60px;
+        //width: 160px;
+        //width: 8vw;
+        width: 18vh;
     }
 
     .shopping-cart-item-info {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-items: flex-start;
         margin-left: 20px;
+
+        & button {
+            border: none;
+            padding: 5px;
+            background-color: transparent;
+            cursor: pointer;
+        }
     }
 }

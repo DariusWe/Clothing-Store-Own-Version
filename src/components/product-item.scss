@@ -1,5 +1,5 @@
 .product-item-container {
-  width: 24.5%;
+  width: 24.24%;
   height: auto;
   margin-bottom: 40px;
 
@@ -27,11 +27,13 @@
       font-weight: 600;
       color: #222;
       padding: 0 12px 5px 12px;
+      border-radius: 100%;
       //border: 1px solid #aaa;
 
       &:hover {
         cursor: pointer;
-        background-color: #eee;
+        background-color: #222;
+        color: white
       }
     }
   }

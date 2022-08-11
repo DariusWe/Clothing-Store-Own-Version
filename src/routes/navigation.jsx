@@ -1,4 +1,4 @@
-import "./navigation.scss";
+import { MainContainer, ContentArea } from "./navigation.styles";
 import { Outlet } from "react-router-dom";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../contexts/shoppingCartContext";
@@ -13,17 +13,15 @@ const Navigation = () => {
   const { profilePopupIsOpen } = useContext(ProfilePopupContext);
 
   return (
-    <>
-    <div className="main-container">
-      <NavbarSide />
-      <div className="main-content-area">
-        <NavbarTop />
-        <Outlet />
-      </div>
-      {shoppingCartIsOpen ? <ShoppingCart /> : null}
-      {profilePopupIsOpen ? <ProfilePopup /> : null}
-    </div>
-    </>
+    <MainContainer>
+        <NavbarSide />
+        <ContentArea>
+          <NavbarTop />
+          <Outlet />
+        </ContentArea>
+        {shoppingCartIsOpen ? <ShoppingCart /> : null}
+        {profilePopupIsOpen ? <ProfilePopup /> : null}
+    </MainContainer>
   );
 };
 

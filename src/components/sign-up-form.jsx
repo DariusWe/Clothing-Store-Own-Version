@@ -22,7 +22,7 @@ const SignUpForm = () => {
     }
     firebaseCreateUserWithEmailAndPassword(email, password, name)
       .then((cred) => {
-        setCurrentUser({...cred.user}); // spread operator needed here, otherwise setCurrentUser will not lead to updates in UI, because it seems to be the same object as already is in the context variable.
+        setCurrentUser({ ...cred.user }); // spread operator needed here, otherwise setCurrentUser will not lead to updates in UI, because it seems to be the same object as already is in the context variable.
         navigate("/");
       })
       .catch((err) => {
@@ -31,13 +31,16 @@ const SignUpForm = () => {
   };
 
   return (
-    <form className="form" onSubmit={signUp}>
-      <InputField type="text" label="Name:" id="name" />
-      <InputField type="email" label="Email:" id="email" />
-      <InputField type="password" label="Password:" id="password" />
-      <InputField type="password" label="Confirm password:" id="confirm-password" />
-      <Button type="submit" value="Sign Up" />
-    </form>
+    <div className="form-container">
+      <h2>Register</h2>
+      <form className="form" onSubmit={signUp}>
+        <InputField type="text" label="Name:" id="name" />
+        <InputField type="email" label="Email:" id="email" />
+        <InputField type="password" label="Password:" id="password" />
+        <InputField type="password" label="Confirm password:" id="confirm-password" />
+        <Button type="submit" value="Register" />
+      </form>
+    </div>
   );
 };
 

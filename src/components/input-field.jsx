@@ -1,10 +1,13 @@
 import "./input-field.scss";
+import { useState } from "react";
 
 const InputField = ({label, id, type}) => {
+  const [fieldValue, setFieldValue] = useState("");
+
   return (
     <div className="group">
-      <label htmlFor={id}>{label}</label>
-      <input type={type} id={id} name={id} />
+      <input type={type} id={id} name={id} onChange={(e) => setFieldValue(e.target.value)} />
+      <label htmlFor={id} className={fieldValue.length > 0 ? "shrink" : ""}>{label}</label>
     </div>
   );
 };
