@@ -1,13 +1,8 @@
 import "./checkout-page.scss";
 import Button from "../components/button";
 import SignInForm from "../components/sign-in-form";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { ShoppingCartContext } from "../contexts/shoppingCartContext";
 
 const CheckoutPage = () => {
-  const { productsInShoppingCart, addToShoppingCart, decreaseQuantity, removeFromShoppingCart, total, totalQuantity } =
-    useContext(ShoppingCartContext);
 
   return (
     <div className="checkout-container">

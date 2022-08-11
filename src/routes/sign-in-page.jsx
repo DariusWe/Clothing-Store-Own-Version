@@ -1,6 +1,5 @@
 import "./sign-in-page.scss";
 import SignInForm from "../components/sign-in-form";
-import SignUpForm from "../components/sign-up-form";
 import Button from "../components/button";
 
 const SignInPage = () => {

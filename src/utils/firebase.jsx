@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   updateProfile,
 } from "firebase/auth";
+// eslint-disable-next-line
 import { getFirestore, writeBatch, doc, getDoc, setDoc, collection, query, getDocs, orderBy } from "firebase/firestore";
 import { SHOP_DATA_MEN } from "../shop-data-new";
 
@@ -58,7 +59,7 @@ tmpFunc2();
 // ---------------------------------------------------------------------------------------------
 
 // Creating a batch and commiting it to the db:
-
+// eslint-disable-next-line
 const tmpFunc3 = async () => {
   const batch = writeBatch(db);
   SHOP_DATA_MEN.forEach((categorie) => {

@@ -2,13 +2,11 @@ import "./shopping-cart.scss";
 import ShoppingCartItem from "./shopping-cart-item";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../contexts/shoppingCartContext";
-import { UserAuthContext } from "../contexts/UserAuthContext";
 import { useNavigate } from "react-router-dom";
 import Button from "./button";
 
 const ShoppingCart = () => {
   const { productsInShoppingCart, setShoppingCartIsOpen, total, totalQuantity } = useContext(ShoppingCartContext);
-  const { currentUser } = useContext(UserAuthContext);
   const navigate = useNavigate();
 
   return (
