@@ -1,4 +1,4 @@
-import {Container} from "./profile-popup.styles";
+import { Container } from "./profile-popup.styles";
 import Button from "./button";
 import { useContext } from "react";
 import { signOutUser } from "../utils/firebase";
@@ -7,13 +7,12 @@ import { ProfilePopupContext } from "../contexts/profilePopupContext";
 import { useNavigate } from "react-router-dom";
 
 const ProfilePopup = () => {
-  const { setCurrentUser, currentUser } = useContext(UserAuthContext);
+  const { currentUser } = useContext(UserAuthContext);
   const { setProfilePopupIsOpen } = useContext(ProfilePopupContext);
   const navigate = useNavigate();
 
   const signOut = () => {
     signOutUser().then(() => {
-      setCurrentUser(null);
       setProfilePopupIsOpen(false);
     });
   };
@@ -27,10 +26,13 @@ const ProfilePopup = () => {
           <Button value="Sign Out" onClick={signOut} />
         </div>
       ) : (
-        <Button value="Sign In" onClick={() => {
-          setProfilePopupIsOpen(false);
-          navigate("/auth");
-        }} />
+        <Button
+          value="Sign In"
+          onClick={() => {
+            setProfilePopupIsOpen(false);
+            navigate("/auth");
+          }}
+        />
       )}
     </Container>
   );

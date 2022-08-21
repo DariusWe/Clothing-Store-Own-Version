@@ -2,12 +2,9 @@ import { Container } from "./sign-in-form.styles";
 import InputField from "./input-field";
 import Button from "./button";
 import { firebaseSignInWithEmailAndPassword } from "../utils/firebase";
-import { UserAuthContext } from "../contexts/UserAuthContext";
-import { useContext } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 
 const SignInForm = () => {
-  const { setCurrentUser } = useContext(UserAuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -16,8 +13,7 @@ const SignInForm = () => {
     const email = e.target["email"].value;
     const password = e.target["password"].value;
     firebaseSignInWithEmailAndPassword(email, password)
-      .then((cred) => {
-        setCurrentUser(cred.user);
+      .then(() => {
         if (location.pathname.includes("sign-in")) {
           navigate("/");
         }
