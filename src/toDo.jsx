@@ -1,6 +1,4 @@
 /*
-- Switch to styled components completely
-- commit to github
 - Implement global css fonts, color etc. management
 - continue WebDev document on google docs 
 - Deploying: Learn about whats happening in the background. Learn about this service, it's advantages and disadvantages.
@@ -19,6 +17,7 @@
   
 AT THE END:
 - Animations and Click-Feedback
+- When Cart-Popup open, make dark overlay over rest of site (look c&a)
 - Include better images
 - More sense-making prices
 - Build Mens Page

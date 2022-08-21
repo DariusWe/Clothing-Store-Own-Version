@@ -1,4 +1,4 @@
-import { Container, InfoSection } from "./shopping-cart-item.styles";
+import { Container, InfoSection, DeleteIcon } from "./shopping-cart-item.styles";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../contexts/shoppingCartContext";
 
@@ -9,19 +9,24 @@ const ShoppingCartItem = ({ product }) => {
     <Container>
       <img src={product.imageUrl} alt={product.name} />
       <InfoSection>
-        <span>{product.name}</span>
-        <div className="shopping-cart-item-quantity">
-          <button onClick={() => decreaseQuantity(product)}>-</button>
-          <span> {product.quantity} </span>
-          <button onClick={() => addToShoppingCart(product)}>+</button>
-        </div>
         <span>
-          {product.quantity} x {`${product.price} EUR`}
+          <b>{product.name}</b>
         </span>
-        <button className="shopping-cart-item-delete" onClick={() => removeFromShoppingCart(product)}>
-          Delete
-        </button>
+        <span>{`Price: ${product.price * product.quantity} €`}</span>
+        <div>
+          <span>Amount: </span>
+          <button onClick={() => decreaseQuantity(product)}>
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <span>{product.quantity}</span>
+          <button onClick={() => addToShoppingCart(product)}>
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
       </InfoSection>
+      <DeleteIcon onClick={() => removeFromShoppingCart(product)}>
+        <i class="fa-solid fa-trash-can"></i>
+      </DeleteIcon>
     </Container>
   );
 };
