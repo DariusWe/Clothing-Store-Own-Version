@@ -1,4 +1,4 @@
-import "./sign-in-form.scss";
+import { Container } from "./sign-in-form.styles";
 import InputField from "./input-field";
 import Button from "./button";
 import { firebaseSignInWithEmailAndPassword } from "../utils/firebase";
@@ -28,9 +28,9 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="form-container">
+    <Container>
       <h2>Sign in</h2>
-      <form className="form" onSubmit={signInUser}>
+      <form onSubmit={signInUser}>
         <InputField type="email" label="E-mail" id="email" />
         <InputField type="password" label="Password" id="password" />
         <Button type="submit" value="Sign In" />
@@ -46,7 +46,7 @@ const SignInForm = () => {
           </>
         )}
       </form>
-    </div>
+    </Container>
   );
 };
 

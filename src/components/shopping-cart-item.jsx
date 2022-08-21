@@ -1,4 +1,4 @@
-import "./shopping-cart-item.scss";
+import { Container, InfoSection } from "./shopping-cart-item.styles";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../contexts/shoppingCartContext";
 
@@ -6,11 +6,9 @@ const ShoppingCartItem = ({ product }) => {
   const { addToShoppingCart, decreaseQuantity, removeFromShoppingCart } = useContext(ShoppingCartContext);
 
   return (
-    <div className="shopping-cart-item-container">
-      <div className="shopping-cart-item-img-container">
-        <img src={product.imageUrl} alt={product.name} />
-      </div>
-      <div className="shopping-cart-item-info">
+    <Container>
+      <img src={product.imageUrl} alt={product.name} />
+      <InfoSection>
         <span>{product.name}</span>
         <div className="shopping-cart-item-quantity">
           <button onClick={() => decreaseQuantity(product)}>-</button>
@@ -23,8 +21,8 @@ const ShoppingCartItem = ({ product }) => {
         <button className="shopping-cart-item-delete" onClick={() => removeFromShoppingCart(product)}>
           Delete
         </button>
-      </div>
-    </div>
+      </InfoSection>
+    </Container>
   );
 };
 

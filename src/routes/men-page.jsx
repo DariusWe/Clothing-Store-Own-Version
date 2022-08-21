@@ -1,11 +1,11 @@
-import "./men-page.scss";
+import {} from "./men-page.styles";
 
 const MenPage = () => {
 
   return (
-    <div className="men-page-container">
+    <div>
       <div>
-        <div className="img-text-pair">
+        <div>
           <img src={require("../assets/pink1.jpg")} alt="" />
           <p>
             Nulla rutrum velit at dolor iaculis efficitur. Sed sit amet porta magna. Maecenas eu ipsum eu mi ornare

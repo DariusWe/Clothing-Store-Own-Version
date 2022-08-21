@@ -1,23 +1,23 @@
-import "./sign-in-page.scss";
+import { Container, Divider, RegisterSection } from "./sign-in-page.styles";
 import SignInForm from "../components/sign-in-form";
 import Button from "../components/button";
 
 const SignInPage = () => {
   return (
-    <div className="sign-in-page-container">
+    <Container>
       <SignInForm />
-      <div className="checkout-or">
+      <Divider>
         <span>OR</span>
-      </div>
-      <div className="register-section">
+      </Divider>
+      <RegisterSection>
         <h2>Register</h2>
         <p>
           If you don't have an account yet, you can create one here. With an account, purchasing at our site will be a faster and more enjoyable experience.
         </p>
         <Button value="Create an Account" />
-      </div>
+      </RegisterSection>
       {/* <SignUpForm /> */}
-    </div>
+    </Container>
   );
 };
 

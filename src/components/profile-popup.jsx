@@ -1,4 +1,4 @@
-import "./profile-popup.scss";
+import {Container} from "./profile-popup.styles";
 import Button from "./button";
 import { useContext } from "react";
 import { signOutUser } from "../utils/firebase";
@@ -19,7 +19,7 @@ const ProfilePopup = () => {
   };
 
   return (
-    <div className="profile-popup-container">
+    <Container>
       {currentUser ? (
         <div>
           <span>Signed in as: {currentUser.displayName}</span>
@@ -32,7 +32,7 @@ const ProfilePopup = () => {
           navigate("/auth");
         }} />
       )}
-    </div>
+    </Container>
   );
 };
 

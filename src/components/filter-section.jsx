@@ -1,11 +1,11 @@
-import "./filter-section.scss";
+import { Container } from "./filter-section.styles";
 
 const FilterSection = () => {
-    return (
-        <div className="filter-section-container">
-            <span>Filter Section</span>
-        </div>
-    );
-}
+  return (
+    <Container>
+      <span>Filter Section</span>
+    </Container>
+  );
+};
 
 export default FilterSection;

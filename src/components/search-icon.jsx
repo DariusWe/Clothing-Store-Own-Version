@@ -1,10 +1,10 @@
-import "./search-icon.scss";
+import { Container } from "./search-icon.styles";
 
 const SearchIcon = () => {
   return (
-    <div className="search-icon">
+    <Container>
       <i className="fa-solid fa-magnifying-glass"></i>
-    </div>
+    </Container>
   );
 };
 

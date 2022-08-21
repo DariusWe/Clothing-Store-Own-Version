@@ -1,4 +1,4 @@
-import "./navbar-top.scss";
+import { Container, NavLink } from "./navbar-top.styles";
 import ShoppingIcon from "./shopping-icon";
 import ProfileIcon from "./profile-icon";
 import { useContext } from "react";
@@ -9,12 +9,12 @@ const NavbarTop = () => {
   const { currentUser } = useContext(UserAuthContext);
   const navigate = useNavigate();
   return (
-    <div className="navbar-top-right-container">
-      {currentUser ? <ProfileIcon /> : <span className="sign-in-link" onClick={() => navigate("/sign-in")}>SIGN IN</span>}
+    <Container>
+      {currentUser ? <ProfileIcon /> : <NavLink onClick={() => navigate("/sign-in")}>SIGN IN</NavLink>}
       <i className="fa-solid fa-heart"></i>
       <ShoppingIcon />
       {/* <i class="fa-solid fa-bars"></i> */}
-    </div>
+    </Container>
   );
 };
 

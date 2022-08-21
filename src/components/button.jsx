@@ -1,8 +1,8 @@
-import "./button.scss";
+import { Btn } from "./button.styles";
 
-const Button = ({value, classNames, ...otherProps}) => {
+const Button = ({value, ...otherProps}) => {
     return (
-        <button {...otherProps} className={`${classNames} btn`}>{value}</button>
+        <Btn {...otherProps}>{value}</Btn>
     );
 }
 

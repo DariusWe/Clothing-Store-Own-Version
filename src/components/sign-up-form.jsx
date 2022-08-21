@@ -1,4 +1,6 @@
-import "./sign-up-form.scss";
+// This component is probably using the same styles as sign-in-form. How to solve?
+
+import {} from "./sign-up-form.styles";
 import InputField from "./input-field";
 import Button from "./button";
 import { firebaseCreateUserWithEmailAndPassword } from "../utils/firebase";
@@ -31,9 +33,9 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="form-container">
+    <div>
       <h2>Register</h2>
-      <form className="form" onSubmit={signUp}>
+      <form onSubmit={signUp}>
         <InputField type="text" label="Name:" id="name" />
         <InputField type="email" label="Email:" id="email" />
         <InputField type="password" label="Password:" id="password" />

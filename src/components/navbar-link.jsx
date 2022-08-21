@@ -1,4 +1,4 @@
-import "./navbar-link.scss";
+import { NavLink } from "./navbar-link.styles";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { GenderInUrlContext } from "../contexts/genderInUrlContext";
@@ -10,12 +10,9 @@ const NavbarLink = ({ category }) => {
   const gender = useContext(GenderInUrlContext);
 
   return (
-    <span
-      className={location.pathname.includes(titleSanitized) ? "navbar-second-link is-active" : "navbar-second-link"}
-      onClick={() => navigate(`/${gender}/${titleSanitized}`)}
-    >
+    <NavLink isActive={location.pathname.includes(titleSanitized) ? true : false} onClick={() => navigate(`/${gender}/${titleSanitized}`)}>
       {title}
-    </span>
+    </NavLink>
   );
 };
 

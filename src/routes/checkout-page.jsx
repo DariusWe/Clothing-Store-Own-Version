@@ -1,23 +1,21 @@
-import "./checkout-page.scss";
+import { Container, Divider, GuestSection } from "./checkout-page.styles";
 import Button from "../components/button";
 import SignInForm from "../components/sign-in-form";
 
 const CheckoutPage = () => {
 
   return (
-    <div className="checkout-container">
-      <div className="checkout-sign-in-section">
+    <Container>
         <SignInForm />
-      </div>
-      <div className="checkout-or">
+      <Divider>
         <span>OR</span>
-      </div>
-      <div className="checkout-guest-section">
+      </Divider>
+      <GuestSection>
         <h2>Purchase as a guest</h2>
         <p>If you don't want to create an account, you can purchase as a guest. Shipping and payment details won't be saved for future purchases.</p>
         <Button value="Continue as a guest" />
-      </div>
-    </div>
+      </GuestSection>
+    </Container>
   );
 };
 

@@ -1,4 +1,4 @@
-import "./products-page.scss";
+import { CategoryTitle, CategoryDescription, ProductsContainer } from "./products-page.styles";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { ShopProductsContext } from "../contexts/shopProductsContext";
@@ -20,16 +20,16 @@ const ProductsPage = () => {
   }
 
   return (
-    <div className="products-page-container">
-      <h1 className="products-page-title">{params.category.replace("&", " & ")}</h1>
-      <p className="products-page-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mollis blandit bibendum. Ut ac elit at nunc porta imperdiet. Nulla rutrum velit at dolor iaculis efficitur. Sed sit amet porta magna. Maecenas eu ipsum eu mi ornare maximus nec at lorem. Phasellus non maximus enim. Nullam congue suscipit condimentum. Aliquam non mauris nunc.</p>
+    <>
+      <CategoryTitle>{params.category.replace("&", " & ")}</CategoryTitle>
+      <CategoryDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mollis blandit bibendum. Ut ac elit at nunc porta imperdiet. Nulla rutrum velit at dolor iaculis efficitur. Sed sit amet porta magna. Maecenas eu ipsum eu mi ornare maximus nec at lorem. Phasellus non maximus enim. Nullam congue suscipit condimentum. Aliquam non mauris nunc.</CategoryDescription>
       <FilterSection />
-      <div className="products-container">
+      <ProductsContainer>
         {categoryProducts.map((product) => (
           <ProductItem key={product.id} product={product} />
         ))}
-      </div>
-    </div>
+      </ProductsContainer>
+    </>
   );
 };
 

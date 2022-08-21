@@ -1,28 +1,26 @@
-import "./shopping-cart.scss";
+import {Container, TopSection, ItemList, CheckoutButton, EmptyMessage} from "./shopping-cart.styles";
 import ShoppingCartItem from "./shopping-cart-item";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../contexts/shoppingCartContext";
 import { useNavigate } from "react-router-dom";
-import Button from "./button";
 
 const ShoppingCart = () => {
   const { productsInShoppingCart, setShoppingCartIsOpen, total, totalQuantity } = useContext(ShoppingCartContext);
   const navigate = useNavigate();
 
   return (
-    <div className="shopping-cart-container">
-      <div className="shopping-cart-top">
-        <span className="shopping-cart-label">Cart</span>
-        <i className="fa-solid fa-xmark shopping-cart-closing-btn" onClick={() => setShoppingCartIsOpen(false)}></i>
-      </div>
-      <div className="shopping-cart-product-list">
+    <Container>
+      <TopSection>
+        <span>Cart</span>
+        <i className="fa-solid fa-xmark" onClick={() => setShoppingCartIsOpen(false)}></i>
+      </TopSection>
+      <ItemList>
         {productsInShoppingCart.map((product) => (
           <ShoppingCartItem key={product.id} product={product} />
         ))}
-      </div>
+      </ItemList>
       {productsInShoppingCart.length > 0 ? (
-        <Button
-          classNames="checkout-button"
+        <CheckoutButton
           value={`Checkout (${totalQuantity} items) - ${total} €`}
           onClick={() => {
             setShoppingCartIsOpen(false);
@@ -30,9 +28,9 @@ const ShoppingCart = () => {
           }}
         />
       ) : (
-        <span className="shopping-cart-empty">Your shopping cart is empty</span>
+        <EmptyMessage>Your shopping cart is empty</EmptyMessage>
       )}
-    </div>
+    </Container>
   );
 };
 
