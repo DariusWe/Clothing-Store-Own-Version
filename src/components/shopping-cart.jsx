@@ -18,7 +18,7 @@ const ShoppingCart = () => {
       <ItemList>
         {productsInShoppingCart.map((product) => (
           <ShoppingCartItem key={product.id} product={product} />
-        ))}
+        )).reverse()}
       </ItemList>
       {productsInShoppingCart.length > 0 ? (
         <BottomSection>

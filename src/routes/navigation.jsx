@@ -1,4 +1,4 @@
-import { MainContainer, ContentArea } from "./navigation.styles";
+import { MainContainer, ContentArea, DarkOverlay } from "./navigation.styles";
 import { Outlet } from "react-router-dom";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../contexts/shoppingCartContext";
@@ -21,6 +21,7 @@ const Navigation = () => {
         </ContentArea>
         {shoppingCartIsOpen ? <ShoppingCart /> : null}
         {profilePopupIsOpen ? <ProfilePopup /> : null}
+        {shoppingCartIsOpen || profilePopupIsOpen ? <DarkOverlay />: null}
     </MainContainer>
   );
 };

@@ -6,14 +6,14 @@ export const Container = styled.div`
   right: 0;
   width: 30vw;
   min-width: 340px;
-  max-width: 560px;
+  max-width: 520px;
   height: 100vh;
   padding: 20px 0;
   background-color: rgba(255, 255, 255, 1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: -8px 0 26px -6px rgba(0, 0, 0, 0.06);
+  //box-shadow: -8px 0 26px -6px rgba(0, 0, 0, 0.06);
   z-index: 2;
 `;
 
