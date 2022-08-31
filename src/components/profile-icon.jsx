@@ -1,14 +1,15 @@
-import {Container} from "./profile-icon.styles";
-import { useContext } from "react";
-import { ProfilePopupContext } from "../contexts/profilePopupContext";
-// import { UserAuthContext } from "../contexts/UserAuthContext";
+import { Container } from "./profile-icon.styles";
+import { useDispatch } from "react-redux/es/hooks/useDispatch";
 
-const ProfileIcon = (props) => {
-  // const { currentUser } = useContext(UserAuthContext); // Maybe needed later to display profile information or something
-  const { profilePopupIsOpen, setProfilePopupIsOpen } = useContext(ProfilePopupContext);
+const ProfileIcon = () => {
+  const dispatch = useDispatch();
 
   return (
-    <Container onClick={() => (profilePopupIsOpen ? setProfilePopupIsOpen(false) : setProfilePopupIsOpen(true))}>
+    <Container
+      onClick={() => {
+        dispatch({ type: "TOGGLE_PROFILE_MENU" });
+      }}
+    >
       <i className="fa-solid fa-user"></i>
     </Container>
   );

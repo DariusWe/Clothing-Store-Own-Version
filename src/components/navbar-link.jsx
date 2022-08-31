@@ -1,16 +1,15 @@
 import { NavLink } from "./navbar-link.styles";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useContext } from "react";
-import { CurrentGenderContext } from "../contexts/currentGenderContext";
+import { useSelector } from "react-redux";
 
 const NavbarLink = ({ category }) => {
   const { title, titleSanitized } = category;
   const navigate = useNavigate();
   const location = useLocation();
-  const currentGender = useContext(CurrentGenderContext);
+  const urlGender = useSelector(state => state.url.urlGender);
 
   return (
-    <NavLink isActive={location.pathname.includes(titleSanitized) ? true : false} onClick={() => navigate(`/${currentGender}/${titleSanitized}`)}>
+    <NavLink isActive={location.pathname.includes(titleSanitized) ? true : false} onClick={() => navigate(`/${urlGender}/${titleSanitized}`)}>
       {title}
     </NavLink>
   );

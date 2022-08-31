@@ -1,17 +1,15 @@
 import { Container } from "./profile-popup.styles";
 import Button from "./button";
-import { useContext } from "react";
 import { signOutUser } from "../utils/firebase";
-import { ProfilePopupContext } from "../contexts/profilePopupContext";
-import { useSelector } from "react-redux/es/exports";
+import { useSelector, useDispatch } from "react-redux";
 
 const ProfilePopup = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
-  const { setProfilePopupIsOpen } = useContext(ProfilePopupContext);
+  const dispatch = useDispatch();
 
   const signOut = () => {
     signOutUser().then(() => {
-      setProfilePopupIsOpen(false);
+      dispatch({ type: "TOGGLE_PROFILE_MENU" });
     });
   };
 

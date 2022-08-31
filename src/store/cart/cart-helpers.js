@@ -1,3 +1,5 @@
+// THESE HELPER FUNCTIONS RETURN ACTIONS (ACTION-CREATORS?). MAYBE THEY SHOULD LIVE IN A FILE CALLED ACTIONS.JS
+
 export const addItemToCart = (cartItems, newItem) => {
   let newCartItems = []; // wie löse ich das ohne "let"?
   const productAlreadyExists = cartItems.some((item) => item.id === newItem.id);
@@ -18,14 +20,6 @@ export const addItemToCart = (cartItems, newItem) => {
     },
   };
 };
-
-/*
-// addItemToCart importieren?
-
-const cartItems = useSelector("cartItems")
-useDispatch(addItemToCart(cartItems, newItem));
-
-*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

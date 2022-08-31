@@ -1,12 +1,12 @@
 import { SideBarContainer, GenderLink, CategoriesList } from "./navbar-side.styles";
 import { useLocation } from "react-router-dom";
-import React, { useContext } from "react";
-import { ShopProductsContext } from "../contexts/shopProductsContext";
 import Logo from "./logo";
 import NavbarLink from "./navbar-link";
+import { useSelector } from "react-redux";
 
 const NavbarSide = () => {
-  const { womenProducts, menProducts } = useContext(ShopProductsContext);
+  const womenProducts = useSelector(state => state.products.womenProducts);
+  const menProducts = useSelector(state => state.products.menProducts);
   const pathname = useLocation().pathname;
 
   return (

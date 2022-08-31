@@ -1,7 +1,6 @@
 import { Container, Counter } from "./shopping-icon.styles";
 import { toggleIsCartOpen } from "../store/cart/cart-helpers";
-import { useDispatch } from "react-redux/es/hooks/useDispatch"; // wtf is this path?
-import { useSelector } from "react-redux/es/hooks/useSelector"; // wtf is this path?
+import { useDispatch, useSelector } from "react-redux";
 
 const ShoppingIcon = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);

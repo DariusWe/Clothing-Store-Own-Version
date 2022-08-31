@@ -11,8 +11,7 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
     case "SET_CART_ITEMS":
       return {
         ...state,
-        //cartItems: payload,
-        ...payload, // funktioniert das so?
+        ...payload,
       };
     case "TOGGLE_IS_CART_OPEN":
       return {

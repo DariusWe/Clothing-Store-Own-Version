@@ -8,7 +8,7 @@
 - Redux
 - Commit
 
-
+- Fetching products from Firestore: Better, more organized solution? Right now super complicated to understand whats happening there...
 - Make Responsive
 - Optimize etc
 - SEO considerations (alt attributes, correct html tags, content indexable?, )

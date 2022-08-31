@@ -3,8 +3,7 @@ import ShoppingCartItem from "./shopping-cart-item";
 import { useNavigate } from "react-router-dom";
 import Button from "./button";
 import { toggleIsCartOpen } from "../store/cart/cart-helpers";
-import { useDispatch } from "react-redux/es/hooks/useDispatch"; // wtf is this path?
-import { useSelector } from "react-redux/es/hooks/useSelector"; // wtf is this path?
+import { useDispatch, useSelector } from "react-redux";
 
 const ShoppingCart = () => {
   const { cartItems, totalQuantity, total } = useSelector(state => state.cart);

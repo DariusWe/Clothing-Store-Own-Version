@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
   currentUser: null,
+  profileMenuIsOpen: false,
 };
 
 export const userReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +11,11 @@ export const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         currentUser: payload,
+      };
+    case "TOGGLE_PROFILE_MENU":
+      return {
+        ...state,
+        profileMenuIsOpen: !state.profileMenuIsOpen,
       };
     default:
       return state;

@@ -1,7 +1,6 @@
 import { Container, InfoSection, DeleteIcon } from "./shopping-cart-item.styles";
 import { addItemToCart, decreaseQuantity, removeFromCart } from "../store/cart/cart-helpers";
-import { useDispatch } from "react-redux/es/hooks/useDispatch"; // wtf is this path?
-import { useSelector } from "react-redux/es/hooks/useSelector"; // wtf is this path?
+import { useDispatch, useSelector } from "react-redux";
 
 const ShoppingCartItem = ({ product }) => {
   const cartItems = useSelector(state => state.cart.cartItems);
