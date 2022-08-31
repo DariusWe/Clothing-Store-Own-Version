@@ -5,11 +5,11 @@ export const SideBarContainer = styled.div`
   position: sticky;
   position: -webkit-sticky; /* Safari */
   // Edge 15 and earlier Versions also don't support sticky. Alternative Solution?
-  top: 42px;
-  height: 100%;
-  min-width: 15vw;
-  padding: 4px 60px 0 0;
-  //border-right: 1px solid rgb(232, 232, 232);
+  top: 0px;
+  height: 100vh;
+  min-width: 17vw;
+  padding: 38px 30px;
+  //border-right: 1px solid #222;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;

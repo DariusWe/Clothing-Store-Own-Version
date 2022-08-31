@@ -1,16 +1,18 @@
-import {Container, Counter} from "./shopping-icon.styles";
-import { useContext } from "react";
-import { ShoppingCartContext } from "../contexts/shoppingCartContext";
+import { Container, Counter } from "./shopping-icon.styles";
+import { toggleIsCartOpen } from "../store/cart/cart-helpers";
+import { useDispatch } from "react-redux/es/hooks/useDispatch"; // wtf is this path?
+import { useSelector } from "react-redux/es/hooks/useSelector"; // wtf is this path?
 
 const ShoppingIcon = () => {
-    const {shoppingCartIsOpen, setShoppingCartIsOpen, totalQuantity} = useContext(ShoppingCartContext);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const dispatch = useDispatch();
 
-    return (
-        <Container onClick={() => shoppingCartIsOpen ? setShoppingCartIsOpen(false) : setShoppingCartIsOpen(true)}>
-            <i className="fa-solid fa-cart-shopping" />
-            <Counter>{totalQuantity}</Counter>
-        </Container>
-    );
-}
+  return (
+    <Container onClick={() => dispatch(toggleIsCartOpen())}>
+      <i className="fa-solid fa-cart-shopping" />
+      <Counter>{totalQuantity}</Counter>
+    </Container>
+  );
+};
 
 export default ShoppingIcon;

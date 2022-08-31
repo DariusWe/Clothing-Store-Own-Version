@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  height: calc(100vh - 3.6vw);
-  margin-left: 40px;
+  height: 100vh;
+  //height: calc(100vh - 3.6vw);
+  padding: 30px 40px;
 `;
 
 export const LeftSection = styled.div`

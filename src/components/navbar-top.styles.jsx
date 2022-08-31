@@ -6,8 +6,8 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-  top: 22px;
-  right: 25px;
+  top: 18px;
+  right: 15px;
   padding: 10px 28px;
   background-color: white;
   z-index: 1;

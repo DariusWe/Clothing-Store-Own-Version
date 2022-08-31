@@ -1,26 +1,28 @@
 import { Container, TopSection, ItemList, EmptyMessage, BottomSection, Row } from "./shopping-cart.styles";
 import ShoppingCartItem from "./shopping-cart-item";
-import { useContext } from "react";
-import { ShoppingCartContext } from "../contexts/shoppingCartContext";
 import { useNavigate } from "react-router-dom";
 import Button from "./button";
+import { toggleIsCartOpen } from "../store/cart/cart-helpers";
+import { useDispatch } from "react-redux/es/hooks/useDispatch"; // wtf is this path?
+import { useSelector } from "react-redux/es/hooks/useSelector"; // wtf is this path?
 
 const ShoppingCart = () => {
-  const { productsInShoppingCart, setShoppingCartIsOpen, total, totalQuantity } = useContext(ShoppingCartContext);
+  const { cartItems, totalQuantity, total } = useSelector(state => state.cart);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   return (
     <Container>
       <TopSection>
         <span>Cart</span>
-        <i className="fa-solid fa-xmark" onClick={() => setShoppingCartIsOpen(false)}></i>
+        <i className="fa-solid fa-xmark" onClick={() => dispatch(toggleIsCartOpen())}></i>
       </TopSection>
       <ItemList>
-        {productsInShoppingCart.map((product) => (
+        {cartItems.map((product) => (
           <ShoppingCartItem key={product.id} product={product} />
         )).reverse()}
       </ItemList>
-      {productsInShoppingCart.length > 0 ? (
+      {cartItems.length > 0 ? (
         <BottomSection>
           <Row>
             <span>{`${totalQuantity} Items`}</span>
@@ -44,7 +46,7 @@ const ShoppingCart = () => {
           <Button
             value="Checkout"
             onClick={() => {
-              setShoppingCartIsOpen(false);
+              dispatch(toggleIsCartOpen());
               navigate("/checkout");
             }}
           />

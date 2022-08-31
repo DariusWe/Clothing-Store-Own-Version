@@ -1,9 +1,11 @@
 import { Container, InfoSection, DeleteIcon } from "./shopping-cart-item.styles";
-import { useContext } from "react";
-import { ShoppingCartContext } from "../contexts/shoppingCartContext";
+import { addItemToCart, decreaseQuantity, removeFromCart } from "../store/cart/cart-helpers";
+import { useDispatch } from "react-redux/es/hooks/useDispatch"; // wtf is this path?
+import { useSelector } from "react-redux/es/hooks/useSelector"; // wtf is this path?
 
 const ShoppingCartItem = ({ product }) => {
-  const { addToShoppingCart, decreaseQuantity, removeFromShoppingCart } = useContext(ShoppingCartContext);
+  const cartItems = useSelector(state => state.cart.cartItems);
+  const dispatch = useDispatch();
 
   return (
     <Container>
@@ -15,17 +17,17 @@ const ShoppingCartItem = ({ product }) => {
         <span>{`Price: ${product.price * product.quantity} €`}</span>
         <div>
           <span>Amount: </span>
-          <button onClick={() => decreaseQuantity(product)}>
-            <i class="fa-solid fa-angle-left"></i>
+          <button onClick={() => dispatch(decreaseQuantity(cartItems, product))}>
+            <i className="fa-solid fa-angle-left"></i>
           </button>
           <span>{product.quantity}</span>
-          <button onClick={() => addToShoppingCart(product)}>
-            <i class="fa-solid fa-angle-right"></i>
+          <button onClick={() => dispatch(addItemToCart(cartItems, product))}>
+            <i className="fa-solid fa-angle-right"></i>
           </button>
         </div>
       </InfoSection>
-      <DeleteIcon onClick={() => removeFromShoppingCart(product)}>
-        <i class="fa-solid fa-trash-can"></i>
+      <DeleteIcon onClick={() => dispatch(removeFromCart(cartItems, product))}>
+        <i className="fa-solid fa-trash-can"></i>
       </DeleteIcon>
     </Container>
   );

@@ -2,14 +2,12 @@ import { Container } from "./profile-popup.styles";
 import Button from "./button";
 import { useContext } from "react";
 import { signOutUser } from "../utils/firebase";
-import { UserAuthContext } from "../contexts/UserAuthContext";
 import { ProfilePopupContext } from "../contexts/profilePopupContext";
-import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux/es/exports";
 
 const ProfilePopup = () => {
-  const { currentUser } = useContext(UserAuthContext);
+  const currentUser = useSelector((state) => state.user.currentUser);
   const { setProfilePopupIsOpen } = useContext(ProfilePopupContext);
-  const navigate = useNavigate();
 
   const signOut = () => {
     signOutUser().then(() => {
@@ -25,15 +23,7 @@ const ProfilePopup = () => {
           <span>Email: {currentUser.email}</span>
           <Button value="Sign Out" onClick={signOut} />
         </div>
-      ) : (
-        <Button
-          value="Sign In"
-          onClick={() => {
-            setProfilePopupIsOpen(false);
-            navigate("/auth");
-          }}
-        />
-      )}
+      ) : null}
     </Container>
   );
 };

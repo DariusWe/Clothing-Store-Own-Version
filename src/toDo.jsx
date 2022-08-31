@@ -1,4 +1,5 @@
 /*
+- ShoppingCart Price ist confusing. Add the single item price to it.
 - Implement global css fonts, color etc. management
 - continue WebDev document on google docs 
 - Deploying: Learn about whats happening in the background. Learn about this service, it's advantages and disadvantages.
