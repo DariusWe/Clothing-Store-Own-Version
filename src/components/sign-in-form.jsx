@@ -5,6 +5,7 @@ import { firebaseSignInWithEmailAndPassword } from "../utils/firebase";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 
 const SignInForm = () => {
+  console.log("Render/Rerender of SignInForm");
   const navigate = useNavigate();
   const location = useLocation();
 

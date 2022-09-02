@@ -2,14 +2,16 @@ import { Container } from "./profile-popup.styles";
 import Button from "./button";
 import { signOutUser } from "../utils/firebase";
 import { useSelector, useDispatch } from "react-redux";
+import { USER_ACTION_TYPES } from "../store/user/user.types";
 
 const ProfilePopup = () => {
+  console.log("Render/Rerender of ProfilePopup");
   const currentUser = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
 
   const signOut = () => {
     signOutUser().then(() => {
-      dispatch({ type: "TOGGLE_PROFILE_MENU" });
+      dispatch({ type: USER_ACTION_TYPES.TOGGLE_PROFILE_MENU });
     });
   };
 

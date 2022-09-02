@@ -1,4 +1,14 @@
-/*
+- Redux should store the most basic form of data. Selectors then should handle the selecting logic. See Redux chapter of udemy course.
+  When selectors include code to extract the information needed, this code is run everytime the selector is run. This can be bad for
+  performance, but look at redux chapter (think he has a solution for this). Also useSelector in combination with middleware can lead to
+  not wanted rerenderings. This can be solved with Memoization (caching).
+  --> Right now my action creator is doing all the fetching and preparing of the data. But should be changed to above strategy.
+- Redux should store the most basic form of data. The cart slice right now stores redundant data (total and totalQuantity can be derived
+  from the cartItems array). Put the logic for this into selectors.
+- useSelect(selector) and dispatch(actioncreator, payload) --> this way you never need to import ACTION_TYPES? More organized maybe.
+- research file/folder structuring strategies (React Redux)!
+- research render behaviour of my components. Some components are unnecessarily rerendering multiple times. 
+
 - ShoppingCart Price ist confusing. Add the single item price to it.
 - Implement global css fonts, color etc. management
 - continue WebDev document on google docs 
@@ -40,16 +50,3 @@ AT THE END:
 - global solution to manage font family and size
 
 - solved: orderBy in firebase.jsx is not working. Solution: orderBy only working in queries, not in getDocs itself.
-
-
-
-
-
-
-
-
-
-
-
-
-*/

@@ -1,8 +1,9 @@
 import { Container, BottomSection, ProductInfo, AddButton } from "./product-item.styles";
-import { addItemToCart } from "../store/cart/cart-helpers";
+import { addItemToCart } from "../store/cart/cart.actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const ProductItem = ({ product }) => {
+  console.log("Render/Rerender of ProductItem");
   const cartItems = useSelector(state => state.cart.cartItems);
   const dispatch = useDispatch();
 

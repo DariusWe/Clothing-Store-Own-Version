@@ -3,6 +3,7 @@ import SignInForm from "../components/sign-in-form";
 import Button from "../components/button";
 
 const SignInPage = () => {
+  console.log("Render/Rerender of SignInPage");
   return (
     <Container>
       <SignInForm />

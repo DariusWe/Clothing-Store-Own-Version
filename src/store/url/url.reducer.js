@@ -1,3 +1,5 @@
+import { URL_ACTION_TYPES } from "./url.types";
+
 const INITIAL_STATE = {
   urlGender: "women",
 };
@@ -5,7 +7,7 @@ const INITIAL_STATE = {
 export const urlReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
   switch (type) {
-    case "SET_URL_GENDER":
+    case URL_ACTION_TYPES.SET_URL_GENDER:
       return {
         ...state,
         urlGender: payload,

@@ -2,10 +2,11 @@ import { Container, TopSection, ItemList, EmptyMessage, BottomSection, Row } fro
 import ShoppingCartItem from "./shopping-cart-item";
 import { useNavigate } from "react-router-dom";
 import Button from "./button";
-import { toggleIsCartOpen } from "../store/cart/cart-helpers";
+import { toggleIsCartOpen } from "../store/cart/cart.actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const ShoppingCart = () => {
+  console.log("Render/Rerender of ShoppingCart");
   const { cartItems, totalQuantity, total } = useSelector(state => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();

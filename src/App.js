@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux/es/hooks/useDispatch";
+import { useDispatch } from "react-redux";
 import { onAuthStateChangedListener } from "./utils/firebase";
-import { fetchAndSetProducts } from "./store/products/products-helpers";
+import { fetchAndSetProducts } from "./store/products/products.actions";
+import { USER_ACTION_TYPES } from "./store/user/user.types";
 import Navigation from "./routes/navigation";
 import ProductsPage from "./routes/products-page";
 import SignInPage from "./routes/sign-in-page";
@@ -11,14 +12,14 @@ import WomenPage from "./routes/women-page";
 import MenPage from "./routes/men-page";
 import ScrollToTop from "./utils/scrollToTop";
 
-// dispatch(): replace Action type string (not best practice)
-
 const App = () => {
+  console.log("Render/Rerender of App");
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
-      dispatch(await fetchAndSetProducts());
+      const setProductsAction = await fetchAndSetProducts();
+      dispatch(setProductsAction);
     };
     fetchData();
     // dispatch below only included to get rid of warning
@@ -26,7 +27,7 @@ const App = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
-      dispatch({ type: "SET_CURRENT_USER", payload: user });
+      dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user });
     });
     return unsubscribe;
     // dispatch below only included to get rid of warning

@@ -1,0 +1,15 @@
+## FOLDER/APP STRUCTURE
+
+App structure is for the most part based on the structuring that was used in the course. At some places it was changed (for learning
+purposes and to better suit my own project). Alongside to the course i have educated myself on other structuring strategies.
+
+ Criteria for a good scaling project:
+- low and shallow dependencies between features (as features might be added, modified or deleted in the future)
+- keep API logic in a seperate file/folder and create own interfaces to communicate with it.
+- intuitive strucutring and naming (you probably won't work alone on the project)
+
+
+## TOOLING
+
+One can argue that too much tooling was used for this project. The reason for leveraging Redux, Redux Saga, Styled Components and Typescript
+here is not necessarily due to a better coding experience, but more for learning purposes.

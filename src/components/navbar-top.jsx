@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const NavbarTop = () => {
+  console.log("Render/Rerender of NavbarTop");
   const currentUser = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
   return (

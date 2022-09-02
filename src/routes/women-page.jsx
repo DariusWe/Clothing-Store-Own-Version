@@ -2,6 +2,7 @@ import { Container, LeftSection, RightSection, LinkToCollection } from "./women-
 import { Link } from "react-router-dom";
 
 const WomenPage = () => {
+  console.log("Render/Rerender of WomenPage");
   return (
     <Container>
       <LeftSection>

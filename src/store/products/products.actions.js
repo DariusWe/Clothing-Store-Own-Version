@@ -1,4 +1,8 @@
 import { getProductsFromFirestore } from "../../utils/firebase";
+import { PRODUCTS_ACTION_TYPES } from "./products.types";
+
+// THESE ARE INDEED CATEGORIES, NOT PRODUCTS. CHANGE THE NAME?
+// ALSO: STORE THE DATA IN THE MOST BASIC FORM IN THE STORE. ADDITIONAL SELECTING AND LOGIC SHOULD LIVE IN THE SELECTORS.
 
 export const fetchAndSetProducts = async () => {
     const products = {
@@ -16,7 +20,7 @@ export const fetchAndSetProducts = async () => {
     });
 
     return {
-        type: "FETCH_AND_SET_PRODUCTS",
+        type: PRODUCTS_ACTION_TYPES.FETCH_AND_SET_PRODUCTS,
         payload: products,
     };
 }

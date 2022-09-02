@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const NavbarLink = ({ category }) => {
+  console.log("Render/Rerender of NavbarLink");
   const { title, titleSanitized } = category;
   const navigate = useNavigate();
   const location = useLocation();

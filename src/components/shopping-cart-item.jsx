@@ -1,8 +1,9 @@
 import { Container, InfoSection, DeleteIcon } from "./shopping-cart-item.styles";
-import { addItemToCart, decreaseQuantity, removeFromCart } from "../store/cart/cart-helpers";
+import { addItemToCart, decreaseQuantity, removeFromCart } from "../store/cart/cart.actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const ShoppingCartItem = ({ product }) => {
+  console.log("Render/Rerender of ShoppingCartItem");
   const cartItems = useSelector(state => state.cart.cartItems);
   const dispatch = useDispatch();
 

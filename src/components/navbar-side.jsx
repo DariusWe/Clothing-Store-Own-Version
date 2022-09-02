@@ -5,6 +5,7 @@ import NavbarLink from "./navbar-link";
 import { useSelector } from "react-redux";
 
 const NavbarSide = () => {
+  console.log("Render/Rerender of NavbarSide");
   const womenProducts = useSelector(state => state.products.womenProducts);
   const menProducts = useSelector(state => state.products.menProducts);
   const pathname = useLocation().pathname;

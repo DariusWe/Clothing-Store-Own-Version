@@ -3,7 +3,7 @@ import Button from "../components/button";
 import SignInForm from "../components/sign-in-form";
 
 const CheckoutPage = () => {
-
+  console.log("Render/Rerender of CheckoutPage");
   return (
     <Container>
         <SignInForm />

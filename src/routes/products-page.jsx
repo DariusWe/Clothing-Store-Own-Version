@@ -5,6 +5,7 @@ import ProductItem from "../components/product-item";
 import FilterSection from "../components/filter-section";
 
 const ProductsPage = () => {
+  console.log("Render/Rerender of ProductsPage");
   const {gender, category} = useParams();
   const categoryProducts = [];
   const womenProducts = useSelector(state => state.products.womenProducts);

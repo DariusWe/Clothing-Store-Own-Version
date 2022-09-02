@@ -2,6 +2,7 @@ import { Group, Label, Input } from "./input-field.styles";
 import { useState } from "react";
 
 const InputField = ({label, id, type}) => {
+  console.log("Render/Rerender of InputField");
   const [fieldValue, setFieldValue] = useState("");
 
   return (
