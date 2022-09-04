@@ -1,3 +1,10 @@
+- Go with the course way and at the end do it again, but with RTK!
+- Think about file/folder structure! (maybe feature-based?)
+
+- Every Action needs an action creator!! (This way ActionTypes also only live in the actions.js files)
+- use redux toolkit?
+- Redux Saga deprecated, said Redux maintainer: https://stackoverflow.com/questions/72360331/is-it-worth-using-redux-saga-in-long-term
+- Actions should have minimum amount of information (right?). So sending quantity and totalQuantity via an action is not best practice.
 - Redux should store the most basic form of data. Selectors then should handle the selecting logic. See Redux chapter of udemy course.
   When selectors include code to extract the information needed, this code is run everytime the selector is run. This can be bad for
   performance, but look at redux chapter (think he has a solution for this). Also useSelector in combination with middleware can lead to
@@ -7,7 +14,8 @@
   from the cartItems array). Put the logic for this into selectors.
 - useSelect(selector) and dispatch(actioncreator, payload) --> this way you never need to import ACTION_TYPES? More organized maybe.
 - research file/folder structuring strategies (React Redux)!
-- research render behaviour of my components. Some components are unnecessarily rerendering multiple times. 
+- research render behaviour of my components. Some components are unnecessarily rerendering multiple times.
+- replace createStore with configureStore (https://redux-toolkit.js.org/api/configureStore)
 
 - ShoppingCart Price ist confusing. Add the single item price to it.
 - Implement global css fonts, color etc. management

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { onAuthStateChangedListener } from "./utils/firebase";
 import { fetchAndSetProducts } from "./store/products/products.actions";
-import { USER_ACTION_TYPES } from "./store/user/user.types";
+import { setCurrentUser } from "./store/user/user.actions";
 import Navigation from "./routes/navigation";
 import ProductsPage from "./routes/products-page";
 import SignInPage from "./routes/sign-in-page";
@@ -27,7 +27,7 @@ const App = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
-      dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user });
+      dispatch(setCurrentUser(user));
     });
     return unsubscribe;
     // dispatch below only included to get rid of warning

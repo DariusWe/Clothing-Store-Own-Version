@@ -1,6 +1,6 @@
 import { Container } from "./profile-icon.styles";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { USER_ACTION_TYPES } from "../store/user/user.types";
+import { toggleProfileMenu } from "../store/user/user.actions";
 
 const ProfileIcon = () => {
   console.log("Render/Rerender of ProfileIcon");
@@ -9,7 +9,7 @@ const ProfileIcon = () => {
   return (
     <Container
       onClick={() => {
-        dispatch({ type: USER_ACTION_TYPES.TOGGLE_PROFILE_MENU });
+        dispatch(toggleProfileMenu());
       }}
     >
       <i className="fa-solid fa-user"></i>

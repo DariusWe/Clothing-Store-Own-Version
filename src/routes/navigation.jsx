@@ -1,7 +1,7 @@
 import { MainContainer, ContentArea, DarkOverlay } from "./navigation.styles";
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { URL_ACTION_TYPES } from "../store/url/url.types";
+import { setUrlGender } from "../store/url/url.actions";
 import NavbarSide from "../components/navbar-side";
 import ProfilePopup from "../components/profile-popup";
 import ShoppingCart from "../components/shopping-cart";
@@ -23,11 +23,11 @@ const Navigation = () => {
     // Why not check the URL in each of these components individually with useLocation? Because of too much logic --> gets messy.
     // Why using the useEffect Hook here and not in App.js? Because it leverages useLocation() which is only available in <BrowserRouter>.
     if (location.pathname === "/" || location.pathname.includes("/women")) {
-      dispatch({ type: URL_ACTION_TYPES.SET_URL_GENDER, payload: "women" });
+      dispatch(setUrlGender("women"));
     } else if (location.pathname.includes("/men")) {
-      dispatch({ type: URL_ACTION_TYPES.SET_URL_GENDER, payload: "men" });
+      dispatch(setUrlGender("men"));
     } else {
-      dispatch({ type: URL_ACTION_TYPES.SET_URL_GENDER, payload: "none" });
+      dispatch(setUrlGender("none"));
     }
     // dispatch below only included to get rid of warning
   }, [location, dispatch]);
