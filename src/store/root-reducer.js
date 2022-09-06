@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import { userReducer } from "./user/user.reducer";
 import { cartReducer } from "./cart/cart.reducer";
-import { urlReducer } from "./url/url.reducer";
 import { productsReducer } from "./products/products.reducer";
+import { currLocationReducer } from "./curr-user-location/curr-user-location.reducer";
 
 export const rootReducer = combineReducers({
     user: userReducer,
     cart: cartReducer,
-    url: urlReducer,
+    currLocation: currLocationReducer,
     products: productsReducer,
 });

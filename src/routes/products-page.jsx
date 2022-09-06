@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProductItem from "../components/product-item";
 import FilterSection from "../components/filter-section";
+import { selectWomenProducts, selectMenProducts } from "../store/products/products.selectors";
 
 const ProductsPage = () => {
   console.log("Render/Rerender of ProductsPage");
   const {gender, category} = useParams();
   const categoryProducts = [];
-  const womenProducts = useSelector(state => state.products.womenProducts);
-  const menProducts = useSelector(state => state.products.menProducts);
+  const womenProducts = useSelector(selectWomenProducts);
+  const menProducts = useSelector(selectMenProducts);
 
   // Depending on the URL, push women or men categories into the categorie variable. Delete spaces of category, as URL spaces are also stripped.
   if (gender === "women" && womenProducts.length > 0) {

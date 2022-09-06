@@ -3,10 +3,11 @@ import ShoppingIcon from "./shopping-icon";
 import ProfileIcon from "./profile-icon";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../store/user/user.selectors";
 
 const NavbarTop = () => {
   console.log("Render/Rerender of NavbarTop");
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const currentUser = useSelector(selectCurrentUser);
   const navigate = useNavigate();
   return (
     <Container>

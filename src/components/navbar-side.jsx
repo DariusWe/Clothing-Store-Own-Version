@@ -1,32 +1,33 @@
 import { SideBarContainer, GenderLink, CategoriesList } from "./navbar-side.styles";
-import { useLocation } from "react-router-dom";
 import Logo from "./logo";
 import NavbarLink from "./navbar-link";
 import { useSelector } from "react-redux";
+import { selectCurrLocation } from "../store/curr-user-location/curr-userl-location.selectors";
+import { selectWomenProducts, selectMenProducts } from "../store/products/products.selectors";
 
 const NavbarSide = () => {
   console.log("Render/Rerender of NavbarSide");
-  const womenProducts = useSelector(state => state.products.womenProducts);
-  const menProducts = useSelector(state => state.products.menProducts);
-  const pathname = useLocation().pathname;
+  const womenProducts = useSelector(selectWomenProducts);
+  const menProducts = useSelector(selectMenProducts);
+  const currLocation = useSelector(selectCurrLocation);
 
   return (
     <SideBarContainer>
       <Logo />
-      {pathname === "/" || pathname.includes("/men") || pathname.includes("/women") ? (
+      {currLocation === "women" || currLocation === "men" ? (
         <>
           <div>
-            <GenderLink to="/women" fontWeight={pathname.includes("/women") || pathname === "/" ? "800" : "400"}>
+            <GenderLink to="/women" fontWeight={currLocation === "women" ? "800" : "400"}>
               Women
             </GenderLink>
-            <GenderLink to="/men" fontWeight={pathname.includes("/men") ? "800" : "400"}>
+            <GenderLink to="/men" fontWeight={currLocation === "men" ? "800" : "400"}>
               Men
             </GenderLink>
           </div>
           <CategoriesList>
-            {pathname.includes("/men")
-              ? menProducts.map((category) => <NavbarLink key={category.id} category={category} />)
-              : womenProducts.map((category) => <NavbarLink key={category.id} category={category} />)}
+            {currLocation === "women"
+              ? womenProducts.map((category) => <NavbarLink key={category.id} category={category} />)
+              : menProducts.map((category) => <NavbarLink key={category.id} category={category} />)}
           </CategoriesList>
         </>
       ) : null}

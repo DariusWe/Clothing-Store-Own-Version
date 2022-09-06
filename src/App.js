@@ -38,6 +38,7 @@ const App = () => {
       <ScrollToTop>
         <Routes>
           <Route path="/" element={<Navigation />}>
+            {/* replace index, women- and menpage with "indexpage" */}
             <Route index element={<WomenPage />} />
             <Route path="women" element={<WomenPage />} />
             <Route path="men" element={<MenPage />} />

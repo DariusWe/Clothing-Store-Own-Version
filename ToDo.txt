@@ -1,7 +1,10 @@
-- Go with the course way and at the end do it again, but with RTK!
-- Think about file/folder structure! (maybe feature-based?)
+- Go with the course way and at the end do it again, but with RTK!!!!
 
-- Every Action needs an action creator!! (This way ActionTypes also only live in the actions.js files)
+#################
+
+- Think about file/folder structure! (maybe feature-based?)
+- DONE: Every Action needs an action creator!! (This way ActionTypes also only live in the actions.js files)
+- Leverage Selectors. They should to the selecting logic.
 - use redux toolkit?
 - Redux Saga deprecated, said Redux maintainer: https://stackoverflow.com/questions/72360331/is-it-worth-using-redux-saga-in-long-term
 - Actions should have minimum amount of information (right?). So sending quantity and totalQuantity via an action is not best practice.
@@ -16,6 +19,17 @@
 - research file/folder structuring strategies (React Redux)!
 - research render behaviour of my components. Some components are unnecessarily rerendering multiple times.
 - replace createStore with configureStore (https://redux-toolkit.js.org/api/configureStore)
+
+ROUTING:
+I want some of my components to render based on the actual location of the user in the url. So, for example, render the
+navbar different depending on wether the user is on urlPath A or B. Ways:
+- Check the location in each component via useLocation()
+  - Would have to combined with a useEffect Hook in each component to update on location changes.
+- create a global store variable for the current location and let components subscribe to that
+  - also in combination with useEffect
+- Some other way with React Router
+- Look at routing docs. How is this done on big applications?
+
 
 - ShoppingCart Price ist confusing. Add the single item price to it.
 - Implement global css fonts, color etc. management

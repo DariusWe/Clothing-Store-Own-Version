@@ -1,0 +1,1 @@
+export const selectCurrLocation = (state) => state.currLocation.location;
