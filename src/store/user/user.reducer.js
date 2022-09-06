@@ -2,7 +2,7 @@ import { USER_ACTION_TYPES } from "./user.types";
 
 const INITIAL_STATE = {
   currentUser: null,
-  profileMenuIsOpen: false,
+  isProfileMenuOpen: false,
 };
 
 export const userReducer = (state = INITIAL_STATE, action) => {
@@ -17,7 +17,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
     case USER_ACTION_TYPES.TOGGLE_PROFILE_MENU:
       return {
         ...state,
-        profileMenuIsOpen: !state.profileMenuIsOpen,
+        isProfileMenuOpen: !state.isProfileMenuOpen,
       };
     default:
       return state;

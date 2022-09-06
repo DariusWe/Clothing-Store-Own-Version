@@ -1,12 +1,12 @@
 // This component is probably using the same styles as sign-in-form. How to solve?
 
 import {} from "./sign-up-form.styles";
-import InputField from "./input-field";
-import Button from "./button";
-import { firebaseCreateUserWithEmailAndPassword } from "../utils/firebase";
-import { UserAuthContext } from "../contexts/UserAuthContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { firebaseCreateUserWithEmailAndPassword } from "../utils/firebase";
+import { UserAuthContext } from "../contexts/UserAuthContext";
+import InputField from "./input-field";
+import Button from "./button";
 
 const SignUpForm = () => {
   console.log("Render/Rerender of SignUpForm");

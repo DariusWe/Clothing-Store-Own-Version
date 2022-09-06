@@ -1,9 +1,9 @@
 import { Container } from "./profile-popup.styles";
-import Button from "./button";
-import { signOutUser } from "../utils/firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleProfileMenu } from "../store/user/user.actions";
 import { selectCurrentUser } from "../store/user/user.selectors";
+import { signOutUser } from "../utils/firebase";
+import Button from "./button";
 
 const ProfilePopup = () => {
   console.log("Render/Rerender of ProfilePopup");

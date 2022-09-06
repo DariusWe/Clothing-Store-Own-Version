@@ -1,10 +1,11 @@
 import { Container, BottomSection, ProductInfo, AddButton } from "./product-item.styles";
 import { addItemToCart } from "../store/cart/cart.actions";
 import { useDispatch, useSelector } from "react-redux";
+import { selectCartItems } from "../store/cart/cart.selectors";
 
 const ProductItem = ({ product }) => {
   console.log("Render/Rerender of ProductItem");
-  const cartItems = useSelector(state => state.cart.cartItems);
+  const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
 
   return (

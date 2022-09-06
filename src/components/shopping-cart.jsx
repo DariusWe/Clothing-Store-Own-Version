@@ -1,13 +1,16 @@
 import { Container, TopSection, ItemList, EmptyMessage, BottomSection, Row } from "./shopping-cart.styles";
-import ShoppingCartItem from "./shopping-cart-item";
 import { useNavigate } from "react-router-dom";
-import Button from "./button";
-import { toggleIsCartOpen } from "../store/cart/cart.actions";
 import { useDispatch, useSelector } from "react-redux";
+import { toggleIsCartOpen } from "../store/cart/cart.actions";
+import { selectCartItems, selectCartTotal, selectCartQuantity } from "../store/cart/cart.selectors";
+import ShoppingCartItem from "./shopping-cart-item";
+import Button from "./button";
 
 const ShoppingCart = () => {
   console.log("Render/Rerender of ShoppingCart");
-  const { cartItems, totalQuantity, total } = useSelector(state => state.cart);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
+  const cartQuantity = useSelector(selectCartQuantity);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -25,8 +28,8 @@ const ShoppingCart = () => {
       {cartItems.length > 0 ? (
         <BottomSection>
           <Row>
-            <span>{`${totalQuantity} Items`}</span>
-            <span><b>{`${total} €`}</b></span>
+            <span>{`${cartQuantity} Items`}</span>
+            <span><b>{`${cartTotal} €`}</b></span>
           </Row>
           <Row>
             <span>Shipping fees</span>
@@ -34,7 +37,7 @@ const ShoppingCart = () => {
           </Row>
           <Row>
             <span><b>Total</b> <small>- including VAT</small></span>
-            <span><b>{`${total} €`}</b></span>
+            <span><b>{`${cartTotal} €`}</b></span>
           </Row>
           {/* <Button
             value="View Cart"

@@ -1,2 +1,2 @@
 export const selectCurrentUser = state => state.user.currentUser;
-export const selectProfileMenuIsOpen = state => state.user.profileMenuIsOpen;
+export const selectIsProfileMenuOpen = state => state.user.isProfileMenuOpen;

@@ -1,9 +1,9 @@
 import { SideBarContainer, GenderLink, CategoriesList } from "./navbar-side.styles";
-import Logo from "./logo";
-import NavbarLink from "./navbar-link";
 import { useSelector } from "react-redux";
 import { selectCurrLocation } from "../store/curr-user-location/curr-userl-location.selectors";
 import { selectWomenProducts, selectMenProducts } from "../store/products/products.selectors";
+import Logo from "./logo";
+import NavbarLink from "./navbar-link";
 
 const NavbarSide = () => {
   console.log("Render/Rerender of NavbarSide");

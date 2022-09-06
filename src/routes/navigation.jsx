@@ -1,23 +1,22 @@
 import { MainContainer, ContentArea, DarkOverlay } from "./navigation.styles";
-import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Outlet, useLocation } from "react-router-dom";
 import { setCurrLocation } from "../store/curr-user-location/curr-user-location.actions";
+import { selectIsProfileMenuOpen } from "../store/user/user.selectors";
+import { selectIsCartOpen } from "../store/cart/cart.selectors";
 import NavbarSide from "../components/navbar-side";
 import ProfilePopup from "../components/profile-popup";
 import ShoppingCart from "../components/shopping-cart";
 import NavbarTop from "../components/navbar-top";
-import { useSelector, useDispatch } from "react-redux";
-import { selectProfileMenuIsOpen } from "../store/user/user.selectors";
 
-// isCartOpen vs cartIsOpen. Look below and decide.
-// Why is Navigation rerendering everytime i change to another category?
 
 const Navigation = () => {
   console.log("Render/Rerender of Navigation");
   const location = useLocation();
   const dispatch = useDispatch();
-  const isCartOpen = useSelector((state) => state.cart.isCartOpen);
-  const profileMenuIsOpen = useSelector(selectProfileMenuIsOpen);
+  const isCartOpen = useSelector(selectIsCartOpen);
+  const isProfileMenuOpen = useSelector(selectIsProfileMenuOpen);
 
   useEffect(() => {
     // Checking the gender in the current URL and saving the value in global state. Other components render depending on this value.
@@ -41,8 +40,8 @@ const Navigation = () => {
         <Outlet />
       </ContentArea>
       {isCartOpen ? <ShoppingCart /> : null}
-      {profileMenuIsOpen ? <ProfilePopup /> : null}
-      {isCartOpen || profileMenuIsOpen ? <DarkOverlay /> : null}
+      {isProfileMenuOpen ? <ProfilePopup /> : null}
+      {isCartOpen || isProfileMenuOpen ? <DarkOverlay /> : null}
     </MainContainer>
   );
 };

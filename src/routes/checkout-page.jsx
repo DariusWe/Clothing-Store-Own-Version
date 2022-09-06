@@ -1,6 +1,6 @@
 import { Container, Divider, GuestSection } from "./checkout-page.styles";
-import Button from "../components/button";
 import SignInForm from "../components/sign-in-form";
+import Button from "../components/button";
 
 const CheckoutPage = () => {
   console.log("Render/Rerender of CheckoutPage");

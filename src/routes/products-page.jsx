@@ -1,9 +1,9 @@
 import { Container, CategoryTitle, CategoryDescription, ProductsContainer } from "./products-page.styles";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { selectWomenProducts, selectMenProducts } from "../store/products/products.selectors";
 import ProductItem from "../components/product-item";
 import FilterSection from "../components/filter-section";
-import { selectWomenProducts, selectMenProducts } from "../store/products/products.selectors";
 
 const ProductsPage = () => {
   console.log("Render/Rerender of ProductsPage");

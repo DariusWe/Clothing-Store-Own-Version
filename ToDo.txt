@@ -1,5 +1,11 @@
 - Go with the course way and at the end do it again, but with RTK!!!!
 
+- Navigation is re-rendering because of useLocation() hook. That leads to rerendering of all it's children.
+- NavbarTop is re-rendering because of navigate().
+
+- Redux docs say not every selector should be memoized. Course is doing so though.
+- products slice needs no selector logic, as my database is different than in the course. Already have most basic form of data.
+
 #################
 
 - Think about file/folder structure! (maybe feature-based?)
@@ -13,8 +19,6 @@
   performance, but look at redux chapter (think he has a solution for this). Also useSelector in combination with middleware can lead to
   not wanted rerenderings. This can be solved with Memoization (caching).
   --> Right now my action creator is doing all the fetching and preparing of the data. But should be changed to above strategy.
-- Redux should store the most basic form of data. The cart slice right now stores redundant data (total and totalQuantity can be derived
-  from the cartItems array). Put the logic for this into selectors.
 - useSelect(selector) and dispatch(actioncreator, payload) --> this way you never need to import ACTION_TYPES? More organized maybe.
 - research file/folder structuring strategies (React Redux)!
 - research render behaviour of my components. Some components are unnecessarily rerendering multiple times.
