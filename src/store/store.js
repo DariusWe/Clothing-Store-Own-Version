@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage";
 import logger from "redux-logger";
 import { createFilter } from "redux-persist-transform-filter";
 import { rootReducer } from "./root-reducer";
+import thunk from "redux-thunk";
 
 // Only the cartItems should persist in my app (as of right now). The redux-persist-transform-filter extension helps here.
 const cartSubsetFilter = createFilter("cart", ["cartItems"]);
@@ -20,7 +21,7 @@ const persistConfig = {
 const composeEnhancers = (process.env.NODE_ENV === "development" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 // Define MiddleWares:
-const middleWares = [process.env.NODE_ENV === "development" && logger].filter(Boolean);
+const middleWares = [process.env.NODE_ENV === "development" && logger, thunk].filter(Boolean);
 
 // Compose MiddleWares:
 const composedEnhancers = composeEnhancers(applyMiddleware(...middleWares));

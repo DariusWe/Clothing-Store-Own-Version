@@ -54,6 +54,7 @@ navbar different depending on wether the user is on urlPath A or B. Ways:
 
   
 AT THE END:
+- Redo Spinner Animation for practice
 - Animations and Click-Feedback
 - When Cart-Popup open, make dark overlay over rest of site (look c&a)
 - Include better images
