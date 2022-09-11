@@ -35,7 +35,7 @@ const ProductsPage = () => {
         mauris nunc.
       </CategoryDescription>
       <FilterSection />
-      {isLoading === true ? (
+      {isLoading ? (
         <LoadingSpinner />
       ) : (
         <ProductsContainer>

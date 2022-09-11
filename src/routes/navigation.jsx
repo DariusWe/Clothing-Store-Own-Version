@@ -10,7 +10,6 @@ import ProfilePopup from "../components/profile-popup";
 import ShoppingCart from "../components/shopping-cart";
 import NavbarTop from "../components/navbar-top";
 
-
 const Navigation = () => {
   console.log("Render/Rerender of Navigation");
   const location = useLocation();
@@ -22,13 +21,7 @@ const Navigation = () => {
     // Checking the gender in the current URL and saving the value in global state. Other components render depending on this value.
     // Why not check the URL in each of these components individually with useLocation? Because of too much logic --> gets messy.
     // Why using the useEffect Hook here and not in App.js? Because it leverages useLocation() which is only available in <BrowserRouter>.
-    if (location.pathname === "/" || location.pathname.includes("/women")) {
-      dispatch(setCurrLocation("women"));
-    } else if (location.pathname.includes("/men")) {
-      dispatch(setCurrLocation("men"));
-    } else {
-      dispatch(setCurrLocation("other"));
-    }
+    dispatch(setCurrLocation(location.pathname));
     // dispatch below only included to get rid of warning
   }, [location, dispatch]);
 

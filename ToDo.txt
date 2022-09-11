@@ -2,7 +2,6 @@
 
 - next steps:
   - read redux docs
-  - go on with course (Redux-Persist)
   - stripe chapter is stupid (too much backend stuff you cannot understand yet)
 
 - Navigation is re-rendering because of useLocation() hook. That leads to rerendering of all it's children.
