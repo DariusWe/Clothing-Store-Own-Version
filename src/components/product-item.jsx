@@ -3,6 +3,11 @@ import { addItemToCart } from "../store/cart/cart.actions";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartItems } from "../store/cart/cart.selectors";
 
+// In this component we select cartItems of the store because we need to pass it to addItemToCart().
+// This leads to a bunch of unnecessary rerenders everytime cartItems change (the productItem shouldn't rerender in this case)
+// We could select the cartItems in the addItemToCart function instead of here to solve this problem.
+// Or we use react.memo().
+
 const ProductItem = ({ product }) => {
   console.log("Render/Rerender of ProductItem");
   const cartItems = useSelector(selectCartItems);

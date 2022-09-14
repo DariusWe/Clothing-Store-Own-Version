@@ -15,7 +15,7 @@ const ShoppingCartItem = ({ product }) => {
         <span>
           <b>{product.name}</b>
         </span>
-        <span>{`Price: ${product.price * product.quantity} €`}</span>
+        <span>{`Price: ${product.price} €`}</span>
         <div>
           <span>Amount: </span>
           <button onClick={() => dispatch(decreaseQuantity(cartItems, product))}>

@@ -1,11 +1,21 @@
 - Go with the course way and at the end do it again, but with RTK!!!!
 
+- Continue Filter Section:
+  - Dropdown component will receive listType (radio, selecting, normal, ...) and an options-list to render.
+  - When clicking anywhere outside of current individual component, close dropdown.
+
 - next steps:
   - read redux docs
   - stripe chapter is stupid (too much backend stuff you cannot understand yet)
 
+RERENDERING PERFORMANCE ISSUES - ignore for now:
 - Navigation is re-rendering because of useLocation() hook. That leads to rerendering of all it's children.
 - NavbarTop is re-rendering because of navigate().
+- Should useLocation not be used in top level component?
+- Rerendering in React does not automatically mean rerendering in the dom, right?
+- Maybe performance issue not that big?
+- maybe use window.location.pathname. It's vanilla JS and not a hook.
+- maybe wrap entire app below top level component in another container, which is a react.memo() function.
 
 - Redux docs say not every selector should be memoized. Course is doing so though.
 - products slice needs no selector logic, as my database is different than in the course. Already have most basic form of data.
@@ -24,21 +34,9 @@
 - research render behaviour of my components. Some components are unnecessarily rerendering multiple times.
 - replace createStore with configureStore (https://redux-toolkit.js.org/api/configureStore)
 
-ROUTING:
-I want some of my components to render based on the actual location of the user in the url. So, for example, render the
-navbar different depending on wether the user is on urlPath A or B. Ways:
-- Check the location in each component via useLocation()
-  - Would have to combined with a useEffect Hook in each component to update on location changes.
-- create a global store variable for the current location and let components subscribe to that
-  - also in combination with useEffect
-- Some other way with React Router
-- Look at routing docs. How is this done on big applications?
 
-
-- ShoppingCart Price ist confusing. Add the single item price to it.
 - Implement global css fonts, color etc. management
 - continue WebDev document on google docs 
-- Deploying: Learn about whats happening in the background. Learn about this service, it's advantages and disadvantages.
 - Build Register-Page and Form
 - Commit
 - Redux

@@ -7,11 +7,11 @@ const selectCartReducer = (state) => state.cart;
 export const selectCartItems = createSelector([selectCartReducer], (cartReducer) => cartReducer.cartItems);
 
 export const selectCartTotal = createSelector([selectCartItems], (cartItems) => {
-  cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
+  return cartItems.reduce((total, item) => total + item.quantity * item.price, 0).toFixed(2);
 });
 
-export const selectCartQuantity = createSelector([selectCartItems], (cartItems) =>
-  cartItems.reduce((totalQuantity, item) => totalQuantity + item.quantity, 0)
-);
+export const selectCartQuantity = createSelector([selectCartItems], (cartItems) => {
+  return cartItems.reduce((totalQuantity, item) => totalQuantity + item.quantity, 0);
+});
 
 export const selectIsCartOpen = createSelector([selectCartReducer], (cartReducer) => cartReducer.isCartOpen);

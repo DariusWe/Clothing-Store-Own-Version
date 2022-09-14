@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectWomenProducts, selectMenProducts, selectIsLoading } from "../store/products/products.selectors";
 import ProductItem from "../components/product-item";
-import FilterSection from "../components/filter-section";
+import ProductFilters from "../components/product-filters";
 import LoadingSpinner from "../components/loading-spinner";
 
 // Put Category Description in Database. Don't hardcode it here.
@@ -26,25 +26,25 @@ const ProductsPage = () => {
   }
 
   return (
-    <Container>
-      <CategoryTitle>{category.replace("&", " & ")}</CategoryTitle>
-      <CategoryDescription>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mollis blandit bibendum. Ut ac elit at nunc
-        porta imperdiet. Nulla rutrum velit at dolor iaculis efficitur. Sed sit amet porta magna. Maecenas eu ipsum eu
-        mi ornare maximus nec at lorem. Phasellus non maximus enim. Nullam congue suscipit condimentum. Aliquam non
-        mauris nunc.
-      </CategoryDescription>
-      <FilterSection />
-      {isLoading ? (
-        <LoadingSpinner />
-      ) : (
-        <ProductsContainer>
-          {categoryProducts.map((product) => (
-            <ProductItem key={product.id} product={product} />
-          ))}
-        </ProductsContainer>
-      )}
-    </Container>
+      <Container>
+        <CategoryTitle>{category.replace("&", " & ")}</CategoryTitle>
+        <CategoryDescription>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mollis blandit bibendum. Ut ac elit at nunc
+          porta imperdiet. Nulla rutrum velit at dolor iaculis efficitur. Sed sit amet porta magna. Maecenas eu ipsum eu
+          mi ornare maximus nec at lorem. Phasellus non maximus enim. Nullam congue suscipit condimentum. Aliquam non
+          mauris nunc.
+        </CategoryDescription>
+        <ProductFilters />
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <ProductsContainer>
+            {categoryProducts.map((product) => (
+              <ProductItem key={product.id} product={product} />
+            ))}
+          </ProductsContainer>
+        )}
+      </Container>
   );
 };
 
