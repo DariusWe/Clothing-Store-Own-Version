@@ -23,3 +23,10 @@ export const setColorFilterValues = (payload) => {
     };
   }
 };
+
+export const resetColorFilterValue = () => {
+  return {
+    type: FILTERS_ACTION_TYPES.SET_COLOR_FILTER_VALUE,
+    payload: [],
+  };
+};

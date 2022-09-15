@@ -15,6 +15,7 @@ const ProductFilters = () => {
     {
       label: "Sort By",
       listType: "radio",
+      // Values in redux state will be these (below). If retrieved from redux in another component, difficult to find out the exact strings...
       entries: ["recommended", "lowest price", "highest price"],
       currStoreValue: sortByFilterValue,
       setStoreValue: (value) => dispatch(setSortByFilterValue(value)),

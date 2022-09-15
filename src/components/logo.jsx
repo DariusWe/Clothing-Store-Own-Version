@@ -1,3 +1,4 @@
+import React from "react";
 import { LogoContainer } from "./logo.styles";
 
 const Logo = () => {
@@ -10,4 +11,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default React.memo(Logo);

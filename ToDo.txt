@@ -1,7 +1,8 @@
 - Go with the course way and at the end do it again, but with RTK!!!!
 
 - Continue Filter Section:
-  - Dropdown component will receive listType (radio, selecting, normal, ...) and an options-list to render.
+  - BUG: When setting color filter and then changing category, the products don't update correctly. Maybe
+         it got something to do with missing dependencies? (see npm warnings)
   - When clicking anywhere outside of current individual component, close dropdown.
 
 - next steps:
@@ -52,6 +53,7 @@ RERENDERING PERFORMANCE ISSUES - ignore for now:
   
 AT THE END:
 - Redo Spinner Animation for practice
+- Move category description from products-page into database
 - Animations and Click-Feedback
 - When Cart-Popup open, make dark overlay over rest of site (look c&a)
 - Include better images
