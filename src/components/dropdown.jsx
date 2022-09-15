@@ -1,5 +1,4 @@
 import { Container, ListItem } from "./dropdown.styles";
-
 /* 
 The DropdownMenu component is designed to be reused for different use cases. Input arguments:
   - the menu entries (as an array)
@@ -21,7 +20,13 @@ const DropDownMenu = ({ entriesArray = [], listType = "none", setStoreValue, cur
         ))}
       {listType === "radio" &&
         entriesArray.map((entry) => (
-          <ListItem key={entry} onClick={() => setStoreValue(entry)}>
+          <ListItem
+            key={entry}
+            onClick={() => {
+              setStoreValue(entry);
+              //closeDropdown();
+            }}
+          >
             {currStoreValue === entry ? <i className="fa-solid fa-circle" /> : <i className="fa-regular fa-circle" />}
             <span>{entry}</span>
           </ListItem>
@@ -29,7 +34,11 @@ const DropDownMenu = ({ entriesArray = [], listType = "none", setStoreValue, cur
       {listType === "checkbox" &&
         entriesArray.map((entry) => (
           <ListItem key={entry} onClick={() => setStoreValue(entry)}>
-            {currStoreValue.includes(entry) ? <i className="fa-solid fa-square" /> : <i className="fa-regular fa-square" />}
+            {currStoreValue.includes(entry) ? (
+              <i className="fa-solid fa-square" />
+            ) : (
+              <i className="fa-regular fa-square" />
+            )}
             <span>{entry}</span>
           </ListItem>
         ))}
