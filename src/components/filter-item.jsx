@@ -21,13 +21,12 @@ const FilterItem = ({ filter }) => {
     setDropdownIsOpen(!dropdownIsOpen);
   };
 
-  // This useEffect will add an event listerner to the document when a dropdownMenu gets opened which will listen to 
-  // clicks of the user. If the user clicks outside of this component or its children (the dropdown), the callback function will
-  // close the dropdownMenu and remove the listener. When the user clicks inside of this component or its children, nothing will
-  // happen.
   useEffect(() => {
+  // This useEffect will add an event listerner to the document which will listen to clicks of the user. If the user clicks 
+  // outside of the current component (and therefore also its children), the callback function will close the dropdownMenu and remove
+  // the listener. When the user clicks inside of this component or its children, nothing will happen.
     let eventListenerAlreadyExists = false;
-    // include eventListener for touch devices ("touchstart"?)
+    // ToDo: include eventListener for touch devices ("touchstart"?)
     const closeDropdown = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setDropdownIsOpen(false);

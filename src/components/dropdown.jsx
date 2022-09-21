@@ -7,6 +7,7 @@ The DropdownMenu component is designed to be reused for different use cases. Inp
   - a selector function (to retrieve the currently selected menu entries)
 */
 
+// ToDo: Maybe more elegant solution for the return code?
 const DropDownMenu = ({ entriesArray = [], listType = "none", setStoreValue, currStoreValue }) => {
   console.log("rerendering DropdownMenu");
 
@@ -24,7 +25,6 @@ const DropDownMenu = ({ entriesArray = [], listType = "none", setStoreValue, cur
             key={entry}
             onClick={() => {
               setStoreValue(entry);
-              //closeDropdown();
             }}
           >
             {currStoreValue === entry ? <i className="fa-solid fa-circle" /> : <i className="fa-regular fa-circle" />}

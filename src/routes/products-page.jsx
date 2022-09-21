@@ -6,7 +6,7 @@ import { selectWomenCategories, selectMenCategories, selectIsLoading } from "../
 import { selectSortByFilterValue, selectColorFilterValues } from "../store/filters/filters.selectors";
 import { setSortByFilterValue, resetColorFilterValue } from "../store/filters/filters.actions";
 import ProductItem from "../components/product-item";
-import ProductFilters from "../components/product-filters";
+import FilterSection from "../components/filter-section";
 import LoadingSpinner from "../components/loading-spinner";
 
 const ProductsPage = () => {
@@ -21,12 +21,11 @@ const ProductsPage = () => {
   const sortBy = useSelector(selectSortByFilterValue);
   const dispatch = useDispatch();
 
-  // This useEffect runs on mount and then again when women and man products get set or the category changes.
-  // Depending on URL params "gender" and "category" push the corresponding products into local state.
-  // Initialize the filteredProducts state variable as the filtered Products get rendered.
   useEffect(() => {
+  // Depending on URL params "gender" and "category" push the corresponding products into local state.
+  // Initialize the filteredProducts state variable as the filtered products get rendered.
+  // This useEffect runs on mount and then again when women and men products get set or the category changes.
     if (womenCategories.length > 0 && menCategories.length > 0) {
-      console.log("Setting Products on products page (again) - should only happen ONE TIME.");
       const categoryProducts =
         gender === "women"
           ? womenCategories.filter((cat) => cat.titleSanitized === category)[0].items
@@ -34,11 +33,11 @@ const ProductsPage = () => {
       setProducts(categoryProducts);
       setFilteredProducts(categoryProducts);
     }
-  }, [womenCategories, menCategories, category, gender]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [womenCategories, menCategories, category]);
 
-  // Everytime the user navigates to another category, reset all filters:
   useEffect(() => {
-    console.log("Resetting filters (should only happen on category change)");
+    // Everytime the user navigates to another category, reset all filters:
     if (colors.length > 0) {
       dispatch(resetColorFilterValue());
     }
@@ -48,10 +47,9 @@ const ProductsPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category]);
 
-  // Whenever some filter gets applied, run this useEffect. Filter first, then sort the filtered selection.
   useEffect(() => {
-    // Maybe change this line as it does not detect products with more than one color.
-    console.log("run filter and sorting effect");
+    // Whenever some filter gets applied by the user, run this useEffect. Filter first, then sort the filtered selection.
+    // Should be fixed: the following line does not detect products with more than one color.
     const filtered = colors.length > 0 ? products.filter((product) => colors.includes(product.color)) : [...products];
     switch (sortBy) {
       case "recommended":
@@ -78,7 +76,7 @@ const ProductsPage = () => {
         mi ornare maximus nec at lorem. Phasellus non maximus enim. Nullam congue suscipit condimentum. Aliquam non
         mauris nunc.
       </CategoryDescription>
-      <ProductFilters />
+      <FilterSection />
       {isLoading ? (
         <LoadingSpinner />
       ) : (
@@ -86,6 +84,7 @@ const ProductsPage = () => {
           {filteredProducts.map((product) => (
             <ProductItem key={product.id} product={product} />
           ))}
+          {filteredProducts.length === 0 ? <span>No items found for the selected filters.</span>: null}
         </ProductsContainer>
       )}
     </Container>

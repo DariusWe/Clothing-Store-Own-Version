@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { onAuthStateChangedListener } from "./utils/firebase";
-import { fetchAndSetProductsAsync } from "./store/products/products.actions";
+import { fetchProductsAsync } from "./store/products/products.actions";
 import { setCurrentUser } from "./store/user/user.actions";
 import Navigation from "./routes/navigation";
 import ProductsPage from "./routes/products-page";
@@ -17,17 +17,17 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAndSetProductsAsync());
-    // dispatch below only included to get rid of warning
-  }, [dispatch]);
+    dispatch(fetchProductsAsync());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
       dispatch(setCurrentUser(user));
     });
     return unsubscribe;
-    // dispatch below only included to get rid of warning
-  }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <BrowserRouter>

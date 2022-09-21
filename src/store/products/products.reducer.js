@@ -12,18 +12,18 @@ const INITIAL_STATE = {
 export const productsReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
   switch (type) {
-    case PRODUCTS_ACTION_TYPES.FETCH_AND_SET_PRODUCTS_START:
+    case PRODUCTS_ACTION_TYPES.FETCH_PRODUCTS_START:
       return {
         ...state,
         isLoading: true,
       };
-    case PRODUCTS_ACTION_TYPES.FETCH_AND_SET_PRODUCTS_SUCCESS:
+    case PRODUCTS_ACTION_TYPES.FETCH_PRODUCTS_SUCCESS:
       return {
         ...state,
         ...payload,
         isLoading: false,
       };
-    case PRODUCTS_ACTION_TYPES.FETCH_AND_SET_PRODUCTS_ERROR:
+    case PRODUCTS_ACTION_TYPES.FETCH_PRODUCTS_ERROR:
       return {
         ...state,
         error: payload,

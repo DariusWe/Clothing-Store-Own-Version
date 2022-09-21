@@ -1,36 +1,47 @@
 import { getProductsFromFirestore } from "../../utils/firebase";
 import { PRODUCTS_ACTION_TYPES } from "./products.types";
 
-// THESE ARE INDEED CATEGORIES, NOT PRODUCTS. CHANGE THE NAME?
-// ALSO: STORE THE DATA IN THE MOST BASIC FORM IN THE STORE. ADDITIONAL SELECTING AND LOGIC SHOULD LIVE IN THE SELECTORS.
-// Fetch instead of FetchAndSet?
+/*
+  Data stored in the redux store should have the most basic form. Right now the structure of my store data fits to the structure 
+  of my database, where i store the products for women and men separately in the following form:
 
-const fetchAndSetProductsStart = () => {
+    - women
+      - jackets
+        - jacket 1
+        - jacket 2
+        - ...
+      - shirts
+        - shirt 1
+        - shirt 2
+        - ... 
+    
+  Probably not the best solution. Will change as i dig into database design/structuring.
+ */
+
+const fetchProductsStart = () => {
   return {
-    type: PRODUCTS_ACTION_TYPES.FETCH_AND_SET_PRODUCTS_START,
+    type: PRODUCTS_ACTION_TYPES.FETCH_PRODUCTS_START,
   };
 };
 
-const fetchAndSetProductsSuccess = (products) => {
+const fetchProductsSuccess = (products) => {
   return {
-    type: PRODUCTS_ACTION_TYPES.FETCH_AND_SET_PRODUCTS_SUCCESS,
+    type: PRODUCTS_ACTION_TYPES.FETCH_PRODUCTS_SUCCESS,
     payload: products,
   };
 };
 
-const fetchAndSetProductsError = (error) => {
+const fetchProductsError = (error) => {
   return {
-    type: PRODUCTS_ACTION_TYPES.FETCH_AND_SET_PRODUCTS_ERROR,
+    type: PRODUCTS_ACTION_TYPES.FETCH_PRODUCTS_ERROR,
     payload: error,
   };
 };
 
 
-export const fetchAndSetProductsAsync = () => async (dispatch) => {
-  dispatch(fetchAndSetProductsStart());
+export const fetchProductsAsync = () => async (dispatch) => {
+  dispatch(fetchProductsStart());
 
-  // Try and fetch the products from firestore:
-  // Better would be selecting men or women products in selectors and store basic data in store.
   try {
     const products = {
       womenProducts: [],
@@ -52,8 +63,8 @@ export const fetchAndSetProductsAsync = () => async (dispatch) => {
         titleSanitized: category.data().title.toLowerCase().replace(/\s+/gm, ""),
       });
     });
-    dispatch(fetchAndSetProductsSuccess(products));
+    dispatch(fetchProductsSuccess(products));
   } catch(error) {
-    dispatch(fetchAndSetProductsError(error));
+    dispatch(fetchProductsError(error));
   }
 };
