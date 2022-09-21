@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 // eslint-disable-next-line
 import { getFirestore, writeBatch, doc, getDoc, setDoc, collection, query, getDocs, orderBy } from "firebase/firestore";
-import { SHOP_DATA_MEN } from "../shop-data-new";
+import { SHOP_DATA_MEN } from "../shop-data";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAaBvYzxlXFC0-K1fY4O045nBDhDVal3pI",
