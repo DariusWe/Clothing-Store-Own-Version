@@ -1,15 +1,13 @@
 import { SideBarContainer, GenderLink, CategoriesList } from "./navbar-side.styles";
 import { useSelector } from "react-redux";
-import { selectCurrLocation } from "../store/curr-user-location/curr-userl-location.selectors";
-import { selectWomenCategories, selectMenCategories } from "../store/products/products.selectors";
 import Logo from "./logo";
 import NavbarLink from "./navbar-link";
 
 const NavbarSide = () => {
   console.log("Render/Rerender of NavbarSide");
-  const womenProducts = useSelector(selectWomenCategories);
-  const menProducts = useSelector(selectMenCategories);
-  const currLocation = useSelector(selectCurrLocation);
+  const womenCategories = useSelector((state) => state.products.womenCategories);
+  const menCategories = useSelector((state) => state.products.menCategories);
+  const currLocation = useSelector((state) => state.userLocation.userLocation);
 
   return (
     <SideBarContainer>
@@ -26,8 +24,8 @@ const NavbarSide = () => {
           </div>
           <CategoriesList>
             {currLocation === "women"
-              ? womenProducts.map((category) => <NavbarLink key={category.id} category={category} />)
-              : menProducts.map((category) => <NavbarLink key={category.id} category={category} />)}
+              ? womenCategories.map((category) => <NavbarLink key={category.id} category={category} />)
+              : menCategories.map((category) => <NavbarLink key={category.id} category={category} />)}
           </CategoriesList>
         </>
       ) : null}

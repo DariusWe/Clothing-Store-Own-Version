@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { onAuthStateChangedListener } from "./utils/firebase";
-import { fetchProductsAsync } from "./store/products/products.actions";
-import { setCurrentUser } from "./store/user/user.actions";
+import { fetchProductsAsync } from "./store/products.slice";
+import { setCurrentUser } from "./store/user.slice";
 import Navigation from "./routes/navigation";
 import ProductsPage from "./routes/products-page";
 import SignInPage from "./routes/sign-in-page";
@@ -23,7 +23,7 @@ const App = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
-      dispatch(setCurrentUser(user));
+      user ? dispatch(setCurrentUser(user.uid)) : dispatch(setCurrentUser(null));
     });
     return unsubscribe;
     // eslint-disable-next-line react-hooks/exhaustive-deps

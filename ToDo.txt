@@ -1,8 +1,7 @@
-- Go with the course way and at the end do it again, but with RTK!!!!
-
 - Continue Filter Section:
-  - Show "No items found" when no products for that filter.
   - Go through the whole filter functionality and understand it, clean up and improve rerender cycles
+
+- How to realize transform filters (for persisting) in RTK
 
 - next steps:
   - read redux docs

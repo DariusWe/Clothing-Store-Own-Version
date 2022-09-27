@@ -2,9 +2,7 @@ import { Container, CategoryTitle, CategoryDescription, ProductsContainer } from
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { selectWomenCategories, selectMenCategories, selectIsLoading } from "../store/products/products.selectors";
-import { selectSortByFilterValue, selectColorFilterValues } from "../store/filters/filters.selectors";
-import { setSortByFilterValue, resetColorFilterValue } from "../store/filters/filters.actions";
+import { setSortBy, resetColors } from "../store/filters.slice";
 import ProductItem from "../components/product-item";
 import FilterSection from "../components/filter-section";
 import LoadingSpinner from "../components/loading-spinner";
@@ -14,11 +12,11 @@ const ProductsPage = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const { gender, category } = useParams();
-  const womenCategories = useSelector(selectWomenCategories);
-  const menCategories = useSelector(selectMenCategories);
-  const isLoading = useSelector(selectIsLoading);
-  const colors = useSelector(selectColorFilterValues);
-  const sortBy = useSelector(selectSortByFilterValue);
+  const womenCategories = useSelector((state) => state.products.womenCategories);
+  const menCategories = useSelector((state) => state.products.menCategories);
+  const isLoading = useSelector((state) => state.products.isLoading);
+  const colors = useSelector(state => state.filters.colors);
+  const sortBy = useSelector(state => state.filters.sortBy);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,10 +37,10 @@ const ProductsPage = () => {
   useEffect(() => {
     // Everytime the user navigates to another category, reset all filters:
     if (colors.length > 0) {
-      dispatch(resetColorFilterValue());
+      dispatch(resetColors());
     }
     if (sortBy !== "recommended") {
-      dispatch(setSortByFilterValue("recommended"));
+      dispatch(setSortBy("recommended"));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category]);
@@ -57,7 +55,6 @@ const ProductsPage = () => {
         break;
       case "lowest price":
         setFilteredProducts(filtered.sort((a, b) => a.price - b.price));
-        console.log("case lowest price");
         break;
       case "highest price":
         setFilteredProducts(filtered.sort((a, b) => b.price - a.price));

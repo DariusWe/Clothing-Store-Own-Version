@@ -1,7 +1,6 @@
 import { Container, BottomSection, ProductInfo, AddButton } from "./product-item.styles";
-import { addItemToCart } from "../store/cart/cart.actions";
-import { useDispatch, useSelector } from "react-redux";
-import { selectCartItems } from "../store/cart/cart.selectors";
+import { addItemToCart } from "../store/cart.slice";
+import { useDispatch } from "react-redux";
 
 // In this component we select cartItems of the store because we need to pass it to addItemToCart().
 // This leads to a bunch of unnecessary rerenders everytime cartItems change (the productItem shouldn't rerender in this case)
@@ -10,7 +9,6 @@ import { selectCartItems } from "../store/cart/cart.selectors";
 
 const ProductItem = ({ product }) => {
   console.log("Render/Rerender of ProductItem");
-  const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
 
   return (
@@ -21,7 +19,7 @@ const ProductItem = ({ product }) => {
           <span>{product.name}</span>
           <span>{`${product.price} €`}</span>
         </ProductInfo>
-        <AddButton onClick={() => dispatch(addItemToCart(cartItems, product))}>
+        <AddButton onClick={() => dispatch(addItemToCart(product))}>
           <span>+</span>
         </AddButton>
       </BottomSection>

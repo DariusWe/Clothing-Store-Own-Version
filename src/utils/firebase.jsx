@@ -76,9 +76,16 @@ const tmpFunc3 = async () => {
 
 export const getProductsFromFirestore = async (gender) => {
   // Another method is to set a listener (probably recommended)
+  const categories = [];
   const colRef = collection(db, `product-categories-${gender}`);
   const querySnapshot = await getDocs(query(colRef, orderBy("id")));
-  return querySnapshot;
+  querySnapshot.docs.forEach((category) => {
+    categories.push({
+      ...category.data(),
+      titleSanitized: category.data().title.toLowerCase().replace(/\s+/gm, ""),
+    });
+  });
+  return categories;
 };
 
 export const firebaseCreateUserWithEmailAndPassword = async (email, password, name) => {

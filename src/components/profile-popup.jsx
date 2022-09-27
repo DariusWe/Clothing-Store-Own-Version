@@ -1,13 +1,12 @@
 import { Container } from "./profile-popup.styles";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleProfileMenu } from "../store/user/user.actions";
-import { selectCurrentUser } from "../store/user/user.selectors";
+import { toggleProfileMenu } from "../store/user.slice";
 import { signOutUser } from "../utils/firebase";
 import Button from "./button";
 
 const ProfilePopup = () => {
   console.log("Render/Rerender of ProfilePopup");
-  const currentUser = useSelector(selectCurrentUser);
+  const currentUser = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
 
   const signOut = () => {

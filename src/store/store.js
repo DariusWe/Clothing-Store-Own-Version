@@ -1,36 +1,29 @@
-import { createStore, compose, applyMiddleware } from "redux";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import logger from "redux-logger";
-import { createFilter } from "redux-persist-transform-filter";
+import { configureStore } from "@reduxjs/toolkit";
 import { rootReducer } from "./root-reducer";
-import thunk from "redux-thunk";
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
-// Only the cartItems should persist in my app (as of right now). The redux-persist-transform-filter extension helps here.
-const cartSubsetFilter = createFilter("cart", ["cartItems"]);
+/* 
+Most of the code here is stupid boilerplate code to make persisting state with redux-persist possible. Look here for more info:
+https://redux-toolkit.js.org/usage/usage-guide#use-with-redux-persist
+*/
 
-// Define what state should persist and where:
 const persistConfig = {
   key: "root",
   storage,
   whitelist: ["cart"],
-  transforms: [cartSubsetFilter],
 };
 
-// If Redux Devtools Browser Extension is installed, use its compose method. Otherwise, use the one from Redux:
-const composeEnhancers = (process.env.NODE_ENV === "development" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-
-// Define MiddleWares:
-const middleWares = [process.env.NODE_ENV === "development" && logger, thunk].filter(Boolean);
-
-// Compose MiddleWares:
-const composedEnhancers = composeEnhancers(applyMiddleware(...middleWares));
-
-// createStore() needs a rootReducer. Before passing it in, leverage Redux-Persist to create a persisted Reducer.
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// Create the store with the persisted root reducer and the middlewares.
-export const store = createStore(persistedReducer, undefined, composedEnhancers);
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
 
-// Create the persisted store (needed for the Redux-Persist Wrapper in index.js)
 export const persistor = persistStore(store);

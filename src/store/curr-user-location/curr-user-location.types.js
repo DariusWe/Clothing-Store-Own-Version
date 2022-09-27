@@ -1,3 +1,0 @@
-export const CURR_USER_LOCATION_ACTION_TYPES = {
-  SET_CURRENT_LOCATION: "curr-user-location/SET_CURR_LOCATION",
-};

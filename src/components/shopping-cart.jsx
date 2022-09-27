@@ -1,8 +1,7 @@
 import { Container, TopSection, ItemList, EmptyMessage, BottomSection, Row } from "./shopping-cart.styles";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleIsCartOpen } from "../store/cart/cart.actions";
-import { selectCartItems, selectCartTotal, selectCartQuantity } from "../store/cart/cart.selectors";
+import { selectCartItems, selectCartTotal, selectCartQuantity, toggleIsCartOpen } from "../store/cart.slice";
 import ShoppingCartItem from "./shopping-cart-item";
 import Button from "./button";
 

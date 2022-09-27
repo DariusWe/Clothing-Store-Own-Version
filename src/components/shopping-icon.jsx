@@ -1,7 +1,6 @@
 import { Container, Counter } from "./shopping-icon.styles";
-import { toggleIsCartOpen } from "../store/cart/cart.actions";
+import { toggleIsCartOpen, selectCartQuantity } from "../store/cart.slice";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCartQuantity } from "../store/cart/cart.selectors";
 
 const ShoppingIcon = () => {
   console.log("Render/Rerender of ShoppingIcon");

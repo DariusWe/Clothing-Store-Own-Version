@@ -1,6 +1,6 @@
 import { Container } from "./profile-icon.styles";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { toggleProfileMenu } from "../store/user/user.actions";
+import { toggleProfileMenu } from "../store/user.slice";
 
 const ProfileIcon = () => {
   console.log("Render/Rerender of ProfileIcon");
