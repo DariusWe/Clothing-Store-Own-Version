@@ -10,6 +10,3 @@ purposes and to better suit my own project). Alongside to the course i have educ
 
 
 ## TOOLING
-
-One can argue that too much tooling was used for this project. The reason for leveraging Redux, Redux Saga, Styled Components and Typescript
-here is not necessarily due to a better coding experience, but more for learning purposes.

@@ -17,27 +17,23 @@ const FilterItem = ({ filter }) => {
   const { label, listType, entries, currStoreValue, setStoreValue } = filter;
   const dropdownRef = useRef();
 
+  //////////// Following code block is an outside-click-handler. If user clicks outside of this component, close the dropdown.
+  useEffect(() => {
+    dropdownIsOpen && document.addEventListener("mousedown", checkClickLocation);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dropdownIsOpen]);
+
+  const checkClickLocation = (e) => {
+    if (!dropdownRef.current.contains(e.target)) {
+      document.removeEventListener("mousedown", checkClickLocation);
+      toggleDropdown();
+    }
+  };
+
   const toggleDropdown = () => {
     setDropdownIsOpen(!dropdownIsOpen);
   };
-
-  useEffect(() => {
-  // This useEffect will add an event listerner to the document which will listen to clicks of the user. If the user clicks 
-  // outside of the current component (and therefore also its children), the callback function will close the dropdownMenu and remove
-  // the listener. When the user clicks inside of this component or its children, nothing will happen.
-    let eventListenerAlreadyExists = false;
-    // ToDo: include eventListener for touch devices ("touchstart"?)
-    const closeDropdown = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setDropdownIsOpen(false);
-        document.removeEventListener("mousedown", closeDropdown);
-      }
-    };
-    if (!eventListenerAlreadyExists && dropdownIsOpen) {
-      document.addEventListener("mousedown", closeDropdown);
-      eventListenerAlreadyExists = true;
-    }
-  }, [dropdownIsOpen]);
+  ////////////
 
   return (
     <Container ref={dropdownRef}>

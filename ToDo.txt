@@ -1,7 +1,10 @@
 - Continue Filter Section:
   - Go through the whole filter functionality and understand it, clean up and improve rerender cycles
 
-- implement logger middleware
+- implement outsideClickHandler for ProfileMenu
+- include touch event listener (touchstart?) for outsideClickHandler
+- Finish SignUp/Login Process
+- create a ProfileMenu with some mockup options
 
 - next steps:
   - read redux docs

@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { rootReducer } from "./root-reducer";
 import { createFilter } from "redux-persist-transform-filter";
-import logger from "redux-logger";
+//import logger from "redux-logger";
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
@@ -28,7 +28,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(process.env.NODE_ENV === "development" && logger).filter(Boolean),
+    }),
 });
-
+// To activate logger, add ".concat(process.env.NODE_ENV === "development" && logger).filter(Boolean)" after getDefaultMiddleware({...}).
 export const persistor = persistStore(store);
