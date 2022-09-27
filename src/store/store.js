@@ -28,7 +28,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(logger),
+    }).concat(process.env.NODE_ENV === "development" && logger).filter(Boolean),
 });
 
 export const persistor = persistStore(store);
