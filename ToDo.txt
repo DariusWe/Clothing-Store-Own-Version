@@ -1,7 +1,7 @@
 - Continue Filter Section:
   - Go through the whole filter functionality and understand it, clean up and improve rerender cycles
 
-- How to realize transform filters (for persisting) in RTK
+- implement logger middleware
 
 - next steps:
   - read redux docs
@@ -16,23 +16,9 @@ RERENDERING PERFORMANCE ISSUES - ignore for now:
 - maybe use window.location.pathname. It's vanilla JS and not a hook.
 - maybe wrap entire app below top level component in another container, which is a react.memo() function.
 
-- Redux docs say not every selector should be memoized. Course is doing so though.
-- products slice needs no selector logic, as my database is different than in the course. Already have most basic form of data.
-
-#################
-
 - Think about file/folder structure! (maybe feature-based?)
 - Redux Saga deprecated, said Redux maintainer: https://stackoverflow.com/questions/72360331/is-it-worth-using-redux-saga-in-long-term
-- Actions should have minimum amount of information (right?). So sending quantity and totalQuantity via an action is not best practice.
-- Redux should store the most basic form of data. Selectors then should handle the selecting logic. See Redux chapter of udemy course.
-  When selectors include code to extract the information needed, this code is run everytime the selector is run. This can be bad for
-  performance, but look at redux chapter (think he has a solution for this). Also useSelector in combination with middleware can lead to
-  not wanted rerenderings. This can be solved with Memoization (caching).
-  --> Right now my action creator is doing all the fetching and preparing of the data. But should be changed to above strategy.
-- research file/folder structuring strategies (React Redux)!
 - research render behaviour of my components. Some components are unnecessarily rerendering multiple times.
-- replace createStore with configureStore (https://redux-toolkit.js.org/api/configureStore)
-
 
 - Implement global css fonts, color etc. management
 - continue WebDev document on google docs 
@@ -41,29 +27,23 @@ RERENDERING PERFORMANCE ISSUES - ignore for now:
 - Redux
 - Commit
 
-- Fetching products from Firestore: Better, more organized solution? Right now super complicated to understand whats happening there...
+- Fetching products from Firestore: Better, more organized solution?
 - Make Responsive
 - Optimize etc
 - SEO considerations (alt attributes, correct html tags, content indexable?, )
 - Accessibility (see Zara)
 - Indicate Impressum, Privacy and stuff
-
   
 AT THE END:
 - Redo Spinner Animation for practice
 - Move category description from products-page into database
 - Animations and Click-Feedback
-- When Cart-Popup open, make dark overlay over rest of site (look c&a)
 - Include better images
-- More sense-making prices
 - Build Mens Page
 - Build Collection Category Page
-- Build Filter
 - Build Wishlist
 - Build Product-Page
 - Include basic Account Settings
-
-
 
 - Make a sticky, changing (on scroll) header, that always shows the most important information.
 - Fetching all shop data from the database once and then store it in a context variable? Or is it ineffective to fetch ALL data? Maybe
