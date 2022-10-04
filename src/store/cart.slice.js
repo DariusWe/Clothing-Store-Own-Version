@@ -31,14 +31,14 @@ const cartSlice = createSlice({
     removeFromCart: (state, { payload: itemToRemove }) => {
       state.cartItems = state.cartItems.filter((item) => item.id !== itemToRemove.id);
     },
-    toggleIsCartOpen: (state) => {
+    toggleCart: (state) => {
       state.isCartOpen = !state.isCartOpen;
     },
   },
 });
 
 export const cartReducer = cartSlice.reducer;
-export const { addItemToCart, increaseQuantity, decreaseQuantity, removeFromCart, toggleIsCartOpen } =
+export const { addItemToCart, increaseQuantity, decreaseQuantity, removeFromCart, toggleCart } =
   cartSlice.actions;
 
 //// SELECTORS

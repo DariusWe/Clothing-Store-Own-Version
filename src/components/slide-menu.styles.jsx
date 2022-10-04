@@ -12,4 +12,13 @@ export const Container = styled.div`
   background-color: rgba(255, 255, 255, 1);
   z-index: 2;
   transition: display 2s;
+  .fa-xmark {
+    position: absolute;
+    top: 18px;
+    right: 30px;
+    font-size: 24px;
+    color: #222;
+    padding: 10px;
+    cursor: pointer;
+  }
 `;

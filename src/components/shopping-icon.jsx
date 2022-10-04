@@ -1,5 +1,5 @@
 import { Container, Counter } from "./shopping-icon.styles";
-import { toggleIsCartOpen, selectCartQuantity } from "../store/cart.slice";
+import { toggleCart, selectCartQuantity } from "../store/cart.slice";
 import { useDispatch, useSelector } from "react-redux";
 
 const ShoppingIcon = () => {
@@ -8,7 +8,7 @@ const ShoppingIcon = () => {
   const dispatch = useDispatch();
 
   return (
-    <Container onClick={() => dispatch(toggleIsCartOpen())}>
+    <Container onClick={() => dispatch(toggleCart())}>
       <i className="fa-solid fa-cart-shopping" />
       <Counter>{cartQuantity}</Counter>
     </Container>

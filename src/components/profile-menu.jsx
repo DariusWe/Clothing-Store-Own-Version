@@ -1,16 +1,14 @@
 import { Container } from "./profile-menu.styles";
-import { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleProfileMenu } from "../store/user.slice";
 import { signOutUser } from "../utils/firebase";
-import RightSideMenu from "./right-side-menu";
+import SlideMenu from "./slide-menu";
 import Button from "./button";
 
 const ProfileMenu = () => {
   console.log("Render/Rerender of ProfilePopup");
   const currentUser = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
-  const profileMenuRef = useRef();
 
   const signOut = () => {
     signOutUser().then(() => {
@@ -18,31 +16,9 @@ const ProfileMenu = () => {
     });
   };
 
-  //////////////// Outside-click-handler
-
-  useEffect(() => {
-    document.addEventListener("mousedown", checkClickLocation);
-    return () => {
-      document.removeEventListener("mousedown", checkClickLocation);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const checkClickLocation = (e) => {
-    if (!profileMenuRef.current.contains(e.target)) {
-      closeProfileMenu();
-    }
-  };
-
-  const closeProfileMenu = () => {
-    dispatch(toggleProfileMenu());
-  };
-
-  ////////////////
-
   return (
-    <RightSideMenu>
-      <Container ref={profileMenuRef}>
+    <SlideMenu context="profile-menu">
+      <Container>
         {currentUser ? (
           <div>
             <span>Signed in as: {currentUser.displayName}</span>
@@ -51,7 +27,7 @@ const ProfileMenu = () => {
           </div>
         ) : null}
       </Container>
-    </RightSideMenu>
+    </SlideMenu>
   );
 };
 

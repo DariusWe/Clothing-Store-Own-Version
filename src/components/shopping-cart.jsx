@@ -1,9 +1,8 @@
-import { Container, TopSection, ItemList, EmptyMessage, BottomSection, Row } from "./shopping-cart.styles";
-import { useEffect, useRef } from "react";
+import { Container, Label, ItemList, EmptyMessage, BottomSection, Row } from "./shopping-cart.styles";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCartItems, selectCartTotal, selectCartQuantity, toggleIsCartOpen } from "../store/cart.slice";
-import RightSideMenu from "./right-side-menu";
+import { selectCartItems, selectCartTotal, selectCartQuantity, toggleCart } from "../store/cart.slice";
+import SlideMenu from "./slide-menu";
 import ShoppingCartItem from "./shopping-cart-item";
 import Button from "./button";
 
@@ -14,37 +13,11 @@ const ShoppingCart = () => {
   const cartQuantity = useSelector(selectCartQuantity);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const cartRef = useRef();
-
-  //////////////// Following Code Block checks clicks outside of component and closes Cart if it occurs.
-
-  useEffect(() => {
-    document.addEventListener("mousedown", checkClickLocation);
-    return () => {
-      document.removeEventListener("mousedown", checkClickLocation);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const checkClickLocation = (e) => {
-    if (!cartRef.current.contains(e.target)) {
-      closeCart();
-    }
-  };
-
-  const closeCart = () => {
-    dispatch(toggleIsCartOpen());
-  };
-
-  ////////////////
 
   return (
-    <RightSideMenu>
-      <Container ref={cartRef}>
-        <TopSection>
-          <span>Cart</span>
-          <i className="fa-solid fa-xmark" onClick={closeCart}></i>
-        </TopSection>
+    <SlideMenu context="cart">
+      <Container>
+        <Label>Cart</Label>
         <ItemList>
           {cartItems.map((product) => <ShoppingCartItem key={product.id} product={product} />).reverse()}
         </ItemList>
@@ -73,7 +46,7 @@ const ShoppingCart = () => {
             <Button
               value="Checkout"
               onClick={() => {
-                dispatch(toggleIsCartOpen());
+                dispatch(toggleCart());
                 navigate("/checkout");
               }}
             />
@@ -82,7 +55,7 @@ const ShoppingCart = () => {
           <EmptyMessage>Your shopping cart is empty</EmptyMessage>
         )}
       </Container>
-    </RightSideMenu>
+    </SlideMenu>
   );
 };
 

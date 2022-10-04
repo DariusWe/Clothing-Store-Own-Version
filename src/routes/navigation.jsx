@@ -31,9 +31,9 @@ const Navigation = () => {
         <NavbarTop />
         <Outlet />
       </ContentArea>
-      {isCartOpen ? <ShoppingCart /> : null}
-      {isProfileMenuOpen ? <ProfileMenu /> : null}
-      {isCartOpen || isProfileMenuOpen ? <DarkOverlay /> : null}
+      {isCartOpen && <ShoppingCart />}
+      {isProfileMenuOpen && <ProfileMenu />}
+      {(isCartOpen || isProfileMenuOpen) && <DarkOverlay />}
     </MainContainer>
   );
 };

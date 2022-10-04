@@ -6,28 +6,16 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  //box-shadow: -8px 0 26px -6px rgba(0, 0, 0, 0.06);
   z-index: 2;
 `;
 
-export const TopSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  //border-bottom: 1px solid #444;
+export const Label = styled.span`
+  display: inline-block;
   margin-bottom: 25px;
   padding: 0 30px;
-  span {
-    font-size: 24px;
-    font-weight: 600;
-    color: #222;
-  }
-  i {
-    font-size: 24px;
-    color: #222;
-    padding: 10px;
-    cursor: pointer;
-  }
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
 `;
 
 export const ItemList = styled.div`
