@@ -4,14 +4,14 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     currentUser: null,
-    profileMenuIsOpen: false,
+    isProfileMenuOpen: false,
   },
   reducers: {
     setCurrentUser: (state, action) => {
       state.currentUser = action.payload;
     },
     toggleProfileMenu: (state) => {
-      state.profileMenuIsOpen = !state.profileMenuIsOpen;
+      state.isProfileMenuOpen = !state.isProfileMenuOpen;
     },
   },
 });
