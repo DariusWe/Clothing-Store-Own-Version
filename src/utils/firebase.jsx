@@ -88,9 +88,12 @@ export const getProductsFromFirestore = async (gender) => {
   return categories;
 };
 
-export const firebaseCreateUserWithEmailAndPassword = async (email, password, name) => {
+export const firebaseCreateUserWithEmailAndPassword = async (email, password, displayName) => {
+  // Right now the returned user obj is never used, though it has useful properties.
+  // Maybe use it later, when checking if email is verified etc...
+  // We are using the user object one time in the app.js though, when using the onAuthChangedListener.
   const credidentials = await createUserWithEmailAndPassword(auth, email, password);
-  await updateProfile(auth.currentUser, { displayName: name });
+  await updateProfile(auth.currentUser, { displayName: displayName });
   return credidentials;
 };
 

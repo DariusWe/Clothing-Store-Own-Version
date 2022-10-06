@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: flex-start;
   height: 100%;
   padding-top: 30vh;
-  margin-right: 12vw;
+  margin-right: 18%;
 `;
 
 export const Divider = styled.div`
@@ -20,7 +20,7 @@ export const Divider = styled.div`
 `;
 
 export const RegisterSection = styled.div`
-  width: 400px;
+  width: 300px;
 
   h2 {
     margin-bottom: 51px;

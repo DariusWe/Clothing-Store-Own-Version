@@ -1,8 +1,11 @@
 import { Container, Spinner } from "./loading-spinner.styles";
 
-const LoadingSpinner = () => {
+// The className prop is necessary if you want to reference the styles of this component in another component.
+// Styled components automatically creates this classname and passes it as a prop.
+
+const LoadingSpinner = ({className}) => {
   return (
-  <Container>
+  <Container className={className}>
     <Spinner></Spinner>
   </Container>
   );

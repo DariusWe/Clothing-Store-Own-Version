@@ -1,14 +1,7 @@
 - Continue Filter Section:
   - Go through the whole filter functionality and understand it, clean up and improve rerender cycles
 
-- create a ProfileMenu with some mockup options
-- implement outsideClickHandler for ProfileMenu
 - include touch event listener (touchstart?) for outsideClickHandler
-- Finish SignUp/Login Process
-- currentUser in store is just an ID at the moment. No username or email...
-- right-side-menu or right-menu? Or slide-menu?
-- right-side-menu should handle the closing procedure. Every menu of this kind needs closing btn in top-right corner and 
-  an outsideClickHandler.
 
 - next steps:
   - read redux docs
@@ -43,6 +36,7 @@ RERENDERING PERFORMANCE ISSUES - ignore for now:
   
 AT THE END:
 - Redo Spinner Animation for practice
+- Replace Spinner Animation with a markup (placeholder) of the loading content.
 - Move category description from products-page into database
 - Animations and Click-Feedback
 - Include better images
@@ -51,6 +45,7 @@ AT THE END:
 - Build Wishlist
 - Build Product-Page
 - Include basic Account Settings
+- Finish SignUp/Login Process
 
 - Make a sticky, changing (on scroll) header, that always shows the most important information.
 - Fetching all shop data from the database once and then store it in a context variable? Or is it ineffective to fetch ALL data? Maybe

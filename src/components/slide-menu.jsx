@@ -7,7 +7,7 @@ import { toggleProfileMenu } from "../store/user.slice";
 // This wrapper component is designed to be reused for different contexts. It renders a blank slide menu with a closing button.
 // The context has to be passed as a string. It is needed for the closeSlideMenu() function (see down below)
 
-const SlideMenu = ({ children, context }) => {
+const SlideMenu = ({ children, context, width }) => {
   const menuRef = useRef();
   const dispatch = useDispatch();
 
@@ -35,7 +35,7 @@ const SlideMenu = ({ children, context }) => {
   /////////////
 
   return (
-    <Container ref={menuRef}>
+    <Container ref={menuRef} style={{width: width}}>
       <i className="fa-solid fa-xmark" onClick={closeSlideMenu}></i>
       {children}
     </Container>

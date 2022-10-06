@@ -1,9 +1,11 @@
 import { Container, Divider, RegisterSection } from "./sign-in-page.styles";
 import SignInForm from "../components/sign-in-form";
 import Button from "../components/button";
+import { useNavigate } from "react-router-dom";
 
 const SignInPage = () => {
   console.log("Render/Rerender of SignInPage");
+  const navigate = useNavigate();
   return (
     <Container>
       <SignInForm />
@@ -13,9 +15,13 @@ const SignInPage = () => {
       <RegisterSection>
         <h2>Register</h2>
         <p>
-          If you don't have an account yet, you can create one here. With an account, purchasing at our site will be a faster and more enjoyable experience.
+          If you don't have an account yet, you can create one here. With an account, purchasing at our site will be a
+          faster and more enjoyable experience.
         </p>
-        <Button value="Create an Account" />
+        <Button
+          value="Create an Account"
+          onClick={() => navigate("/sign-up")}
+        />
       </RegisterSection>
       {/* <SignUpForm /> */}
     </Container>

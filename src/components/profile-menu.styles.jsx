@@ -5,11 +5,29 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 0 30px;
 
-  button {
-    margin-top: 10px;
+  h3 {
+    display: block;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+    margin-top: 7px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+    border-bottom: 1px solid #aaa;
+  }
+
+  span {
+    display: block;
+    padding: 6px 0;
+    font-size: 16px;
+    //border-bottom: 1px solid #aaa;
+    &:last-child {
+      margin-top: 20px;
+      font-weight: 600;
+      cursor: pointer;
+    }
   }
 `;
 

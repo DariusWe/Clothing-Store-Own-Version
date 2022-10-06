@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import LoadingSpinner from "./loading-spinner";
 import { Link } from "react-router-dom";
 
 export const SideBarContainer = styled.div`
@@ -28,4 +29,14 @@ export const CategoriesList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start; // otherwise the links will span the full width and the border would be not just under the word
+`;
+
+export const LoadingSpinnerNavbar = styled(LoadingSpinner)`
+  height: 17vh;
+  width: 50%;
+  span {
+    height: 20px;
+    width: 20px;
+    border-width: 2px;
+  }
 `;

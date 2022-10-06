@@ -1,21 +1,21 @@
 // This component is probably using the same styles as sign-in-form. How to solve?
 
-import {} from "./sign-up-form.styles";
-import { useContext } from "react";
+import { Container } from "./sign-up-form.styles";
 import { useNavigate } from "react-router-dom";
 import { firebaseCreateUserWithEmailAndPassword } from "../utils/firebase";
-import { UserAuthContext } from "../contexts/UserAuthContext";
+import { useDispatch } from "react-redux";
+import { setDisplayName } from "../store/user.slice";
 import InputField from "./input-field";
 import Button from "./button";
 
 const SignUpForm = () => {
   console.log("Render/Rerender of SignUpForm");
-  const { setCurrentUser } = useContext(UserAuthContext);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const signUp = (e) => {
     e.preventDefault();
-    const name = e.target["name"].value;
+    const displayName = e.target["display-name"].value;
     const email = e.target["email"].value;
     const password = e.target["password"].value;
     const confirmPassword = e.target["confirm-password"].value;
@@ -23,9 +23,9 @@ const SignUpForm = () => {
       alert("Passwords do not match");
       return;
     }
-    firebaseCreateUserWithEmailAndPassword(email, password, name)
-      .then((cred) => {
-        setCurrentUser({ ...cred.user }); // spread operator needed here, otherwise setCurrentUser will not lead to updates in UI, because it seems to be the same object as already is in the context variable.
+    firebaseCreateUserWithEmailAndPassword(email, password, displayName)
+      .then(() => {
+        dispatch(setDisplayName(displayName));
         navigate("/");
       })
       .catch((err) => {
@@ -34,16 +34,16 @@ const SignUpForm = () => {
   };
 
   return (
-    <div>
+    <Container>
       <h2>Register</h2>
       <form onSubmit={signUp}>
-        <InputField type="text" label="Name:" id="name" />
-        <InputField type="email" label="Email:" id="email" />
-        <InputField type="password" label="Password:" id="password" />
-        <InputField type="password" label="Confirm password:" id="confirm-password" />
+        <InputField type="text" label="Full name" id="display-name" />
+        <InputField type="email" label="Email" id="email" />
+        <InputField type="password" label="Password" id="password" />
+        <InputField type="password" label="Confirm password" id="confirm-password" />
         <Button type="submit" value="Register" />
       </form>
-    </div>
+    </Container>
   );
 };
 

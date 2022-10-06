@@ -1,4 +1,4 @@
-import { SideBarContainer, GenderLink, CategoriesList } from "./navbar-side.styles";
+import { SideBarContainer, GenderLink, CategoriesList, LoadingSpinnerNavbar } from "./navbar-side.styles";
 import { useSelector } from "react-redux";
 import Logo from "./logo";
 import NavbarLink from "./navbar-link";
@@ -8,6 +8,7 @@ const NavbarSide = () => {
   const womenCategories = useSelector((state) => state.products.womenCategories);
   const menCategories = useSelector((state) => state.products.menCategories);
   const currLocation = useSelector((state) => state.userLocation.userLocation);
+  const ProductsLoading = useSelector((state) => state.products.isLoading);
 
   return (
     <SideBarContainer>
@@ -22,11 +23,15 @@ const NavbarSide = () => {
               Men
             </GenderLink>
           </div>
-          <CategoriesList>
-            {currLocation === "women"
-              ? womenCategories.map((category) => <NavbarLink key={category.id} category={category} />)
-              : menCategories.map((category) => <NavbarLink key={category.id} category={category} />)}
-          </CategoriesList>
+          {ProductsLoading ? (
+            <LoadingSpinnerNavbar />
+          ) : (
+            <CategoriesList>
+              {currLocation === "women"
+                ? womenCategories.map((category) => <NavbarLink key={category.id} category={category} />)
+                : menCategories.map((category) => <NavbarLink key={category.id} category={category} />)}
+            </CategoriesList>
+          )}
         </>
       ) : null}
     </SideBarContainer>

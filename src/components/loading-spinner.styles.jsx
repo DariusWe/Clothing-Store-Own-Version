@@ -8,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Spinner = styled.div`
+export const Spinner = styled.span`
   display: inline-block;
   width: 50px;
   height: 50px;

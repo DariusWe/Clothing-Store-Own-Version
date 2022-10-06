@@ -34,7 +34,7 @@ const SignInForm = () => {
         {location.pathname.includes("checkout") ? (
           <>
             <span>Don't have an account?</span>
-            <Link to="/sign-in">Register</Link>
+            <Link to="/sign-up">Register</Link>
           </>
         ) : (
           <>
