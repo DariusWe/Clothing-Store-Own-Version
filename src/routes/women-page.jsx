@@ -18,8 +18,8 @@ const WomenPage = () => {
           mi ornare maximus nec at lorem. Phasellus non maximus enim. Nullam congue suscipit condimentum. Aliquam non
           mauris nunc.
         </p>
-        <Link to="/">
-          <LinkToCollection>&rarr; View Collection</LinkToCollection>
+        <Link to="/women/blazers">
+          <LinkToCollection>&rarr; Shop blazers</LinkToCollection>
         </Link>
       </RightSection>
     </Container>
