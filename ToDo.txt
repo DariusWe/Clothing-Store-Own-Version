@@ -2,6 +2,14 @@
   - Go through the whole filter functionality and understand it, clean up and improve rerender cycles
 
 - include touch event listener (touchstart?) for outsideClickHandler
+- what goes into utils folder?
+- include data folder and put product filters there.
+- scrollToTop component: where does it go?
+- delete "page" from routes namings
+- rename routes folder to pages
+- make folders for each component, where jsx as well as styles live in
+- replace index, women- and menpage with "landingpage"
+- maybe make the filter section NOT reusable? So it could all live in a folder called products-filter-section...
 
 - next steps:
   - read redux docs

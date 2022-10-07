@@ -4,17 +4,15 @@ import { useDispatch } from "react-redux";
 import { onAuthStateChangedListener } from "./utils/firebase";
 import { fetchProductsAsync } from "./store/products.slice";
 import { setCurrentUser } from "./store/user.slice";
-import Navigation from "./routes/navigation";
-import ProductsPage from "./routes/products-page";
-import SignInPage from "./routes/sign-in-page";
-import SignUpPage from "./routes/sign-up-page";
-import CheckoutPage from "./routes/checkout-page";
-import WomenPage from "./routes/women-page";
-import MenPage from "./routes/men-page";
-import ScrollToTop from "./utils/scrollToTop";
+import Navigation from "./pages/navigation/navigation";
+import CategoryPage from "./pages/category/category-page";
+import SignInPage from "./pages/sign-in/sign-in-page";
+import SignUpPage from "./pages/sign-up/sign-up-page";
+import CheckoutPage from "./pages/checkout/checkout-page";
+import LandingPage from "./pages/landing/landing-page";
+import ScrollToTop from "./components/scrollToTop";
 
 const App = () => {
-  console.log("Render/Rerender of App");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,11 +38,9 @@ const App = () => {
       <ScrollToTop>
         <Routes>
           <Route path="/" element={<Navigation />}>
-            {/* replace index, women- and menpage with "indexpage" */}
-            <Route index element={<WomenPage />} />
-            <Route path="women" element={<WomenPage />} />
-            <Route path="men" element={<MenPage />} />
-            <Route path=":gender/:category" element={<ProductsPage />} />
+            <Route index element={<LandingPage />} />
+            <Route path=":gender" element={<LandingPage />} />
+            <Route path=":gender/:category" element={<CategoryPage />} />
             <Route path="sign-in" element={<SignInPage />} />
             <Route path="sign-up" element={<SignUpPage />} />
             <Route path="checkout" element={<CheckoutPage />} />
