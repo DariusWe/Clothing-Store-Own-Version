@@ -7,8 +7,8 @@ const LandingPage = () => {
   return userLocation === "women" ? (
     <Container>
       <LeftSection>
-        <img src={require("../../assets/pink4.jpg")} alt="New Spring Collection" />
-        <img src={require("../../assets/pink1.jpg")} alt="New Spring Collection" />
+        <img src={require("../../assets/green1.jpg")} alt="New Spring Collection" />
+        <img src={require("../../assets/white.jpg")} alt="New Spring Collection" />
       </LeftSection>
       <RightSection>
         <h2>Spring Collection</h2>

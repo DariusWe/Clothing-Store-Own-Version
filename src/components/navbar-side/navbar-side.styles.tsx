@@ -8,9 +8,12 @@ export const SideBarContainer = styled.div`
   // Edge 15 and earlier Versions also don't support sticky. Alternative Solution?
   top: 0px;
   height: 100vh;
-  min-width: 17vw;
-  padding: 38px 30px;
+  //width: 16vw;
+  padding: 30px 30px;
+  padding-right: 60px;
   //border-right: 1px solid #222;
+  //background-color: #f6f6f6;
+  // box-shadow: 10px 10px 20px #00000010;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -33,6 +36,9 @@ export const CategoriesList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start; // otherwise the links will span the full width and the border would be not just under the word
+  border-left: 6px solid #000;
+  border-radius: 6px;
+  padding-left: 20px;
 `;
 
 export const LoadingSpinnerNavbar = styled(LoadingSpinner)`
