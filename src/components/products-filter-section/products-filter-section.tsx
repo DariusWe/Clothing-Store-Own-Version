@@ -5,6 +5,7 @@ import { setSortBy, setColors } from "../../store/filters.slice";
 import { useTypedSelector, useTypedDispatch } from "../../hooks";
 import { RootStateType } from "../../store/root-reducer";
 import { LIST_TYPES } from "../../constants/listTypes";
+import { SORT_BY_VALUES } from "../../constants/sortByFilterValues";
 
 // To infer the type of the state via useSelector or useTypedSelector, you have to export the RootStateType from the ROOTREDUCER, not
 // from the store (like it's said in the docs). See here for more infos:
@@ -29,7 +30,7 @@ const ProductsFilterSection = () => {
     {
       label: "Sort By",
       listType: LIST_TYPES.RADIO,
-      entries: ["recommended", "lowest price", "highest price"],
+      entries: [SORT_BY_VALUES.RECOMMENDED, SORT_BY_VALUES.LOWEST_PRICE, SORT_BY_VALUES.HIGHEST_PRICE],
       currStoreValue: sortBy,
       setStoreValue: (value: string): void => {
         dispatch(setSortBy(value));

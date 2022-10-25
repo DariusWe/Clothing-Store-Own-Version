@@ -1,16 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { SORT_BY_VALUES } from "../constants/sortByFilterValues";
 
 // ToDo: Define payload types and other "any"-types
 
-// Move sortBy strings into constant?
-
 type InitialStateType = {
-  sortBy: "recommended" | "lowest price" | "highest price";
+  sortBy: SORT_BY_VALUES;
   colors: string[];
 };
 
 const INITIAL_STATE: InitialStateType = {
-  sortBy: "recommended",
+  sortBy: SORT_BY_VALUES.RECOMMENDED,
   colors: [],
 };
 
