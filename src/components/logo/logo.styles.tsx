@@ -18,13 +18,13 @@ export const LogoContainer = styled(Link)`
   //background-color: #000;
   /* padding-left: 16px;
   border-left: 8px solid black; */
-  margin-bottom: 80px;
+  margin-bottom: 52px;
   /* border-top: 2px solid black;
   border-bottom: 2px solid black; */
   border-radius: 4px;
   width: 100%;
   img {
-    width: 120px;
+    width: 140px;
     //border: 1px solid #666;
     border-radius: 5px;
   }

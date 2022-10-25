@@ -7,6 +7,7 @@ import type { Item } from "../../store/products.slice";
 import ProductItem from "../../components/product-item/product-item";
 import ProductsFilterSection from "../../components/products-filter-section/products-filter-section";
 import LoadingSpinner from "../../components/loading-spinner/loading-spinner";
+import { URL_LOCATION } from "../../constants/urlLocations";
 
 const CategoryPage = () => {
   const [products, setProducts] = useState<Item[]>([]);
@@ -25,7 +26,7 @@ const CategoryPage = () => {
   // This useEffect runs on mount and then again when women and men products get set or the category changes.
     if (womenCategories.length > 0 && menCategories.length > 0) {
       const categoryProducts =
-        gender === "women"
+        gender === URL_LOCATION.WOMEN
           ? womenCategories.filter((cat) => cat.titleSanitized === urlCategoryName)[0].items
           : menCategories.filter((cat) => cat.titleSanitized === urlCategoryName)[0].items;
       setProducts(categoryProducts);

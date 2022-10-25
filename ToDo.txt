@@ -3,9 +3,9 @@
 
 - SignUpForm and SignInForm are typed different. Which solution is better? Even better solution possible?
 
-- UserWantsToCheckOutButIsntLoggedIn
 - Continue typing, there are a lot of "any" types yet (for example the reducers/actions/payloads)
 - URL (women, men, other) routes into constant?
+- sortby strings into constant?
 - Push when typing completely finished
 - include touch event listener (touchstart?) for outsideClickHandler
 - maybe make the filter section NOT reusable? So it could all live in a folder called products-filter-section...

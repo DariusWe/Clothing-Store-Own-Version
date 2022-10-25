@@ -1,10 +1,11 @@
 import { Container, LeftSection, RightSection, LinkToCollection } from "./landing-page.styles";
 import { Link } from "react-router-dom";
 import { useTypedSelector } from "../../hooks";
+import { URL_LOCATION } from "../../constants/urlLocations";
 
 const LandingPage = () => {
   const userLocation = useTypedSelector((state) => state.userLocation.userLocation);
-  return userLocation === "women" ? (
+  return userLocation === URL_LOCATION.WOMEN ? (
     <Container>
       <LeftSection>
         <img src={require("../../assets/green1.jpg")} alt="New Spring Collection" />

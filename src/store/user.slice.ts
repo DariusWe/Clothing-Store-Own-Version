@@ -11,7 +11,6 @@ type CurrentUser = {
 type SliceState = {
   currentUser: CurrentUser;
   isProfileMenuOpen: boolean;
-  userWantsToSignInToCheckOut: boolean;
 };
 
 const userSlice = createSlice({

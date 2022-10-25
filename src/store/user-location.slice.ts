@@ -1,22 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { URL_LOCATION } from "../constants/urlLocations";
 
 type SliceState = {
-  userLocation: "women" | "men" | "other";
+  userLocation: URL_LOCATION;
 };
 
 const userLocationSlice = createSlice({
   name: "userLocation",
   initialState: {
-    userLocation: "women",
+    userLocation: URL_LOCATION.WOMEN,
   } as SliceState,
   reducers: {
     setUserLocation: (state, action) => {
       if (action.payload === "/" || action.payload.includes("/women")) {
-        state.userLocation = "women";
+        state.userLocation = URL_LOCATION.WOMEN;
       } else if (action.payload.includes("/men")) {
-        state.userLocation = "men";
+        state.userLocation = URL_LOCATION.MEN;
       } else {
-        state.userLocation = "other";
+        state.userLocation = URL_LOCATION.OTHER;
       }
     },
   },
