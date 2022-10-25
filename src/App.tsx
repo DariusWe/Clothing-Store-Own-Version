@@ -44,7 +44,9 @@ const App = () => {
           <Route path=":gender" element={<LandingPage />} />
           <Route path=":gender/:category" element={<CategoryPage />} />
           <Route path="sign-in" element={<SignInPage />} />
+          <Route path="sign-in/:destination" element={<SignInPage />} />
           <Route path="sign-up" element={<SignUpPage />} />
+          <Route path="sign-up/:destination" element={<SignUpPage />} />
           <Route path="checkout" element={<CheckoutPage />} />
         </Route>
       </Routes>

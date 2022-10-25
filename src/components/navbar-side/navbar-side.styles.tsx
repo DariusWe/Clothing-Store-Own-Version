@@ -9,11 +9,11 @@ export const SideBarContainer = styled.div`
   top: 0px;
   height: 100vh;
   //width: 16vw;
-  padding: 30px 30px;
-  padding-right: 60px;
+  padding: 25px 30px;
+  padding-right: 40px;
   //border-right: 1px solid #222;
   //background-color: #f6f6f6;
-  // box-shadow: 10px 10px 20px #00000010;
+  //box-shadow: 5px 5px 20px #00000010;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -36,8 +36,8 @@ export const CategoriesList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start; // otherwise the links will span the full width and the border would be not just under the word
-  border-left: 6px solid #000;
-  border-radius: 6px;
+  border-left: 1px solid #000;
+  border-radius: 1px;
   padding-left: 20px;
 `;
 

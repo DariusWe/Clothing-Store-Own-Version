@@ -3,15 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 // Define CurrentUser type here or better somewhere else?
 
 type CurrentUser = {
-  uid: null | number,
-  email: string,
-  displayName: string,
-}
+  uid: null | number;
+  email: string;
+  displayName: string;
+} | null;
 
 type SliceState = {
-  currentUser: CurrentUser,
-  isProfileMenuOpen: boolean,
-}
+  currentUser: CurrentUser;
+  isProfileMenuOpen: boolean;
+  userWantsToSignInToCheckOut: boolean;
+};
 
 const userSlice = createSlice({
   name: "user",
@@ -28,7 +29,9 @@ const userSlice = createSlice({
       state.currentUser = action.payload;
     },
     setDisplayName: (state, action) => {
-      state.currentUser.displayName = action.payload;
+      if (state.currentUser) {
+        state.currentUser.displayName = action.payload;
+      }
     },
     toggleProfileMenu: (state) => {
       state.isProfileMenuOpen = !state.isProfileMenuOpen;

@@ -1,7 +1,7 @@
 // This component is probably using the same styles as sign-in-form. How to solve?
 
-import { Container } from "./sign-up-form.styles";
-import { useNavigate } from "react-router-dom";
+import { Container, LoginSection } from "./sign-up-form.styles";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import { firebaseCreateUserWithEmailAndPassword } from "../../utils/firebase";
 import { useTypedDispatch } from "../../hooks";
 import { setDisplayName } from "../../store/user.slice";
@@ -13,6 +13,7 @@ import Button from "../button/button";
 const SignUpForm = () => {
   const navigate = useNavigate();
   const dispatch = useTypedDispatch();
+  const { destination } = useParams();
 
   const signUp: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -30,7 +31,7 @@ const SignUpForm = () => {
     firebaseCreateUserWithEmailAndPassword(email, password, displayName)
       .then(() => {
         dispatch(setDisplayName(displayName));
-        navigate("/");
+        destination === "to-checkout" ? navigate("/checkout") : navigate("/");
       })
       .catch((err) => {
         alert(err.message);
@@ -46,6 +47,10 @@ const SignUpForm = () => {
         <InputField type="password" label="Password" id="password" />
         <InputField type="password" label="Confirm password" id="confirmPassword" />
         <Button type="submit" label="Register" />
+        <LoginSection>
+        <span>Already have an account?</span>
+        <Link to="/sign-in">Login</Link>
+        </LoginSection>
       </form>
     </Container>
   );

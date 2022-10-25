@@ -4,10 +4,11 @@ import { LogoContainer } from "./logo.styles";
 const Logo = () => {
   return (
     <LogoContainer to="/">
-      <span>R</span>
-      <span>.</span>
-      <p>Random Clothing Store</p>
-      {/* <img alt="RandomWear Logo" src={require("../../assets/logo1.png")} /> */}
+      {/* <span>M&H</span> */}
+      {/* <span>.</span> */}
+      {/* <div>Logo</div> */}
+      <img alt="RandomWear Logo" src={require("../../assets/logo5.png")} />
+      {/* <p>Random Clothing Store</p> */}
     </LogoContainer>
   );
 };

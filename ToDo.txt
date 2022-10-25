@@ -3,6 +3,7 @@
 
 - SignUpForm and SignInForm are typed different. Which solution is better? Even better solution possible?
 
+- UserWantsToCheckOutButIsntLoggedIn
 - Continue typing, there are a lot of "any" types yet (for example the reducers/actions/payloads)
 - URL (women, men, other) routes into constant?
 - Push when typing completely finished

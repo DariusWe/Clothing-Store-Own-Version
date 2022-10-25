@@ -30,7 +30,7 @@ export const RightSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 45px;
+  padding: 0 35px;
   h2 {
     font-size: 34px;
     margin-bottom: 4px;

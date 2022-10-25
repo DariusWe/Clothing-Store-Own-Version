@@ -10,6 +10,7 @@ const ShoppingCart = () => {
   const cartItems = useTypedSelector(selectCartItems);
   const cartTotal = useTypedSelector(selectCartTotal);
   const cartQuantity = useTypedSelector(selectCartQuantity);
+  const currentUser = useTypedSelector(state => state.user.currentUser);
   const dispatch = useTypedDispatch();
   const navigate = useNavigate();
 
@@ -46,7 +47,7 @@ const ShoppingCart = () => {
               label="Checkout"
               onClick={() => {
                 dispatch(toggleCart());
-                navigate("/checkout");
+                currentUser ? navigate("/checkout") : navigate("/sign-in/to-checkout");
               }}
             />
           </BottomSection>
