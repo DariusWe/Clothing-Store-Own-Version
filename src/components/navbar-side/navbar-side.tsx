@@ -1,10 +1,11 @@
 import { SideBarContainer, GenderLink, CategoriesList, LoadingSpinnerNavbar } from "./navbar-side.styles";
-import { useTypedSelector } from "../../hooks";
+import { useTypedSelector } from "../../store/hooks";
 import Logo from "../logo/logo";
 import NavbarSideLink from "../navbar-side-link/navbar-side-link";
 import { URL_LOCATION } from "../../constants/urlLocations";
 
 const NavbarSide = () => {
+  console.log("NavbarSide");
   const womenCategories = useTypedSelector((state) => state.products.womenCategories);
   const menCategories = useTypedSelector((state) => state.products.menCategories);
   const currLocation = useTypedSelector((state) => state.userLocation.userLocation);

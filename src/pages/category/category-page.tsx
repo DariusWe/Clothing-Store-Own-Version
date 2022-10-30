@@ -1,7 +1,7 @@
 import { Container, CategoryTitle, CategoryDescription, ProductsContainer } from "./category-page.styles";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useTypedSelector, useTypedDispatch } from "../../hooks";
+import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
 import { setSortBy, resetColors } from "../../store/filters.slice";
 import type { Item } from "../../store/products.slice";
 import ProductItem from "../../components/product-item/product-item";
@@ -10,20 +10,21 @@ import LoadingSpinner from "../../components/loading-spinner/loading-spinner";
 import { URL_LOCATION } from "../../constants/urlLocations";
 
 const CategoryPage = () => {
+  console.log("CategoryPage");
   const [products, setProducts] = useState<Item[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Item[]>([]);
   const { gender, category: urlCategoryName } = useParams();
   const womenCategories = useTypedSelector((state) => state.products.womenCategories);
   const menCategories = useTypedSelector((state) => state.products.menCategories);
   const isLoading = useTypedSelector((state) => state.products.isLoading);
-  const colors = useTypedSelector(state => state.filters.colors);
-  const sortBy = useTypedSelector(state => state.filters.sortBy);
+  const colors = useTypedSelector((state) => state.filters.colors);
+  const sortBy = useTypedSelector((state) => state.filters.sortBy);
   const dispatch = useTypedDispatch();
 
   useEffect(() => {
-  // Depending on URL params "gender" and "category" push the corresponding products into local state.
-  // Initialize the filteredProducts state variable as the filtered products get rendered.
-  // This useEffect runs on mount and then again when women and men products get set or the category changes.
+    // Depending on URL params "gender" and "category" push the corresponding products into local state.
+    // Initialize the filteredProducts state variable as the filtered products get rendered.
+    // This useEffect runs on mount and then again when women and men products get set or the category changes.
     if (womenCategories.length > 0 && menCategories.length > 0) {
       const categoryProducts =
         gender === URL_LOCATION.WOMEN
@@ -48,22 +49,26 @@ const CategoryPage = () => {
 
   useEffect(() => {
     // Whenever some filter gets applied by the user, run this useEffect. Filter first, then sort the filtered selection.
+    // Only run logic if there are actual products. Without this if statement products on the first load will be an empty array.
     // Should be fixed: the following line does not detect products with more than one color.
-    const filtered = colors.length > 0 ? products.filter((product) => colors.includes(product.color)) : [...products];
-    switch (sortBy) {
-      case "recommended":
-        setFilteredProducts(filtered.sort((a, b) => a.id - b.id));
-        break;
-      case "lowest price":
-        setFilteredProducts(filtered.sort((a, b) => a.price - b.price));
-        break;
-      case "highest price":
-        setFilteredProducts(filtered.sort((a, b) => b.price - a.price));
-        break;
-      default:
-        break;
+    if (products.length > 0) {
+      const filtered = colors.length > 0 ? products.filter((product) => colors.includes(product.color)) : [...products];
+      switch (sortBy) {
+        case "recommended":
+          setFilteredProducts(filtered.sort((a, b) => a.id - b.id));
+          break;
+        case "lowest price":
+          setFilteredProducts(filtered.sort((a, b) => a.price - b.price));
+          break;
+        case "highest price":
+          setFilteredProducts(filtered.sort((a, b) => b.price - a.price));
+          break;
+        default:
+          break;
+      }
     }
-  }, [colors, sortBy, products]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [colors, sortBy]);
 
   return (
     <Container>
@@ -82,7 +87,7 @@ const CategoryPage = () => {
           {filteredProducts.map((product) => (
             <ProductItem key={product.id} product={product} />
           ))}
-          {filteredProducts.length === 0 ? <span>No items found for the selected filters.</span>: null}
+          {filteredProducts.length === 0 ? <span>No items found for the selected filters.</span> : null}
         </ProductsContainer>
       )}
     </Container>

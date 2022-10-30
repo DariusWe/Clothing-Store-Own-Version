@@ -17,6 +17,7 @@ type FilterItemProps = {
 };
 
 const FilterItem = ({ filter }: FilterItemProps) => {
+  console.log("FilterItem");
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
   const { label, listType, entries, currStoreValue, setStoreValue } = filter;
   const dropdownRef = useRef<HTMLDivElement>(null);

@@ -7,6 +7,7 @@ import Button from "../button/button";
 // Course is leveraging another typescript solution. This one here is just 20% of lines of code, but is it best practice?
 
 const SignInForm = () => {
+  console.log("SigninForm");
   const navigate = useNavigate();
   const { destination } = useParams();
 

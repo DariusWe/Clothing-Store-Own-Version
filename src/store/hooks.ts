@@ -1,6 +1,6 @@
 import { useSelector, TypedUseSelectorHook, useDispatch } from "react-redux";
-import { RootStateType } from "./store/root-reducer";
-import { AppDispatch } from "./store/store";
+import { RootStateType } from "./root-reducer";
+import { AppDispatch } from "./store";
 
 // Placing this file in top level src folder really good practice? 
 

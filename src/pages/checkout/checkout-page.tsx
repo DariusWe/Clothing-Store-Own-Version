@@ -1,6 +1,7 @@
 import { Container } from "./checkout-page.styles";
 
 const CheckoutPage = () => {
+  console.log("CheckoutPage");
   return (
     <Container>
       <h1>Checkout page</h1>

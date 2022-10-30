@@ -1,6 +1,6 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { useLocation, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
-import { useTypedDispatch } from "./hooks";
+import { useTypedDispatch } from "./store/hooks";
 import { onAuthStateChangedListener } from "./utils/firebase";
 import { fetchProductsAsync } from "./store/products.slice";
 import { setCurrentUser } from "./store/user.slice";
@@ -13,12 +13,14 @@ import CheckoutPage from "./pages/checkout/checkout-page";
 import LandingPage from "./pages/landing/landing-page";
 
 const App = () => {
+  console.log("App");
   const dispatch = useTypedDispatch();
   const location = useLocation();
 
   useEffect(() => {
     dispatch(fetchProductsAsync());
-  }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((userInstance) => {
@@ -30,26 +32,28 @@ const App = () => {
       }
     });
     return unsubscribe;
-  }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     dispatch(setUserLocation(location.pathname));
     window.scrollTo(0, 0);
-  }, [location, dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
 
   return (
-      <Routes>
-        <Route path="/" element={<Navigation />}>
-          <Route index element={<LandingPage />} />
-          <Route path=":gender" element={<LandingPage />} />
-          <Route path=":gender/:category" element={<CategoryPage />} />
-          <Route path="sign-in" element={<SignInPage />} />
-          <Route path="sign-in/:destination" element={<SignInPage />} />
-          <Route path="sign-up" element={<SignUpPage />} />
-          <Route path="sign-up/:destination" element={<SignUpPage />} />
-          <Route path="checkout" element={<CheckoutPage />} />
-        </Route>
-      </Routes>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<LandingPage />} />
+        <Route path=":gender" element={<LandingPage />} />
+        <Route path=":gender/:category" element={<CategoryPage />} />
+        <Route path="sign-in" element={<SignInPage />} />
+        <Route path="sign-in/:destination" element={<SignInPage />} />
+        <Route path="sign-up" element={<SignUpPage />} />
+        <Route path="sign-up/:destination" element={<SignUpPage />} />
+        <Route path="checkout" element={<CheckoutPage />} />
+      </Route>
+    </Routes>
   );
 };
 

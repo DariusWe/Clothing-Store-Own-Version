@@ -1,6 +1,6 @@
 import { Container, InfoSection, DeleteIcon } from "./shopping-cart-item.styles";
 import { increaseQuantity, decreaseQuantity, removeFromCart } from "../../store/cart.slice";
-import { useTypedDispatch } from "../../hooks";
+import { useTypedDispatch } from "../../store/hooks";
 import type { CartItem } from "../../store/cart.slice";
 
 type ShoppingCartItemProps = {
@@ -8,6 +8,7 @@ type ShoppingCartItemProps = {
 };
 
 const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({ product }) => {
+  console.log("ShoppingCartItem");
   const dispatch = useTypedDispatch();
 
   return (

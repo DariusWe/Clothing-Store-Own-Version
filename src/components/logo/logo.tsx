@@ -2,6 +2,7 @@ import React from "react";
 import { LogoContainer } from "./logo.styles";
 
 const Logo = () => {
+  console.log("Logo");
   return (
     <LogoContainer to="/">
       {/* <span>M&H</span> */}

@@ -1,6 +1,6 @@
 import { Container, BottomSection, ProductInfo, AddButton } from "./product-item.styles";
 import { addItemToCart } from "../../store/cart.slice";
-import { useTypedDispatch } from "../../hooks";
+import { useTypedDispatch } from "../../store/hooks";
 import type { Item } from "../../store/products.slice";
 
 type ProductItemProps = {
@@ -8,6 +8,7 @@ type ProductItemProps = {
 }
 
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
+  console.log("ProductItem");
   const dispatch = useTypedDispatch();
 
   return (

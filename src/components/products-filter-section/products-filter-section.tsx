@@ -2,7 +2,7 @@ import { Container, SelectedFilters } from "./products-filter-section.styles";
 import FilterItem from "../filter-item/filter-item";
 import { useSelector } from "react-redux";
 import { setSortBy, setColors } from "../../store/filters.slice";
-import { useTypedSelector, useTypedDispatch } from "../../hooks";
+import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
 import { RootStateType } from "../../store/root-reducer";
 import { LIST_TYPES } from "../../constants/listTypes";
 import { SORT_BY_VALUES } from "../../constants/sortByFilterValues";
@@ -20,6 +20,7 @@ export type ProductFilter = {
 };
 
 const ProductsFilterSection = () => {
+  console.log("ProductsFilterSection");
   // Both selecting methods possible. Second one is recommended as you don't have to pass RootStateType into every selector.
   // First method can be changed to the second one.
   const sortBy = useSelector((state: RootStateType) => state.filters.sortBy);

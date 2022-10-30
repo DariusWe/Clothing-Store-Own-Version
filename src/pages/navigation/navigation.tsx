@@ -1,13 +1,15 @@
+import React from "react";
 import { MainContainer, ContentArea, DarkOverlay } from "./navigation.styles";
 import { Outlet } from "react-router-dom";
-import { useTypedSelector } from "../../hooks";
+import { useTypedSelector } from "../../store/hooks";
 import { selectIsCartOpen } from "../../store/cart.slice";
 import NavbarSide from "../../components/navbar-side/navbar-side";
 import ProfileMenu from "../../components/profile-menu/profile-menu";
 import ShoppingCart from "../../components/shopping-cart/shopping-cart";
 import NavbarTop from "../../components/navbar-top/navbar-top";
 
-const Navigation = () => {
+const Navigation = React.memo(() => {
+  console.log("Navigation");
   const isCartOpen = useTypedSelector(selectIsCartOpen);
   const isProfileMenuOpen = useTypedSelector((state) => state.user.isProfileMenuOpen);
 
@@ -23,6 +25,6 @@ const Navigation = () => {
       {(isCartOpen || isProfileMenuOpen) && <DarkOverlay />}
     </MainContainer>
   );
-};
+});
 
 export default Navigation;

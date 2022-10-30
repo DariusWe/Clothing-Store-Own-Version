@@ -1,9 +1,10 @@
 import { Container, LeftSection, RightSection, LinkToCollection } from "./landing-page.styles";
 import { Link } from "react-router-dom";
-import { useTypedSelector } from "../../hooks";
+import { useTypedSelector } from "../../store/hooks";
 import { URL_LOCATION } from "../../constants/urlLocations";
 
 const LandingPage = () => {
+  console.log("LandingPage");
   const userLocation = useTypedSelector((state) => state.userLocation.userLocation);
   return userLocation === URL_LOCATION.WOMEN ? (
     <Container>

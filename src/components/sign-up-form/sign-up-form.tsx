@@ -3,7 +3,7 @@
 import { Container, LoginSection } from "./sign-up-form.styles";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import { firebaseCreateUserWithEmailAndPassword } from "../../utils/firebase";
-import { useTypedDispatch } from "../../hooks";
+import { useTypedDispatch } from "../../store/hooks";
 import { setDisplayName } from "../../store/user.slice";
 import InputField from "../input-field/input-field";
 import Button from "../button/button";
@@ -11,6 +11,7 @@ import Button from "../button/button";
 // Course is leveraging another typescript solution. This one here is just 20% of lines of code, but is it best practice?
 
 const SignUpForm = () => {
+  console.log("SignUpForm");
   const navigate = useNavigate();
   const dispatch = useTypedDispatch();
   const { destination } = useParams();

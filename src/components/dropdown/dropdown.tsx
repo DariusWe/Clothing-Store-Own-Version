@@ -18,6 +18,7 @@ type DropDownProps = {
 };
 
 const DropDownMenu = ({ entries = [], listType = LIST_TYPES.NONE, currStoreValue, setStoreValue }: DropDownProps) => {
+  console.log("DropDownMenu");
   return (
     <Container>
       {listType === LIST_TYPES.NONE &&

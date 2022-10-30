@@ -5,6 +5,7 @@ import React from "react";
 // Styled components automatically creates this classname and passes it as a prop.
 
 const LoadingSpinner: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({className}) => {
+  console.log("LoadingSpinner");
   return (
   <Container className={className}>
     <Spinner></Spinner>

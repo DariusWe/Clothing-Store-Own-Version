@@ -1,46 +1,44 @@
 - Continue Filter Section:
   - Go through the whole filter functionality and understand it, clean up and improve rerender cycles
 
-- SignUpForm and SignInForm are typed different. Which solution is better? Even better solution possible?
-
+- AuthError, AuthErrorCodes
 - Continue typing, there are a lot of "any" types yet (for example the reducers/actions/payloads)
-- URL (women, men, other) routes into constant?
-- sortby strings into constant?
-- Push when typing completely finished
 - include touch event listener (touchstart?) for outsideClickHandler
-- maybe make the filter section NOT reusable? So it could all live in a folder called products-filter-section...
 - dig into missing dependencies error. Am i using useEffect for wrong purposes?
-- go into typescript
-- Kurs 195: API response ist not of type monster[], is it?
-
-- next steps:
-  - read redux docs
-  - stripe chapter is stupid (too much backend stuff you cannot understand yet)
+- save input value into component state -> controlled components
 
 RERENDERING PERFORMANCE ISSUES - ignore for now:
 - Navigation is re-rendering because of useLocation() hook. That leads to rerendering of all it's children.
-- NavbarTop is re-rendering because of navigate().
+- NavbarTop is re-rendering because of navigate(). This is unwanted behaviour, but there is no workaround. Best solution:
+  "Use the useNavigate hook in the smallest/lowest-level component possible. It will not save you from re-renders but makes them less costly."
+- ShoppingIcon re-renders because of Parent NavbarTop. Could be memoized, but shouldn't as it is a light component.
 - Should useLocation not be used in top level component?
 - Rerendering in React does not automatically mean rerendering in the dom, right?
 - Maybe performance issue not that big?
 - maybe use window.location.pathname. It's vanilla JS and not a hook.
 - maybe wrap entire app below top level component in another container, which is a react.memo() function.
+- Problem:
+  Some components render different content depending on the url path. If you open .../women/tops, the category page renders
+  the items that belong to the "Tops" category, the navsidebar highlights that you are on the women section, ...
+  You could retrieve this information via params, but this is only working if there are params in the url. In my case, i want
+  to highlight the women nav link and show the women categories on the index page ("/"), where no parameter in the url exists.
+- CategoryPage rerenders 3 times when changing to another category. First render caused by useParams Hook. It rerenders the component and then calls the
+  useEffect Hooks. The first useEffectHook will then change the state of the component, which again will lead to a rerender. Third rerender happens by 
+  the third useEffect, which reacts to the state change and updates the filters in the global state. The component gets noticed that this global state has changed
+  and rerenders again.
+
 
 - Think about file/folder structure! (maybe feature-based?)
 - Redux Saga deprecated, said Redux maintainer: https://stackoverflow.com/questions/72360331/is-it-worth-using-redux-saga-in-long-term
 - research render behaviour of my components. Some components are unnecessarily rerendering multiple times.
 
 - Implement global css fonts, color etc. management
-- continue WebDev document on google docs 
-- Build Register-Page and Form
-- Commit
-- Redux
-- Commit
+- continue WebDev document on google docs
 
 - Fetching products from Firestore: Better, more organized solution?
 - Make Responsive
 - Optimize etc
-- SEO considerations (alt attributes, correct html tags, content indexable?, )
+- SEO considerations (alt attributes, corrnpm startect html tags, content indexable?, )
 - Accessibility (see Zara)
 - Indicate Impressum, Privacy and stuff
   
@@ -51,11 +49,8 @@ AT THE END:
 - Animations and Click-Feedback
 - Include better images
 - Build Mens Page
-- Build Collection Category Page
 - Build Wishlist
 - Build Product-Page
-- Include basic Account Settings
-- Finish SignUp/Login Process
 
 - Make a sticky, changing (on scroll) header, that always shows the most important information.
 - Fetching all shop data from the database once and then store it in a context variable? Or is it ineffective to fetch ALL data? Maybe

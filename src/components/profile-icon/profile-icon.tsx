@@ -1,8 +1,9 @@
 import { Container } from "./profile-icon.styles";
-import { useTypedDispatch } from "../../hooks";
+import { useTypedDispatch } from "../../store/hooks";
 import { toggleProfileMenu } from "../../store/user.slice";
 
 const ProfileIcon = () => {
+  console.log("ProfileIcon");
   const dispatch = useTypedDispatch();
 
   return (

@@ -1,6 +1,6 @@
 import { NavLink } from "./navbar-side-link.styles";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useTypedSelector } from "../../hooks";
+import { useTypedSelector } from "../../store/hooks";
 import type { Category } from "../../store/products.slice";
 
 type NavBarSideLinkProps = {
@@ -8,6 +8,7 @@ type NavBarSideLinkProps = {
 };
 
 const NavbarSideLink: React.FC<NavBarSideLinkProps> = ({ category }) => {
+  console.log("NavbarSideLink");
   const { title, titleSanitized } = category;
   const navigate = useNavigate();
   const location = useLocation();

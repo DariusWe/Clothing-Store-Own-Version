@@ -1,12 +1,13 @@
 import { Container, Label, ItemList, EmptyMessage, BottomSection, Row } from "./shopping-cart.styles";
 import { useNavigate } from "react-router-dom";
-import { useTypedSelector, useTypedDispatch } from "../../hooks";
+import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
 import { selectCartItems, selectCartTotal, selectCartQuantity, toggleCart } from "../../store/cart.slice";
 import SlideMenu from "../slide-menu/slide-menu";
 import ShoppingCartItem from "../shopping-cart-item/shopping-cart-item";
 import Button from "../button/button";
 
 const ShoppingCart = () => {
+  console.log("ShoppingCart");
   const cartItems = useTypedSelector(selectCartItems);
   const cartTotal = useTypedSelector(selectCartTotal);
   const cartQuantity = useTypedSelector(selectCartQuantity);

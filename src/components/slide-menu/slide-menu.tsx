@@ -1,6 +1,6 @@
 import { Container } from "./slide-menu.styles";
 import { useRef, useEffect } from "react";
-import { useTypedDispatch } from "../../hooks";
+import { useTypedDispatch } from "../../store/hooks";
 import { toggleCart } from "../../store/cart.slice";
 import { toggleProfileMenu } from "../../store/user.slice";
 
@@ -14,6 +14,7 @@ type SlideMenuProps = {
 };
 
 const SlideMenu: React.FC<SlideMenuProps> = ({ children, context, width }) => {
+  console.log("SlideMenu");
   const menuRef = useRef<HTMLDivElement>(null);
   const dispatch = useTypedDispatch();
 
