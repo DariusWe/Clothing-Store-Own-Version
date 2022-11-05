@@ -34,7 +34,6 @@ CLI stands for Command Line Interface
 TO DO:
 #########################################################################################################################
 
-- Man index page and two more men categories
 - Move images to own server - done, BUT: HOW TO SHOW MARKUP OF IMAGES BEFORE FINISHED LOADING, SO THAT EVERYTHING KEEPS STAYING IN PLACE
 - GIT PUSH
 - Include Wish-list

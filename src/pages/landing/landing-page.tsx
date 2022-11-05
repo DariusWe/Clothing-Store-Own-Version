@@ -29,11 +29,11 @@ const LandingPage = () => {
   ) : (
     <Container>
       <LeftSection>
-        <img src={require("../../assets/green1.jpg")} alt="New Spring Collection" />
-        <img src={require("../../assets/white.jpg")} alt="New Spring Collection" />
+        <img src={require("../../assets/index-men-2(1).jpg")} alt="New Men Collection" />
+        <img src={require("../../assets/index-men-2(2).jpg")} alt="New Men Collection" />
       </LeftSection>
       <RightSection>
-        <h2>Spring Collection</h2>
+        <h2>New Collection</h2>
         <span>Designed by Max Mustermann</span>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mollis blandit bibendum. Ut ac elit at nunc
@@ -41,8 +41,8 @@ const LandingPage = () => {
           mi ornare maximus nec at lorem. Phasellus non maximus enim. Nullam congue suscipit condimentum. Aliquam non
           mauris nunc.
         </p>
-        <Link to="/men/t-shirts&vests">
-          <LinkToCollection>&rarr; Shop blazers</LinkToCollection>
+        <Link to="/men/hoodies">
+          <LinkToCollection>&rarr; Shop Hoodies</LinkToCollection>
         </Link>
       </RightSection>
     </Container>

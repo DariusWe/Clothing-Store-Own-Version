@@ -19,7 +19,7 @@ export const SHOP_DATA_MEN = [
         name: "Green Oversized Shirt",
         imageUrl: "/product-images/men/hoodies/hoodie2.jpg",
         price: 59.95,
-        color: "black",
+        color: "green",
       },
       {
         id: 106,
