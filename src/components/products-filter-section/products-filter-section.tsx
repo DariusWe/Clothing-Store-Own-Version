@@ -6,6 +6,7 @@ import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
 import { RootStateType } from "../../store/root-reducer";
 import { LIST_TYPES } from "../../constants/listTypes";
 import { SORT_BY_VALUES } from "../../constants/sortByFilterValues";
+import { COLOR_FIILTER_VALUES } from "../../constants/colorFilterValues";
 
 // To infer the type of the state via useSelector or useTypedSelector, you have to export the RootStateType from the ROOTREDUCER, not
 // from the store (like it's said in the docs). See here for more infos:
@@ -18,7 +19,7 @@ export type ProductFilter = {
   currStoreValue: string | string[];
   setStoreValue: (value: string) => void;
 };
-
+  //
 const ProductsFilterSection = () => {
   console.log("ProductsFilterSection");
   // Both selecting methods possible. Second one is recommended as you don't have to pass RootStateType into every selector.
@@ -40,7 +41,7 @@ const ProductsFilterSection = () => {
     {
       label: "Color",
       listType: LIST_TYPES.CHECKBOX,
-      entries: ["white", "black", "red", "purple", "green", "blue", "orange", "pink"],
+      entries: COLOR_FIILTER_VALUES,
       currStoreValue: colors,
       setStoreValue: (value: string): void => {
         dispatch(setColors(value));
