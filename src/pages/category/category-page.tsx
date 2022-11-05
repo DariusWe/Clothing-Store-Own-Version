@@ -1,5 +1,5 @@
 import { Container, CategoryTitle, CategoryDescription, ProductsContainer } from "./category-page.styles";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
 import { setSortBy, resetColors } from "../../store/filters.slice";
@@ -21,7 +21,8 @@ const CategoryPage = () => {
   const sortBy = useTypedSelector((state) => state.filters.sortBy);
   const dispatch = useTypedDispatch();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    // useLayoutEffect because otherwise bugs when changing category while filters active.
     // Depending on URL params "gender" and "category" push the corresponding products into local state.
     // Initialize the filteredProducts state variable as the filtered products get rendered.
     // This useEffect runs on mount and then again when women and men products get set or the category changes.

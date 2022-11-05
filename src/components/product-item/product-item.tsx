@@ -4,8 +4,8 @@ import { useTypedDispatch } from "../../store/hooks";
 import type { Item } from "../../store/products.slice";
 
 type ProductItemProps = {
-  product: Item,
-}
+  product: Item;
+};
 
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   console.log("ProductItem");

@@ -11,7 +11,8 @@ import {
 } from "firebase/auth";
 // eslint-disable-next-line
 import { getFirestore, writeBatch, doc, getDoc, setDoc, collection, query, getDocs, orderBy } from "firebase/firestore";
-import { SHOP_DATA_MEN } from "./shop-data";
+// eslint-disable-next-line
+import { SHOP_DATA_MEN, SHOP_DATA_WOMEN } from "./shop-data";
 import type { Category } from "../store/products.slice";
 
 const firebaseConfig = {
@@ -65,9 +66,9 @@ tmpFunc2();
 // eslint-disable-next-line
 const tmpFunc3 = async () => {
   const batch = writeBatch(db);
-  SHOP_DATA_MEN.forEach((categorie) => {
-    const docRef = doc(db, "product-categories-men", categorie.title);
-    batch.set(docRef, categorie);
+  SHOP_DATA_MEN.forEach((category) => {
+    const docRef = doc(db, "product-categories-men", category.title);
+    batch.set(docRef, category);
   });
   await batch.commit();
 };

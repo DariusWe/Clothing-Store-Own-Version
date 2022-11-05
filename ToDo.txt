@@ -1,3 +1,55 @@
+AKTUELLE BAUSTELLEN:
+#########################################################################################################################
+
+Can't store images locally, as webpack forces you to pass a static path to the require function. Dynamic paths not possible.
+As react sends the whole app package to the client, sending all the images with it would probably not be a good idea anyways.
+Look for a fast hosting service for images. Or maybe ask on stackoverflow for best solution.
+YOU CAN STORE ASSETS IN PUBLIC FOLDER. THIS HAS DISADVANTAGES. DIG INTO WEBPACK TO UNDERSTAND COMPLETELY!
+- Add Men products and GIT PUSH
+
+
+WHAT I'VE LEARNED LAST TIME:
+#########################################################################################################################
+
+ENV File:
+- To use it, npm package has to be installed (dotenv)
+- Create-react-app installs dotenv by default
+- Values that may differ depending on environment (local, staging, production, ...) are stored here.
+- Often sensitive data is stored here, so don't push on github.
+- QUESTION: how does production environment know about this data then?
+
+STRIPE:
+- to implement stripe, we need a backend to store the secret key
+- As we do not want to run our own server at the time, we can use serverless functions on netlify
+- to register app we need to call loadStripe(public_key) in our app and pass its return value into the <Elements> wrapper component
+- The Elements wrapper component also gives us access to Stripe Elements (like a credit card form etc.)
+
+BACKEND:
+- to get into Backend programming and to set up your own server, learn node.js and express.js
+
+CLI stands for Command Line Interface
+
+
+
+TO DO:
+#########################################################################################################################
+
+- Man index page and two more men categories
+- Move images to own server
+- GIT PUSH
+- Include Wish-list
+- Include real world login and register procedure
+- Add more content to checkout process
+- Implement "add to basket" when hovering over product
+- Implement animations and click feedback
+- optimize
+- make Responsive
+
+TO IMPLEMENT STRIPE YOU NEED TO KNOW NODE.JS AND EXPRESS.JS:
+https://www.youtube.com/watch?v=Oe421EPjeBE
+
+-----------------------------------------------------------------------------------------------------------------------------
+
 - Continue Filter Section:
   - Go through the whole filter functionality and understand it, clean up and improve rerender cycles
 
@@ -6,6 +58,7 @@
 - include touch event listener (touchstart?) for outsideClickHandler
 - dig into missing dependencies error. Am i using useEffect for wrong purposes?
 - save input value into component state -> controlled components
+- performance optimizations (code splitting)
 
 RERENDERING PERFORMANCE ISSUES - ignore for now:
 - Navigation is re-rendering because of useLocation() hook. That leads to rerendering of all it's children.
@@ -43,6 +96,8 @@ RERENDERING PERFORMANCE ISSUES - ignore for now:
 - Indicate Impressum, Privacy and stuff
   
 AT THE END:
+- Go through optimizing chapter again (for code splitting, dynamic imports etc.)
+- Firebase Rule Security
 - Redo Spinner Animation for practice
 - Replace Spinner Animation with a markup (placeholder) of the loading content.
 - Move category description from products-page into database
