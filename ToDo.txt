@@ -29,13 +29,14 @@ BACKEND:
 
 CLI stands for Command Line Interface
 
+JS can not determine equality for objects. .includes(obj) is therefore not possible.
+
 
 
 TO DO:
 #########################################################################################################################
 
 - Move images to own server - done, BUT: HOW TO SHOW MARKUP OF IMAGES BEFORE FINISHED LOADING, SO THAT EVERYTHING KEEPS STAYING IN PLACE
-- GIT PUSH
 - Include Wish-list
 - Include real world login and register procedure
 - Add more content to checkout process
@@ -43,6 +44,7 @@ TO DO:
 - Implement animations and click feedback
 - optimize
 - make Responsive
+- Type payloads in reducers
 
 TO IMPLEMENT STRIPE YOU NEED TO KNOW NODE.JS AND EXPRESS.JS:
 https://www.youtube.com/watch?v=Oe421EPjeBE

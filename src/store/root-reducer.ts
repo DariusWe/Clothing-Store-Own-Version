@@ -4,6 +4,7 @@ import { productsReducer } from "./products.slice";
 import { userLocationReducer } from "./user-location.slice";
 import { filtersReducer } from "./filters.slice";
 import { slideMenuReducer } from "./slide-menu.slice";
+import { favouritesReducer } from "./favourites.slice";
 import { combineReducers } from "redux";
 
 export const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ export const rootReducer = combineReducers({
   products: productsReducer,
   filters: filtersReducer,
   slideMenu: slideMenuReducer,
+  favourites: favouritesReducer,
 });
 
 export type RootStateType = ReturnType<typeof rootReducer>;

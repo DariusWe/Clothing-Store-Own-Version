@@ -9,7 +9,7 @@ of a label, the listType (radio, checkbox, ...), the menu entries, the currently
 value. The component renders the label of the filter and - once the user clicks the label - a dropdown menu with all the entries.
 */
 // Notes to useRef: The useRef Hook is useful to reference DOM objects and is used here to detect clicks outside of this component.
-// The useRef Hook only works with DOM objects. To reference DOM objects in a child component, use forwardRef.
+// The useRef Hook can only reference DOM objects, not components. To reference DOM objects in a child component, use forwardRef.
 // The useRef Hook will not rerender the component when it changes.
 
 type FilterItemProps = {
