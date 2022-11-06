@@ -45,6 +45,7 @@ TO DO:
 - optimize
 - make Responsive
 - Type payloads in reducers
+- check in different browsers (also for errors in console - for example manifest.json error in chrome)
 
 TO IMPLEMENT STRIPE YOU NEED TO KNOW NODE.JS AND EXPRESS.JS:
 https://www.youtube.com/watch?v=Oe421EPjeBE

@@ -1,4 +1,4 @@
-import { Container, HeartIcon, BottomSection, ProductInfo, AddButton } from "./product-item.styles";
+import { Container, HeartIcon, BottomSection, ProductInfo, AddButton, ImagePlaceholder } from "./product-item.styles";
 import { addItemToCart } from "../../store/cart.slice";
 import { setFavourites } from "../../store/favourites.slice";
 import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
@@ -15,7 +15,9 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
 
   return (
     <Container>
-      <img src={product.imageUrl} alt={product.name} />
+      <ImagePlaceholder>
+        <img src={product.imageUrl} alt={product.name} />
+      </ImagePlaceholder>
       <HeartIcon
         className="fa-solid fa-heart"
         title="Add to favourites"

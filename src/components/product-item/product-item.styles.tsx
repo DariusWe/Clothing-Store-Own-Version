@@ -62,7 +62,7 @@ export const ProductInfo = styled.div`
   flex-direction: column;
   font-size: 14px;
   cursor: pointer;
-  & span:nth-child(2){
+  & span:nth-child(2) {
     font-size: 13.2px;
     font-weight: 600;
     margin-top: 2px;
@@ -82,4 +82,10 @@ export const AddButton = styled.div`
     background-color: #222;
     color: white;
   }
+`;
+
+export const ImagePlaceholder = styled.div`
+  width: 100%;
+  height: calc(31vw - 106px);
+  background-color: rgba(0, 0, 0, 0.06);
 `;
