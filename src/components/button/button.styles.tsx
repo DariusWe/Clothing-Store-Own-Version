@@ -1,15 +1,34 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Btn = styled.button`
-  border-radius: 26px;
+const lightTheme = css`
+  background-color: white;
+  border: 1px solid #444;
+  color: black;
+  &:hover {
+    background-color: #222;
+    color: white;
+  }
+`;
+
+const darkTheme = css`
   background-color: #222;
-  padding: 12px 16px;
   color: white;
+  &:hover {
+    background-color: #333;
+  }
+`;
+
+type BtnProps = {
+  theme: "dark" | "light";
+};
+
+export const Btn = styled.button<BtnProps>`
+  font-family: "Satoshi", sans-serif;
+  border-radius: 26px;
+  padding: 12px 16px;
   cursor: pointer;
   border: none;
   font-size: 15px;
   font-weight: 600;
-  &:hover {
-    background-color: #333;
-  }
+  ${(props) => (props.theme === "light" ? lightTheme : darkTheme)}
 `;

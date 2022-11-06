@@ -37,10 +37,11 @@ const SignInForm = () => {
           <span>Forgot your password?</span>
           <Link to="/sign-in">Reset</Link>
         </ResetPasswordSection>
-        <Button type="submit" label="Sign in" />
+        <Button type="submit" label="Sign in" theme="dark" />
         <Button
           type="button"
           label="Register"
+          theme="dark"
           onClick={() => {
             destination === "to-checkout" ? navigate("/sign-up/to-checkout") : navigate("/sign-up");
           }}

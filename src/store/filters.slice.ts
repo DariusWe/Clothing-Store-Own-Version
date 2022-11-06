@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { SORT_BY_VALUES } from "../constants/sortByFilterValues";
+import { SORT_BY_VALUES } from "../constants/SORT_BY_FILTER_VALUES";
 
 // ToDo: Define payload types and other "any"-types
 

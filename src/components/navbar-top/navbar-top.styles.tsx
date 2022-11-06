@@ -14,6 +14,9 @@ export const Container = styled.div`
   border-radius: 30px;
   .fa-heart {
     font-size: 19px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 

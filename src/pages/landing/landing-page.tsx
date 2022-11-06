@@ -1,7 +1,7 @@
 import { Container, LeftSection, RightSection, LinkToCollection } from "./landing-page.styles";
 import { Link } from "react-router-dom";
 import { useTypedSelector } from "../../store/hooks";
-import { URL_LOCATION } from "../../constants/urlLocations";
+import { URL_LOCATION } from "../../constants/URL_LOCATIONS";
 
 const LandingPage = () => {
   console.log("LandingPage");

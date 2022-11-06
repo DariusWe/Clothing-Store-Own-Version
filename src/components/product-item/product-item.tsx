@@ -1,4 +1,5 @@
-import { Container, HeartIcon, BottomSection, ProductInfo, AddButton, ImagePlaceholder } from "./product-item.styles";
+import { Container, HeartIcon, BottomSection, ProductInfo, ImagePlaceholder } from "./product-item.styles";
+import Button from "../button/button";
 import { addItemToCart } from "../../store/cart.slice";
 import { setFavourites } from "../../store/favourites.slice";
 import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
@@ -29,9 +30,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
           <span>{product.name}</span>
           <span>{`${product.price} €`}</span>
         </ProductInfo>
-        <AddButton onClick={() => dispatch(addItemToCart(product))}>
-          <span>ADD TO BAG</span>
-        </AddButton>
+        <Button label="ADD TO BAG" theme="light" onClick={() => dispatch(addItemToCart(product))} />
       </BottomSection>
     </Container>
   );

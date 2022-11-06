@@ -2,7 +2,7 @@ import { SideBarContainer, GenderLink, CategoriesList, LoadingSpinnerNavbar } fr
 import { useTypedSelector } from "../../store/hooks";
 import Logo from "../logo/logo";
 import NavbarSideLink from "../navbar-side-link/navbar-side-link";
-import { URL_LOCATION } from "../../constants/urlLocations";
+import { URL_LOCATION } from "../../constants/URL_LOCATIONS";
 
 const NavbarSide = () => {
   console.log("NavbarSide");

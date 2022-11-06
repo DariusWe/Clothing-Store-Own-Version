@@ -1,5 +1,5 @@
 import { Container, ListItem } from "./dropdown.styles";
-import { LIST_TYPES } from "../../constants/listTypes";
+import { LIST_TYPES } from "../../constants/LIST_TYPES";
 /* 
 The DropdownMenu component is designed to be reused for different use cases. Input arguments:
   - the menu entries (as an array)

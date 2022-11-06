@@ -5,7 +5,6 @@ Can't store images locally, as webpack forces you to pass a static path to the r
 As react sends the whole app package to the client, sending all the images with it would probably not be a good idea anyways.
 Look for a fast hosting service for images. Or maybe ask on stackoverflow for best solution.
 YOU CAN STORE ASSETS IN PUBLIC FOLDER. THIS HAS DISADVANTAGES. DIG INTO WEBPACK TO UNDERSTAND COMPLETELY!
-- Add Men products and GIT PUSH
 
 
 WHAT I'VE LEARNED LAST TIME:
@@ -31,13 +30,16 @@ CLI stands for Command Line Interface
 
 JS can not determine equality for objects. .includes(obj) is therefore not possible.
 
+Placeholder markup can be done via css background-color of that element
+
+
 
 
 TO DO:
 #########################################################################################################################
 
-- Move images to own server - done, BUT: HOW TO SHOW MARKUP OF IMAGES BEFORE FINISHED LOADING, SO THAT EVERYTHING KEEPS STAYING IN PLACE
 - Include Wish-list
+- Move Icon components into own folder
 - Include real world login and register procedure
 - Add more content to checkout process
 - Implement "add to basket" when hovering over product

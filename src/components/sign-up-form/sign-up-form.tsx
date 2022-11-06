@@ -47,10 +47,10 @@ const SignUpForm = () => {
         <InputField type="email" label="Email" id="email" />
         <InputField type="password" label="Password" id="password" />
         <InputField type="password" label="Confirm password" id="confirmPassword" />
-        <Button type="submit" label="Register" />
+        <Button type="submit" label="Register" theme="dark" />
         <LoginSection>
-        <span>Already have an account?</span>
-        <Link to="/sign-in">Login</Link>
+          <span>Already have an account?</span>
+          <Link to="/sign-in">Login</Link>
         </LoginSection>
       </form>
     </Container>

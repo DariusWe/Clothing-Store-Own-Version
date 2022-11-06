@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { URL_LOCATION } from "../constants/urlLocations";
+import { URL_LOCATION } from "../constants/URL_LOCATIONS";
 
 type SliceState = {
   userLocation: URL_LOCATION;

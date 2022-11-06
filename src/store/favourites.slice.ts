@@ -23,8 +23,11 @@ const favouritesSlice = createSlice({
         state.items = [...state.items, payload];
       }
     },
+    toggleFavouritesMenu: (state) => {
+      state.isFavouritesOpen = !state.isFavouritesOpen;
+    }
   },
 });
 
 export const favouritesReducer = favouritesSlice.reducer;
-export const { setFavourites } = favouritesSlice.actions;
+export const { setFavourites, toggleFavouritesMenu } = favouritesSlice.actions;
