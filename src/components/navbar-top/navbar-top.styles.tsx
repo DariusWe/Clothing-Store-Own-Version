@@ -18,6 +18,24 @@ export const Container = styled.div`
       cursor: pointer;
     }
   }
+  .animate {
+    animation-name: pop;
+    animation-duration: 500ms;
+    animation-fill-mode: backwards;
+  }
+  @keyframes pop {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.4);
+      opacity: 0.8;
+      //color: red;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 `;
 
 export const NavLink = styled.span`

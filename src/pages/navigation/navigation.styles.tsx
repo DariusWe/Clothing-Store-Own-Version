@@ -17,6 +17,20 @@ export const MainContainer = styled.div`
     transform: translateX(30vw);
     transition: all 0.3s;
   }
+  .dark-overlay-enter {
+    opacity: 0;
+  }
+  .dark-overlay-enter-active {
+    opacity: 1;
+    transition: all 0.2s;
+  }
+  .dark-overlay-exit {
+    opacity: 1;
+  }
+  .dark-overlay-exit-active {
+    opacity: 0;
+    transition: all 0.2s;
+  }
 `;
 
 export const ContentArea = styled.div`

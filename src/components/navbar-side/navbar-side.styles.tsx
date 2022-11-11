@@ -8,7 +8,7 @@ export const SideBarContainer = styled.div`
   // Edge 15 and earlier Versions also don't support sticky. Alternative Solution?
   top: 0px;
   height: 100vh;
-  min-width: 12.4vw;
+  min-width: 240px;
   padding: 25px 30px;
   padding-right: 40px;
   //border-right: 1px solid #222;

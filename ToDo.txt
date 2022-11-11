@@ -6,6 +6,13 @@ As react sends the whole app package to the client, sending all the images with 
 Look for a fast hosting service for images. Or maybe ask on stackoverflow for best solution.
 YOU CAN STORE ASSETS IN PUBLIC FOLDER. THIS HAS DISADVANTAGES. DIG INTO WEBPACK TO UNDERSTAND COMPLETELY!
 
+change toggleCart to closeCart/openCart. This way, outsideClickHandler in slideMenu keeps working properly. Same goes for toggleFavourites and toggleProfileMenu.
+
+CLEANER SOLUTION FOR NAVIGATION PAGE (TRANSITION STUFF IS TO STUPID)
+
+// NavLink looks like NavbarSideLink component. Styled components look like components in general. Kind of annoying. Solution for this? Idea: Set 
+// Prefix for styled components, for example "Styled"
+
 
 WHAT I'VE LEARNED LAST TIME:
 #########################################################################################################################
