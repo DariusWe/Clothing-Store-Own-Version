@@ -2,6 +2,21 @@ import styled from "styled-components";
 
 export const MainContainer = styled.div`
   display: flex;
+
+  .slide-menu-enter {
+    transform: translateX(30vw);
+  }
+  .slide-menu-enter-active {
+    transform: translateX(0);
+    transition: all 0.3s;
+  }
+  .slide-menu-exit {
+    transform: translateX(0);
+  }
+  .slide-menu-exit-active {
+    transform: translateX(30vw);
+    transition: all 0.3s;
+  }
 `;
 
 export const ContentArea = styled.div`
@@ -18,3 +33,6 @@ export const DarkOverlay = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 `;
+
+
+

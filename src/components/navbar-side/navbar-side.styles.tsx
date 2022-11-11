@@ -8,7 +8,7 @@ export const SideBarContainer = styled.div`
   // Edge 15 and earlier Versions also don't support sticky. Alternative Solution?
   top: 0px;
   height: 100vh;
-  //width: 16vw;
+  width: 15.8vw;
   padding: 25px 30px;
   padding-right: 40px;
   //border-right: 1px solid #222;
@@ -26,10 +26,12 @@ type LinkProps = {
 
 export const GenderLink = styled(Link)<LinkProps>`
   display: inline-block;
-  width: 87px;
-  margin: 40px 0 30px 0;
+  margin-bottom: 30px;
   text-transform: uppercase;
   font-weight: ${(props) => props.fontWeight};
+  &:nth-child(2) {
+    margin-left: 20px;
+  }
 `;
 
 export const CategoriesList = styled.div`

@@ -8,6 +8,8 @@ import ProfileMenu from "../../components/profile-menu/profile-menu";
 import ShoppingCart from "../../components/shopping-cart/shopping-cart";
 import NavbarTop from "../../components/navbar-top/navbar-top";
 import FavouritesMenu from "../../components/favourites-menu/favourites-menu";
+import SlideMenu from "../../components/slide-menu/slide-menu";
+import { CSSTransition } from "react-transition-group";
 
 const Navigation = React.memo(() => {
   console.log("Navigation");
@@ -22,9 +24,21 @@ const Navigation = React.memo(() => {
         <NavbarTop />
         <Outlet />
       </ContentArea>
-      {isProfileMenuOpen && <ProfileMenu />}
-      {isFavouritesOpen && <FavouritesMenu />}
-      {isCartOpen && <ShoppingCart />}
+      <CSSTransition in={isCartOpen} unmountOnExit timeout={300} classNames="slide-menu">
+        <SlideMenu context="cart">
+          <ShoppingCart />
+        </SlideMenu>
+      </CSSTransition>
+      <CSSTransition in={isProfileMenuOpen} unmountOnExit timeout={300} classNames="slide-menu">
+        <SlideMenu context="profile-menu" width="18vw">
+          <ProfileMenu />
+        </SlideMenu>
+      </CSSTransition>
+      <CSSTransition in={isFavouritesOpen} unmountOnExit timeout={300} classNames="slide-menu">
+        <SlideMenu context="favourites">
+          <FavouritesMenu />
+        </SlideMenu>
+      </CSSTransition>
       {(isCartOpen || isProfileMenuOpen || isFavouritesOpen) && <DarkOverlay />}
     </MainContainer>
   );

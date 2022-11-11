@@ -10,6 +10,15 @@ YOU CAN STORE ASSETS IN PUBLIC FOLDER. THIS HAS DISADVANTAGES. DIG INTO WEBPACK 
 WHAT I'VE LEARNED LAST TIME:
 #########################################################################################################################
 
+CSS PSEUDO CLASSES:
+- keyword added to a selector that specifies a special state of the selected element(s)
+- indicated with ":"
+- There are a lot
+
+CSS PSEUDO ELEMENTS:
+- keyword added to a selector that lets you style a specific part of the selected element(s)
+- indicated with "::"
+
 ENV File:
 - To use it, npm package has to be installed (dotenv)
 - Create-react-app installs dotenv by default
@@ -32,14 +41,22 @@ JS can not determine equality for objects. .includes(obj) is therefore not possi
 
 Placeholder markup can be done via css background-color of that element
 
+To play a specific css animation on EVERY click, look here:
+https://stackoverflow.com/questions/4847996/css-animation-onclick 
+(scroll down to: "CSS ONLY solution that works on every click...")
+
 
 
 
 TO DO:
 #########################################################################################################################
 
-- Include Wish-list
+- Continue animations (productItem and SlideMenu)
+- Make Wishlist only accessible when logged in
+- Save Wishlist for users
+- give Feedback when Wishlist item gets clicked into cart
 - Move Icon components into own folder
+- clean up!
 - Include real world login and register procedure
 - Add more content to checkout process
 - Implement "add to basket" when hovering over product
@@ -48,6 +65,9 @@ TO DO:
 - make Responsive
 - Type payloads in reducers
 - check in different browsers (also for errors in console - for example manifest.json error in chrome)
+- Put main colors into index.scss as variables and use these variables in other components:
+  https://www.youtube.com/watch?v=IF6k0uZuypA (video with good implementation of best practices)
+- import fontAwesome as components?
 
 TO IMPLEMENT STRIPE YOU NEED TO KNOW NODE.JS AND EXPRESS.JS:
 https://www.youtube.com/watch?v=Oe421EPjeBE

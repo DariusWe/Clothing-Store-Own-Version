@@ -11,9 +11,8 @@ export const Container = styled.div`
   padding: 20px 0;
   background-color: rgba(255, 255, 255, 1);
   z-index: 2;
-  transition: display 2s;
 `;
-export const DeleteBtn = styled.i`
+export const CloseBtn = styled.i`
   position: absolute;
   top: 18px;
   right: 30px;

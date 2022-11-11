@@ -18,7 +18,7 @@ export const LogoContainer = styled(Link)`
   //background-color: #000;
   /* padding-left: 16px;
   border-left: 8px solid black; */
-  margin-bottom: 10vh;
+  margin-bottom: 15.6vh;
   /* border-top: 2px solid black;
   border-bottom: 2px solid black; */
   border-radius: 4px;
