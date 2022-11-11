@@ -25,21 +25,21 @@ const Navigation = React.memo(() => {
         <Outlet />
       </ContentArea>
       <CSSTransition in={isCartOpen} unmountOnExit timeout={300} classNames="slide-menu">
-        <SlideMenu context="cart">
+        {<SlideMenu context="cart">
           <ShoppingCart />
-        </SlideMenu>
+        </SlideMenu>}
       </CSSTransition>
       <CSSTransition in={isProfileMenuOpen} unmountOnExit timeout={300} classNames="slide-menu">
-        <SlideMenu context="profile-menu" width="18vw">
+        {<SlideMenu context="profile-menu" width="18vw">
           <ProfileMenu />
-        </SlideMenu>
+        </SlideMenu>}
       </CSSTransition>
       <CSSTransition in={isFavouritesOpen} unmountOnExit timeout={300} classNames="slide-menu">
-        <SlideMenu context="favourites">
+        {<SlideMenu context="favourites">
           <FavouritesMenu />
-        </SlideMenu>
+        </SlideMenu>}
       </CSSTransition>
-      {(isCartOpen || isProfileMenuOpen || isFavouritesOpen) && <DarkOverlay />}
+      {(isCartOpen || isProfileMenuOpen || isFavouritesOpen) && <DarkOverlay />} { /*Put into SlideMenu */}
     </MainContainer>
   );
 });

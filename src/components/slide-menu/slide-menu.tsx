@@ -10,7 +10,7 @@ import { toggleFavouritesMenu } from "../../store/favourites.slice";
 
 type SlideMenuProps = {
   children: React.ReactNode;
-  context: "cart" | "profile-menu" | "favourites";
+  context: "cart" | "profile-menu" | "favourites" | undefined;
   width?: string;
 };
 
@@ -42,7 +42,7 @@ const SlideMenu: React.FC<SlideMenuProps> = ({ children, context, width }) => {
     context === "favourites" && dispatch(toggleFavouritesMenu());
   };
 
-  ///////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <Container ref={menuRef} style={{ width: width }}>
