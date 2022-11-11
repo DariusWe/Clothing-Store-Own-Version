@@ -58,7 +58,7 @@ export const HeartIcon = styled.i<HeartIconProps>`
 `;
 
 export const BottomSection = styled.div`
-  margin: 12px 0 10px 0;
+  margin: 14px 0 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,8 +74,9 @@ export const BottomSection = styled.div`
     }
   }
   button {
-    padding: 8px 12px;
+    padding: 11px 12px;
     font-size: 11.4px;
+    font-weight: 500;
     &:focus {
       animation: buttonPop 0.16s;
     }
