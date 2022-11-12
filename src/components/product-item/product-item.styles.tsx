@@ -75,8 +75,10 @@ export const BottomSection = styled.div`
   }
   button {
     padding: 11px 12px;
+    margin-right: 2px;
     font-size: 11.4px;
     font-weight: 500;
+    border-color: #ccc;
     &:focus {
       animation: buttonPop 0.16s;
     }
