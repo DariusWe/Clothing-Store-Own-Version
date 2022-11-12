@@ -16,11 +16,13 @@ Notes:
 To animate a component on mount AND unmount, you have to use react-css-transition-group. CSS-transition-group must be leveraged in the
 parent component of the element that should be animated. The solution down here, as messy as it looks, is the only one that works correctly.
 Other (more elegant) solutions won't work:
-- Just defining one CSSTransition for a general SlideMenu component and then deciding what content to render in the SlideMenu component itself
+- Utilizing the SlideMenu wrapper component in the corresponding components (ShoppingCart, ProfileMenu and FavouritesList) instead of here would mean that the CSS 
+  animation would have to be declared in each of these components seperately
+- Just defining one CSSTransition here for a general SlideMenu component and then deciding what content to render in the SlideMenu component itself
   would have great benefits (no need to pass props like context, width and children to the SlideMenu anymore, cleaner Navigation component, ...), 
   but will lead to an unwanted effect in the exit animation: The content will unmount before the exit animation starts, hence the slideMenu will 
   slide out without the content.
-- The same problem occurs when dynamically passing in context, width and children here in the Navigation component. Therefore it is necessary to
+- The same problem occurs when dynamically passing in context, width and children here in the Navigation component. Therefore it seems to be necessary to
   define every single CSSTransition for every single component...
 */
 

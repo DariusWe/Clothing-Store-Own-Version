@@ -58,7 +58,7 @@ https://stackoverflow.com/questions/4847996/css-animation-onclick
 TO DO:
 #########################################################################################################################
 
-- Continue animations (productItem and SlideMenu)
+- Continue animations (productItem and SlideMenu, also when deleting items from cart or favourites)
 - Make Wishlist only accessible when logged in
 - Save Wishlist for users
 - give Feedback when Wishlist item gets clicked into cart
