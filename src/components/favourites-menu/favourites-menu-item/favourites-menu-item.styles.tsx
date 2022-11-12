@@ -22,3 +22,8 @@ export const InfoSection = styled.div`
     font-size: 12px;
   }
 `;
+
+export const Notice = styled.span`
+  margin: 22px 0 12px 0;
+  color: green;
+`;

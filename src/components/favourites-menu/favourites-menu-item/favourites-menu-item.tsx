@@ -1,5 +1,5 @@
-import { Container, InfoSection } from "./favourites-menu-item.styles";
-import { useTypedDispatch } from "../../../store/hooks";
+import { Container, InfoSection, Notice } from "./favourites-menu-item.styles";
+import { useTypedDispatch, useTypedSelector } from "../../../store/hooks";
 import { setFavourites } from "../../../store/favourites.slice";
 import { addItemToCart } from "../../../store/cart.slice";
 import Button from "../../button/button";
@@ -11,6 +11,7 @@ type FavouritesMenuItemProps = {
 
 const FavouritesMenuItem: React.FC<FavouritesMenuItemProps> = ({ product }) => {
   const dispatch = useTypedDispatch();
+  const cartItems = useTypedSelector((state) => state.cart.cartItems);
 
   return (
     <Container>
@@ -20,8 +21,13 @@ const FavouritesMenuItem: React.FC<FavouritesMenuItemProps> = ({ product }) => {
           <b>{product.name}</b>
         </span>
         <span>{`Price: ${product.price} €`}</span>
-        <Button label="Remove" theme="light" onClick={() => dispatch(setFavourites(product))} />
-        <Button label="Add to Cart" theme="light" onClick={() => dispatch(addItemToCart(product))} />
+        {cartItems.some((item) => item.id === product.id) ? (
+          <Notice>This item is in your cart</Notice>
+        ) : (
+          <Button label="Add to Cart" theme="light" onClick={() => dispatch(addItemToCart(product))} />
+        )}
+
+        <Button label="Remove from favourites" theme="light" onClick={() => dispatch(setFavourites(product))} />
       </InfoSection>
     </Container>
   );

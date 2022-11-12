@@ -26,8 +26,22 @@ export const Container = styled.div`
 
 export const Label = styled.span`
   display: inline-block;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   font-size: 24px;
   font-weight: 600;
   color: #222;
+`;
+
+export const Notice = styled.div`
+margin-top: 5px;
+margin-bottom: 20px;
+padding: 12px 20px 10px 20px;
+background-color: #eee;
+display: flex;
+align-items: center;
+gap: 20px;
+i {
+  font-size: 24px;
+  color: #222;
+}
 `;

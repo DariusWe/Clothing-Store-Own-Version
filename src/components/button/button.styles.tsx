@@ -7,7 +7,7 @@ const lightTheme = css`
   &:hover {
     background-color: #222;
     color: white;
-    border: 1px solid #000;
+    border: 1px solid #222;
   }
 `;
 

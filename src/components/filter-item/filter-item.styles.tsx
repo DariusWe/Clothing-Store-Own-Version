@@ -8,6 +8,10 @@ export const Container = styled.span`
   font-weight: 600;
   text-transform: uppercase;
   z-index: 2;
+  /* padding: 8px;
+  padding-left: 20px;
+  box-shadow: 5px 5px 10px #f1f1f1;
+  border-radius: 24px; */
   &:first-child {
     margin-left: -5px;
     padding-left: 0;
