@@ -1,6 +1,5 @@
 import { Container, NavLink } from "./navbar-top.styles";
-import ShoppingIcon from "../shopping-icon/shopping-icon";
-import ProfileIcon from "../profile-icon/profile-icon";
+import { ShoppingIcon, ProfileIcon } from "../index";
 import { useNavigate } from "react-router-dom";
 import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
 import { toggleFavouritesMenu } from "../../store/favourites.slice";

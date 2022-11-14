@@ -5,8 +5,7 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 import { firebaseCreateUserWithEmailAndPassword } from "../../utils/firebase";
 import { useTypedDispatch } from "../../store/hooks";
 import { setDisplayName } from "../../store/user.slice";
-import InputField from "../input-field/input-field";
-import Button from "../button/button";
+import { InputField, Button } from "../index";
 
 // Course is leveraging another typescript solution. This one here is just 20% of lines of code, but is it best practice?
 

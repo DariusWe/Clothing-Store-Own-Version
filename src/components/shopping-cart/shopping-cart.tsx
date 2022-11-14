@@ -2,8 +2,8 @@ import { Container, Label, ItemList, EmptyMessage, BottomSection, Row } from "./
 import { useNavigate } from "react-router-dom";
 import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
 import { selectCartItems, selectCartTotal, selectCartQuantity, toggleCart } from "../../store/cart.slice";
-import ShoppingCartItem from "../shopping-cart-item/shopping-cart-item";
-import Button from "../button/button";
+import { ShoppingCartItem, Button } from "../index";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const ShoppingCart = () => {
   console.log("ShoppingCart");
@@ -18,7 +18,15 @@ const ShoppingCart = () => {
     <Container>
       <Label>Cart</Label>
       <ItemList>
-        {cartItems.map((product) => <ShoppingCartItem key={product.id} product={product} />).reverse()}
+        <TransitionGroup>
+          {cartItems
+            .map((product) => (
+              <CSSTransition key={product.id} timeout={300} classNames="cart-item">
+                <ShoppingCartItem key={product.id} product={product} />
+              </CSSTransition>
+            ))
+            .reverse()}
+        </TransitionGroup>
       </ItemList>
       {cartItems.length > 0 ? (
         <BottomSection>

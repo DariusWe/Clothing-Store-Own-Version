@@ -2,7 +2,7 @@ import { Container, InfoSection, Notice } from "./favourites-menu-item.styles";
 import { useTypedDispatch, useTypedSelector } from "../../../store/hooks";
 import { setFavourites } from "../../../store/favourites.slice";
 import { addItemToCart } from "../../../store/cart.slice";
-import Button from "../../button/button";
+import { Button } from "../../index";
 import type { Item } from "../../../store/products.slice";
 
 type FavouritesMenuItemProps = {

@@ -1,6 +1,7 @@
 import { Container, HeartIcon, BottomSection, ProductInfo, ImagePlaceholder } from "./product-item.styles";
 import { useState } from "react";
-import Button from "../button/button";
+import { useNavigate, useParams } from "react-router-dom";
+import { Button } from "../index";
 import { addItemToCart, toggleCart } from "../../store/cart.slice";
 import { setFavourites } from "../../store/favourites.slice";
 import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
@@ -12,6 +13,8 @@ type ProductItemProps = {
 
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   console.log("ProductItem");
+  const navigate = useNavigate();
+  const { gender, category } = useParams();
   const [heartClicked, setHeartClicked] = useState(false);
   const dispatch = useTypedDispatch();
   const favItems = useTypedSelector((state) => state.favourites.items);
@@ -19,7 +22,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   return (
     <Container>
       <ImagePlaceholder>
-        <img src={product.imageUrl} alt={product.name} />
+        <img src={product.imageUrl} alt={product.name} onClick={() => navigate(`/${gender}/${category}/product#id=${product.id}`)} />
       </ImagePlaceholder>
       <HeartIcon
         tabIndex={0}
@@ -33,7 +36,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
         wasClicked={heartClicked}
       ></HeartIcon>
       <BottomSection>
-        <ProductInfo>
+        <ProductInfo onClick={() => navigate(`/${gender}/${category}/product#id=${product.id}`)}>
           <span>{product.name}</span>
           <span>{`${product.price} €`}</span>
         </ProductInfo>

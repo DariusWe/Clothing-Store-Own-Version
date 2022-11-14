@@ -1,7 +1,6 @@
 import { SideBarContainer, GenderLink, CategoriesList, LoadingSpinnerNavbar } from "./navbar-side.styles";
 import { useTypedSelector } from "../../store/hooks";
-import Logo from "../logo/logo";
-import NavbarSideLink from "../navbar-side-link/navbar-side-link";
+import { Logo, NavbarSideLink } from "../index";
 import { URL_LOCATION } from "../../constants/URL_LOCATIONS";
 
 const NavbarSide = () => {

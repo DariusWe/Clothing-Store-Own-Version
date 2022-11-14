@@ -5,12 +5,8 @@ import { onAuthStateChangedListener } from "./utils/firebase";
 import { fetchProductsAsync } from "./store/products.slice";
 import { setCurrentUser } from "./store/user.slice";
 import { setUserLocation } from "./store/user-location.slice";
-import Navigation from "./pages/navigation/navigation";
-import CategoryPage from "./pages/category/category-page";
-import SignInPage from "./pages/sign-in/sign-in-page";
-import SignUpPage from "./pages/sign-up/sign-up-page";
-import CheckoutPage from "./pages/checkout/checkout-page";
-import LandingPage from "./pages/landing/landing-page";
+// prettier-ignore
+import { Navigation, CategoryPage, SignInPage, SignUpPage, CheckoutPage, LandingPage, ProductPage } from "./pages/index";
 
 const App = () => {
   console.log("App");
@@ -47,6 +43,7 @@ const App = () => {
         <Route index element={<LandingPage />} />
         <Route path=":gender" element={<LandingPage />} />
         <Route path=":gender/:category" element={<CategoryPage />} />
+        <Route path=":gender/:category/:product" element={<ProductPage />} />
         <Route path="sign-in" element={<SignInPage />} />
         <Route path="sign-in/:destination" element={<SignInPage />} />
         <Route path="sign-up" element={<SignUpPage />} />

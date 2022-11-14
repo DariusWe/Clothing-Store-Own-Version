@@ -29,6 +29,30 @@ export const ItemList = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+  .cart-item-enter {
+  }
+  .cart-item-enter-active {
+  }
+  .cart-item-enter-done {
+    opacity: 0;
+  }
+  .cart-item-exit {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .cart-item-exit-active {
+    //transform: translateX(100%);
+    opacity: 0;
+    transition: all 320ms;
+    //transition: opacity 300ms;
+  }
+  /* animation-name: asd;
+  animation-duration: 300ms;
+
+  @keyframes asd {
+    0% {transform: translateY(200px)};
+    100% {transform: translateY(0)};
+  } */
 `;
 
 export const BottomSection = styled.div`

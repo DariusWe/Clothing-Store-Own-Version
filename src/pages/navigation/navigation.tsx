@@ -1,9 +1,7 @@
 import React from "react";
 import { MainContainer, ContentArea } from "./navigation.styles";
 import { Outlet } from "react-router-dom";
-import NavbarSide from "../../components/navbar-side/navbar-side";
-import NavbarTop from "../../components/navbar-top/navbar-top";
-import SlideMenu from "../../components/slide-menu/slide-menu";
+import { NavbarSide, NavbarTop, SlideMenu } from "../../components/index";
 
 const Navigation = React.memo(() => {
   console.log("Navigation");

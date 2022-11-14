@@ -1,8 +1,7 @@
 import { Container, ResetPasswordSection } from "./sign-in-form.styles";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import { firebaseSignInWithEmailAndPassword } from "../../utils/firebase";
-import InputField from "../input-field/input-field";
-import Button from "../button/button";
+import { InputField, Button } from "../index";
 
 // Course is leveraging another typescript solution. This one here is just 20% of lines of code, but is it best practice?
 

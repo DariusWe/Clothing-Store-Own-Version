@@ -1,5 +1,5 @@
 import { Container, SelectedFilters } from "./products-filter-section.styles";
-import FilterItem from "../filter-item/filter-item";
+import { FilterItem } from "../index";
 import { useSelector } from "react-redux";
 import { setSortBy, setColors } from "../../store/filters.slice";
 import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
@@ -19,7 +19,7 @@ export type ProductFilter = {
   currStoreValue: string | string[];
   setStoreValue: (value: string) => void;
 };
-  //
+//
 const ProductsFilterSection = () => {
   console.log("ProductsFilterSection");
   // Both selecting methods possible. Second one is recommended as you don't have to pass RootStateType into every selector.

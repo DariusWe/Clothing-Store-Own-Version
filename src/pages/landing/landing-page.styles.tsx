@@ -32,8 +32,9 @@ export const RightSection = styled.div`
   justify-content: flex-end;
   padding: 0 35px;
   h2 {
+    line-height: 38px;
     font-size: 34px;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
     font-weight: 900;
     text-transform: uppercase;
     color: #222;

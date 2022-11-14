@@ -8,6 +8,9 @@ export const Container = styled.div`
   img {
     width: 100%;
     cursor: pointer;
+    &:hover {
+      filter: brightness(0.98);
+    }
   }
 `;
 

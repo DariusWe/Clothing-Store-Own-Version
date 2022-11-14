@@ -8,8 +8,6 @@ YOU CAN STORE ASSETS IN PUBLIC FOLDER. THIS HAS DISADVANTAGES. DIG INTO WEBPACK 
 
 change toggleCart to closeCart/openCart. This way, outsideClickHandler in slideMenu keeps working properly. Same goes for toggleFavourites and toggleProfileMenu.
 
-CLEANER SOLUTION FOR NAVIGATION PAGE (TRANSITION STUFF IS TO STUPID)
-
 // NavLink looks like NavbarSideLink component. Styled components look like components in general. Kind of annoying. Solution for this? Idea: Set 
 // Prefix for styled components, for example "Styled"
 
@@ -59,9 +57,7 @@ TO DO:
 #########################################################################################################################
 
 - Continue animations (productItem and SlideMenu, also when deleting items from cart or favourites)
-- Make Wishlist only accessible when logged in
 - Save Wishlist for users
-- give Feedback when Wishlist item gets clicked into cart
 - Move Icon components into own folder
 - clean up!
 - Include real world login and register procedure

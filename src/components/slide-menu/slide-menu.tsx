@@ -5,9 +5,7 @@ import { useTypedDispatch, useTypedSelector } from "../../store/hooks";
 import { toggleCart } from "../../store/cart.slice";
 import { toggleProfileMenu } from "../../store/user.slice";
 import { toggleFavouritesMenu } from "../../store/favourites.slice";
-import ProfileMenu from "../../components/profile-menu/profile-menu";
-import ShoppingCart from "../../components/shopping-cart/shopping-cart";
-import FavouritesMenu from "../../components/favourites-menu/favourites-menu";
+import { ProfileMenu, ShoppingCart, FavouritesMenu } from "../index";
 
 /* 
 Notes to CSS-Transition-Group:
@@ -54,9 +52,9 @@ const SlideMenu: React.FC = () => {
   /////////////////////////////////////////////////////////////////////////////////////////////////
 
   const closeSlideMenu = () => {
-  isCartOpen && dispatch(toggleCart());
-  isProfileMenuOpen && dispatch(toggleProfileMenu());
-  isFavouritesOpen && dispatch(toggleFavouritesMenu());
+    isCartOpen && dispatch(toggleCart());
+    isProfileMenuOpen && dispatch(toggleProfileMenu());
+    isFavouritesOpen && dispatch(toggleFavouritesMenu());
   };
 
   return (

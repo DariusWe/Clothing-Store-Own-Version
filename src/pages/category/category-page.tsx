@@ -4,9 +4,7 @@ import { useParams } from "react-router-dom";
 import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
 import { setSortBy, resetColors } from "../../store/filters.slice";
 import type { Item } from "../../store/products.slice";
-import ProductItem from "../../components/product-item/product-item";
-import ProductsFilterSection from "../../components/products-filter-section/products-filter-section";
-import LoadingSpinner from "../../components/loading-spinner/loading-spinner";
+import { ProductItem, ProductsFilterSection, LoadingSpinner } from "../../components/index";
 import { URL_LOCATION } from "../../constants/URL_LOCATIONS";
 
 const CategoryPage = () => {

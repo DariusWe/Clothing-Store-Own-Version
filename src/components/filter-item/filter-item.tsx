@@ -1,6 +1,6 @@
 import { Container, FilterItemContainer } from "./filter-item.styles";
 import { useState, useRef, useEffect } from "react";
-import DropDownMenu from "../dropdown/dropdown";
+import { DropDownMenu } from "../index";
 import type { ProductFilter } from "../products-filter-section/products-filter-section";
 
 /*
