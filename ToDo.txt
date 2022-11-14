@@ -57,6 +57,7 @@ TO DO:
 #########################################################################################################################
 
 - Continue animations (productItem and SlideMenu, also when deleting items from cart or favourites)
+- Also make clear which item got added to cart by animation
 - Save Wishlist for users
 - Move Icon components into own folder
 - clean up!

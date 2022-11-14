@@ -1,23 +1,46 @@
 import { Container, Label, ItemList, EmptyMessage, BottomSection, Row } from "./shopping-cart.styles";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
-import { selectCartItems, selectCartTotal, selectCartQuantity, toggleCart } from "../../store/cart.slice";
+import { selectCartTotal, selectCartQuantity, toggleCart } from "../../store/cart.slice";
 import { ShoppingCartItem, Button } from "../index";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const ShoppingCart = () => {
   console.log("ShoppingCart");
-  const cartItems = useTypedSelector(selectCartItems);
+  const currentUser = useTypedSelector((state) => state.user.currentUser);
+  const cartItems = useTypedSelector((state) => state.cart.cartItems);
   const cartTotal = useTypedSelector(selectCartTotal);
   const cartQuantity = useTypedSelector(selectCartQuantity);
-  const currentUser = useTypedSelector((state) => state.user.currentUser);
   const dispatch = useTypedDispatch();
   const navigate = useNavigate();
+
+  ////// When CartItem finished transitioning out, repaint whole ItemList with a soft opacity transition: /////
+  const prevCartItemsLength = useRef(cartItems.length);
+  const [itemWasRemoved, setItemWasRemoved] = useState(false);
+
+  useEffect(() => {
+    if (cartItems.length < prevCartItemsLength.current) {
+      setTimeout(() => {
+        setItemWasRemoved(true);
+      }, 300);
+    }
+    prevCartItemsLength.current = cartItems.length;
+  }, [cartItems.length]);
+
+  useEffect(() => {
+    if (itemWasRemoved) {
+      setTimeout(() => {
+        setItemWasRemoved(false);
+      }, 400);
+    }
+  }, [itemWasRemoved]);
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <Container>
       <Label>Cart</Label>
-      <ItemList>
+      <ItemList itemRemoved={itemWasRemoved}>
         <TransitionGroup>
           {cartItems
             .map((product) => (

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
@@ -18,7 +18,28 @@ export const Label = styled.span`
   color: #222;
 `;
 
-export const ItemList = styled.div`
+const itemRemovedStyles = css`
+  animation-name: asd;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  @keyframes asd {
+    0% {
+      opacity: 0;
+    }
+    15% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+`;
+
+type ItemListProps = {
+  itemRemoved: boolean;
+};
+
+export const ItemList = styled.div<ItemListProps>`
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -29,30 +50,18 @@ export const ItemList = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-  .cart-item-enter {
-  }
-  .cart-item-enter-active {
-  }
-  .cart-item-enter-done {
-    opacity: 0;
-  }
+
   .cart-item-exit {
     transform: translateX(0);
     opacity: 1;
   }
   .cart-item-exit-active {
-    //transform: translateX(100%);
     opacity: 0;
+    transform: translateX(100%);
     transition: all 320ms;
-    //transition: opacity 300ms;
   }
-  /* animation-name: asd;
-  animation-duration: 300ms;
 
-  @keyframes asd {
-    0% {transform: translateY(200px)};
-    100% {transform: translateY(0)};
-  } */
+  ${(props) => (props.itemRemoved ? itemRemovedStyles : null)};
 `;
 
 export const BottomSection = styled.div`

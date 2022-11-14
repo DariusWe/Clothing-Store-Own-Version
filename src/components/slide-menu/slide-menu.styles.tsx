@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   }
   .slide-menu-enter-active {
     transform: translateX(0);
-    transition: all 0.3s;
+    transition: all 0.3s ease-out;
   }
   .slide-menu-exit {
     transform: translateX(0);
