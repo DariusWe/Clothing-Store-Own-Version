@@ -24,14 +24,6 @@ export const Container = styled.div`
   }
 `;
 
-export const Label = styled.span`
-  display: inline-block;
-  margin-bottom: 30px;
-  font-size: 24px;
-  font-weight: 600;
-  color: #222;
-`;
-
 export const Notice = styled.div`
 margin-top: 5px;
 margin-bottom: 20px;

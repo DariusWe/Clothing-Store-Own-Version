@@ -2,20 +2,11 @@ import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   z-index: 2;
-`;
-
-export const Label = styled.span`
-  display: inline-block;
-  margin-bottom: 25px;
-  padding: 0 30px;
-  font-size: 24px;
-  font-weight: 600;
-  color: #222;
 `;
 
 const itemRemovedStyles = css`
@@ -26,7 +17,7 @@ const itemRemovedStyles = css`
     0% {
       opacity: 0;
     }
-    15% {
+    5% {
       opacity: 0;
     }
     100% {
@@ -67,7 +58,7 @@ export const ItemList = styled.div<ItemListProps>`
 export const BottomSection = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 20px 30px 0 30px;
+  padding: 20px 30px;
   border-top: 2px solid #222;
   button {
     width: 100%;

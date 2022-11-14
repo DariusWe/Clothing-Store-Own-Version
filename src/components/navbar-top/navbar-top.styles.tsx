@@ -28,8 +28,7 @@ export const Container = styled.div`
       transform: scale(1);
     }
     50% {
-      transform: scale(1.4);
-      opacity: 0.8;
+      transform: scale(1.5);
       //color: red;
     }
     100% {

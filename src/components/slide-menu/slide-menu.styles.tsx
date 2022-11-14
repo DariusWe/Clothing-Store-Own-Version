@@ -39,9 +39,19 @@ export const SlideMenuContainer = styled.div`
   min-width: 340px;
   max-width: 520px;
   height: 100vh;
-  padding: 20px 0;
   background-color: rgba(255, 255, 255, 1);
   z-index: 2;
+`;
+
+export const Label = styled.span`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  margin: 0 30px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
 `;
 
 export const CloseBtn = styled.i`

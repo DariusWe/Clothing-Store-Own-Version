@@ -2,11 +2,28 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #ddd;
   padding: 20px 0;
   img {
     width: 20vh;
   }
+  /* &:first-child {
+    border-top: none;
+    animation-name: pop;
+    animation-duration: 300ms;
+    animation-delay: 320ms;
+    @keyframes pop {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.02);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  } */
 `;
 
 export const InfoSection = styled.div`

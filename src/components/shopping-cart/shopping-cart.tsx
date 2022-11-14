@@ -1,4 +1,4 @@
-import { Container, Label, ItemList, EmptyMessage, BottomSection, Row } from "./shopping-cart.styles";
+import { Container, ItemList, EmptyMessage, BottomSection, Row } from "./shopping-cart.styles";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
@@ -39,7 +39,6 @@ const ShoppingCart = () => {
 
   return (
     <Container>
-      <Label>Cart</Label>
       <ItemList itemRemoved={itemWasRemoved}>
         <TransitionGroup>
           {cartItems

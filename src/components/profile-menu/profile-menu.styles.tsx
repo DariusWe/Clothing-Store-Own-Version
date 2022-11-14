@@ -8,14 +8,14 @@ export const Container = styled.div`
   padding: 0 30px;
 
   h3 {
-    display: block;
-    padding-bottom: 25px;
-    margin-bottom: 20px;
-    margin-top: 7px;
+    display: flex;
+    align-items: center;
+    height: 80px; 
     font-size: 20px;
     font-weight: 600;
     color: #222;
     border-bottom: 1px solid #aaa;
+    margin-bottom: 20px;
   }
 
   span {

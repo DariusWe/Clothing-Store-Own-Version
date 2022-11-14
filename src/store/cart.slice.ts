@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createSelector } from "reselect";
 import type { Item } from "../store/products.slice";
-import {RootStateType } from "./root-reducer";
+import { RootStateType } from "./root-reducer";
 
 export interface CartItem extends Item {
   quantity: number;
@@ -21,9 +21,13 @@ const cartSlice = createSlice({
   reducers: {
     addItemToCart: (state, { payload: newItem }) => {
       const itemAlreadyExists = state.cartItems.some((item) => item.id === newItem.id);
-      state.cartItems = itemAlreadyExists
-        ? state.cartItems.map((item) => (item.id === newItem.id ? { ...item, quantity: item.quantity + 1 } : item))
-        : [...state.cartItems, { ...newItem, quantity: 1 }];
+      if (itemAlreadyExists) {
+        const itemThatExists = state.cartItems.filter((item) => item.id === newItem.id)[0];
+        const listWithoutItem = state.cartItems.filter((item) => item.id !== newItem.id);
+        state.cartItems = [...listWithoutItem, { ...itemThatExists, quantity: itemThatExists.quantity + 1 }];
+      } else {
+        state.cartItems = [...state.cartItems, { ...newItem, quantity: 1 }];
+      }
     },
     increaseQuantity: (state, { payload: itemToIncrease }) => {
       state.cartItems = state.cartItems.map((item) =>

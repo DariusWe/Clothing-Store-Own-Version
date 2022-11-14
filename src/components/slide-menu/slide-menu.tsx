@@ -1,4 +1,4 @@
-import { Wrapper, SlideMenuContainer, CloseBtn, DarkOverlay } from "./slide-menu.styles";
+import { Wrapper, SlideMenuContainer, Label, CloseBtn, DarkOverlay } from "./slide-menu.styles";
 import { useRef, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useTypedDispatch, useTypedSelector } from "../../store/hooks";
@@ -61,6 +61,7 @@ const SlideMenu: React.FC = () => {
     <Wrapper>
       <CSSTransition in={isCartOpen} unmountOnExit timeout={300} classNames="slide-menu">
         <SlideMenuContainer ref={menuRef}>
+          <Label>Cart</Label>
           <CloseBtn className="fa-solid fa-xmark" onClick={closeSlideMenu}></CloseBtn>
           <ShoppingCart />
         </SlideMenuContainer>
@@ -73,6 +74,7 @@ const SlideMenu: React.FC = () => {
       </CSSTransition>
       <CSSTransition in={isFavouritesOpen} unmountOnExit timeout={300} classNames="slide-menu">
         <SlideMenuContainer ref={menuRef}>
+          <Label>Favourites</Label>
           <CloseBtn className="fa-solid fa-xmark" onClick={closeSlideMenu}></CloseBtn>
           <FavouritesMenu />
         </SlideMenuContainer>

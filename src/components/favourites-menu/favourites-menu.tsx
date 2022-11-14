@@ -1,4 +1,4 @@
-import { Container, Label, Notice } from "./favourites-menu.styles";
+import { Container, Notice } from "./favourites-menu.styles";
 import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
 import { toggleFavouritesMenu } from "../../store/favourites.slice";
 import { FavouritesMenuItem } from "../index";
@@ -19,7 +19,6 @@ const FavouritesMenu = () => {
 
   return (
     <Container>
-      <Label>Favourites</Label>
       {!currentUser ? (
         <Notice>
           <i className="fa-solid fa-circle-info"></i>
