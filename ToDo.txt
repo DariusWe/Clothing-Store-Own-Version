@@ -56,6 +56,14 @@ https://stackoverflow.com/questions/4847996/css-animation-onclick
 TO DO:
 #########################################################################################################################
 
+- rename favourites-menu to favourites-list
+- maybe put filter-item into products-filter-section?
+- navbar-side-link into navbar-side
+- shopping-cart-item into shopping-cart
+- input-field into form folder?
+- put icons into navbar-top-folder
+- put heart icon also into product-item folder
+
 - Continue animations (productItem and SlideMenu, also when deleting items from cart or favourites)
 - Also make clear which item got added to cart by animation
 - Save Wishlist for users

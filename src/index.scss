@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text-color: #222;
+  --border-light: 1px solid #eee;
+  --font-size: 1px;
+}
+
 body {
   margin: 0;
   //padding: 1.4vw 2vw;
@@ -13,6 +19,8 @@ body {
   // font-family: "Excon", sans-serif;
   // font-family: "Boska", sans-serif;
   // font-family: "Italiana";
+  // font-family: 'Outfit', sans-serif;
+  // font-family: 'Chillax', sans-serif;
   font-family: "Satoshi", sans-serif;
   font-size: 15px;
 }

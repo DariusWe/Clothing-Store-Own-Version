@@ -4,8 +4,8 @@ import { CSSTransition } from "react-transition-group";
 import { useTypedDispatch, useTypedSelector } from "../../store/hooks";
 import { toggleCart } from "../../store/cart.slice";
 import { toggleProfileMenu } from "../../store/user.slice";
-import { toggleFavouritesMenu } from "../../store/favourites.slice";
-import { ProfileMenu, ShoppingCart, FavouritesMenu } from "../index";
+import { toggleFavouritesList } from "../../store/favourites.slice";
+import { ProfileMenu, Cart, FavouritesMenu } from "../index";
 
 /* 
 Notes to CSS-Transition-Group:
@@ -54,7 +54,7 @@ const SlideMenu: React.FC = () => {
   const closeSlideMenu = () => {
     isCartOpen && dispatch(toggleCart());
     isProfileMenuOpen && dispatch(toggleProfileMenu());
-    isFavouritesOpen && dispatch(toggleFavouritesMenu());
+    isFavouritesOpen && dispatch(toggleFavouritesList());
   };
 
   return (
@@ -63,7 +63,7 @@ const SlideMenu: React.FC = () => {
         <SlideMenuContainer ref={menuRef}>
           <Label>Cart</Label>
           <CloseBtn className="fa-solid fa-xmark" onClick={closeSlideMenu}></CloseBtn>
-          <ShoppingCart />
+          <Cart />
         </SlideMenuContainer>
       </CSSTransition>
       <CSSTransition in={isProfileMenuOpen} unmountOnExit timeout={300} classNames="slide-menu">

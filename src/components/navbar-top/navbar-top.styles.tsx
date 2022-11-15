@@ -12,32 +12,9 @@ export const Container = styled.div`
   background-color: white;
   z-index: 1;
   border-radius: 30px;
-  .fa-heart {
-    font-size: 19px;
-    &:hover {
-      cursor: pointer;
-    }
+  font-size: 19px;
+  span {
+    font-size: 14px;
+    cursor: pointer;
   }
-  .animate {
-    animation-name: pop;
-    animation-duration: 500ms;
-    animation-fill-mode: backwards;
-  }
-  @keyframes pop {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.5);
-      //color: red;
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-`;
-
-export const NavLink = styled.span`
-  font-size: 14px;
-  cursor: pointer;
 `;

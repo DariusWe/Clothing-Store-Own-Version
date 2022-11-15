@@ -1,35 +1,20 @@
-import { Container, NavLink } from "./navbar-top.styles";
-import { ShoppingIcon, ProfileIcon } from "../index";
+import { Container } from "./navbar-top.styles";
+import { CartIcon, ProfileIcon, HeartIconNavbar } from "../index";
 import { useNavigate } from "react-router-dom";
-import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
-import { toggleFavouritesMenu } from "../../store/favourites.slice";
-import { useEffect, useState } from "react";
+import { useTypedSelector } from "../../store/hooks";
 
 // Gets rerendered on location change because of parent
 
 const NavbarTop = () => {
   console.log("NavbarTop");
   const navigate = useNavigate();
-  const dispatch = useTypedDispatch();
   const currentUser = useTypedSelector((state) => state.user.currentUser);
-
-  const likedItems = useTypedSelector((state) => state.favourites.items);
-  const [prevLikedItemsLength, setPrevLikedItemsLength] = useState<number>(0);
-  useEffect(() => {
-    setTimeout(() => {
-      setPrevLikedItemsLength(likedItems.length);
-    }, 500);
-  }, [likedItems.length]);
 
   return (
     <Container>
-      {currentUser ? <ProfileIcon /> : <NavLink onClick={() => navigate("/sign-in")}>SIGN IN</NavLink>}
-      <i
-        className={likedItems.length > prevLikedItemsLength ? "fa-solid fa-heart animate" : "fa-solid fa-heart"}
-        onClick={() => dispatch(toggleFavouritesMenu())}
-      ></i>
-      <ShoppingIcon />
-      {/* <i className="fa-solid fa-bars"></i> */}
+      {currentUser ? <ProfileIcon /> : <span onClick={() => navigate("/sign-in")}>SIGN IN</span>}
+      <HeartIconNavbar />
+      <CartIcon />
     </Container>
   );
 };

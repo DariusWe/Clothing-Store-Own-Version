@@ -1,5 +1,5 @@
 import { Container } from "./sign-in-page.styles";
-import SignInForm from "../../components/sign-in-form/sign-in-form";
+import SignInForm from "../../components/forms/sign-in-form/sign-in-form";
 
 const SignInPage = () => {
   console.log("SignInPage");
