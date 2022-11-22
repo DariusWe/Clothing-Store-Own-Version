@@ -8,9 +8,9 @@ export const Container = styled.div`
   img {
     width: 100%;
     cursor: pointer;
-    filter: brightness(0.95);
+    filter: brightness(0.96);
     &:hover {
-      filter: brightness(0.97);
+      filter: brightness(0.976);
     }
     animation: softAppear;
     animation-duration: 150ms;

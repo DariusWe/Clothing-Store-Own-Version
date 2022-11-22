@@ -76,8 +76,6 @@ export const ContentMobile = styled.div<ContentMobileProps>`
   height: calc(100vh - var(--mobile-navbar-height));
   padding: 0 10vw;
 
-
-
   display: flex;
   flex-direction: column;
   // justify-content: end;
@@ -89,8 +87,8 @@ export const ContentMobile = styled.div<ContentMobileProps>`
   //padding: 0 8vw 6rem 8vw;
   background-image: ${(props) =>
     props.userLocation === URL_LOCATION.WOMEN
-      ? "url(/product-images/index-women-1.jpg)"
-      : "url(/product-images/index-men-1.jpg)"};
+      ? "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(/product-images/index-women-1.jpg)"
+      : "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(/product-images/index-men-1.jpg)"};
   background-size: cover;
   box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.1) inset;
   h2 {
