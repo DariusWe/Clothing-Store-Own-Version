@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { StyledHeartIcon } from "./heart-icon-navbar.styles";
-import { useTypedSelector, useTypedDispatch } from "../../../store/hooks";
-import { toggleFavouritesList } from "../../../store/favourites.slice";
+import { useTypedSelector, useTypedDispatch } from "../../../store/typed-hooks";
+import { toggleFavouritesList } from "../../../store/slices/favourites.slice";
 
 const HeartIconNavbar = () => {
   const dispatch = useTypedDispatch();

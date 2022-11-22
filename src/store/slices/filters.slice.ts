@@ -1,7 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { SORT_BY_VALUES } from "../constants/SORT_BY_FILTER_VALUES";
 
 // ToDo: Define payload types and other "any"-types
+
+export const COLOR_FIILTER_VALUES = ["white", "black", "red", "purple", "green", "blue", "orange", "pink"];
+
+export enum SORT_BY_VALUES {
+  RECOMMENDED = "recommended",
+  LOWEST_PRICE = "lowest price",
+  HIGHEST_PRICE = "highest price",
+}
 
 type InitialStateType = {
   sortBy: SORT_BY_VALUES;

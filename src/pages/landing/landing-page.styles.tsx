@@ -1,26 +1,38 @@
 import styled from "styled-components";
+import { Button } from "../../components";
+import { URL_LOCATION } from "../../store/slices/user-location.slice";
 
-export const Container = styled.div`
+export const ContainerDesktop = styled.div`
   display: flex;
   flex-direction: row;
-  height: 100.2vh;
-  //height: calc(100vh - 3.6vw);
-  padding: 30px 40px;
+  height: 100vh;
+  width: 100%;
+  padding: 3rem 4rem;
 `;
 
 export const LeftSection = styled.div`
-  display: flex;
-  width: 70%;
   height: 100%;
-  z-index: 1;
-  border-radius: 8px;
-  overflow: hidden;
-  img:first-child {
-    margin-left: calc(-10% + 40px); // Random formula that provides ~same percentages on FHD and Laptop Screen
+  width: 70%;
+`;
+
+type CSSBackgroundImageProps = {
+  src: string;
+};
+
+export const CSSBackgroundImage = styled.span<CSSBackgroundImageProps>`
+  display: inline-block;
+  height: 100%;
+  width: 50%;
+  background-size: cover;
+  background-position: center;
+  background-image: ${(props) => `url(${props.src})`};
+  :first-child {
+    border-top-left-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
   }
-  img:last-child {
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+  :nth-child(2) {
+    border-top-right-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
   }
 `;
 
@@ -30,26 +42,64 @@ export const RightSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 35px;
+  padding: 0 3.5rem;
+  @media screen and (max-width: 1280px) {
+    padding-right: 0.8rem;
+  }
   h2 {
-    line-height: 38px;
-    font-size: 34px;
-    margin-bottom: 10px;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: #222;
+    margin-bottom: 1rem;
   }
   span {
     display: block;
-    font-weight: 400;
     font-style: italic;
     color: #888;
-    margin-bottom: 15px;
+    margin-bottom: 1.5rem;
   }
 `;
 
 export const LinkToCollection = styled.p`
-  margin-top: 30px;
-  margin-bottom: 6px;
-  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 0.6rem;
+`;
+
+export const ContainerMobile = styled.div`
+  width: 100%;
+  height: 100%;
+  color: white;
+`;
+
+type ContentMobileProps = {
+  userLocation: URL_LOCATION;
+};
+
+export const ContentMobile = styled.div<ContentMobileProps>`
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  margin: 1rem 2.5rem;
+  padding: 0 8vw 6rem 8vw;
+  background-image: ${(props) =>
+    props.userLocation === URL_LOCATION.WOMEN
+      ? "url(/product-images/index-women-1.jpg)"
+      : "url(/product-images/index-men-1.jpg)"};
+  background-size: cover;
+  box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.1) inset;
+  h2 {
+    margin-bottom: 1rem;
+  }
+  span {
+    display: block;
+    font-style: italic;
+    color: #ddd;
+    margin-bottom: 1.5rem;
+  }
+`;
+
+export const StyledButton = styled(Button)`
+  margin-top: 3rem;
+  width: 20vw;
+  min-width: 16rem;
 `;

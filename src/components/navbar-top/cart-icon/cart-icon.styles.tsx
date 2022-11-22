@@ -4,10 +4,6 @@ export const Container = styled.div`
   display: inline;
   cursor: pointer;
   color: #222;
-  font-size: 18px;
-  margin-bottom: -2px;
-  margin-right: -6px;
-  margin-left: -2px;
 `;
 
 export const Counter = styled.span`
@@ -15,13 +11,13 @@ export const Counter = styled.span`
   position: relative;
   justify-content: center;
   align-items: center;
-  width: 18px;
-  height: 18px;
+  width: 1.8rem;
+  height: 1.8rem;
   border-radius: 100%;
   background-color: #111;
   color: white;
-  font-size: 12px;
+  font-size: 1.2rem;
   font-weight: 700;
-  top: -10px;
-  left: -4px;
+  top: -1rem;
+  left: -0.4rem;
 `;

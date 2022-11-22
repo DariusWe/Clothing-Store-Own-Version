@@ -13,11 +13,12 @@ type StyledHeartIconProps = {
 
 export const StyledHeartIcon = styled.i<StyledHeartIconProps>`
   position: absolute;
-  right: 18px;
-  top: 12px;
-  font-size: 18px;
-  color: white;
-  padding: 4px;
+  right: 1.8rem;
+  top: 1.2rem;
+  font-size: 1.8rem;
+  color: var(--background-color);
+  color: rgb(244, 244, 244);
+  padding: 0.4rem;
   cursor: pointer;
   &:hover {
     color: #444;

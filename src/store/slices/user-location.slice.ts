@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { URL_LOCATION } from "../constants/URL_LOCATIONS";
+
+export enum URL_LOCATION {
+  WOMEN = "women",
+  MEN = "men",
+  OTHER = "other",
+}
 
 type SliceState = {
   userLocation: URL_LOCATION;

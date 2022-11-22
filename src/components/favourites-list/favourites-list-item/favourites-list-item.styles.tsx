@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   border-top: 1px solid #ddd;
-  padding: 20px 0;
+  padding: 2rem 0;
   img {
     width: 20vh;
   }
@@ -14,12 +14,12 @@ export const InfoSection = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  margin-left: 20px;
+  margin-left: 2rem;
   span:first-child {
     margin-bottom: 10px;
   }
   i {
-    font-size: 12px;
+    font-size: 1.2rem;
   }
   button {
     border-color: #666;
@@ -27,6 +27,6 @@ export const InfoSection = styled.div`
 `;
 
 export const Notice = styled.span`
-  margin: 22px 0 12px 0;
+  margin: 2.2rem 0 1.2rem 0;
   color: green;
 `;

@@ -1,10 +1,12 @@
-import { userReducer } from "./user.slice";
-import { cartReducer } from "./cart.slice";
-import { productsReducer } from "./products.slice";
-import { userLocationReducer } from "./user-location.slice";
-import { filtersReducer } from "./filters.slice";
-import { slideMenuReducer } from "./slide-menu.slice";
-import { favouritesReducer } from "./favourites.slice";
+import { userReducer } from "./slices/user.slice";
+import { cartReducer } from "./slices/cart.slice";
+import { productsReducer } from "./slices/products.slice";
+import { userLocationReducer } from "./slices/user-location.slice";
+import { filtersReducer } from "./slices/filters.slice";
+import { slideMenuReducer } from "./slices/slide-menu.slice";
+import { favouritesReducer } from "./slices/favourites.slice";
+import { currentViewportReducer } from "./slices/current-viewport.slice";
+import { navbarSideMobileReducer } from "./slices/navbar-side-mobile.slice";
 import { combineReducers } from "redux";
 
 export const rootReducer = combineReducers({
@@ -15,6 +17,8 @@ export const rootReducer = combineReducers({
   filters: filtersReducer,
   slideMenu: slideMenuReducer,
   favourites: favouritesReducer,
+  currentViewport: currentViewportReducer,
+  navbarSideMobile: navbarSideMobileReducer,
 });
 
 export type RootStateType = ReturnType<typeof rootReducer>;

@@ -1,13 +1,20 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { VIEWPORT_TYPES } from "../../store/slices/current-viewport.slice";
 
 export const MainContainer = styled.div`
   display: flex;
 `;
 
-export const ContentArea = styled.div`
+type ContentAreaProps = {
+  layoutFor: VIEWPORT_TYPES;
+};
+
+export const ContentArea = styled.div<ContentAreaProps>`
   width: 100%;
-  overflow-x: hidden;
+  //overflow-x: hidden;
+  ${(props) =>
+    props.layoutFor !== VIEWPORT_TYPES.DESKTOP &&
+    css`
+      margin-top: var(--mobile-navbar-height);
+    `}
 `;
-
-
-

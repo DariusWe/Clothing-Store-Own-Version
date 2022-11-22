@@ -1,6 +1,6 @@
 import { Container } from "./profile-menu.styles";
-import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
-import { toggleProfileMenu } from "../../store/user.slice";
+import { useTypedSelector, useTypedDispatch } from "../../store/typed-hooks";
+import { toggleProfileMenu } from "../../store/slices/user.slice";
 import { signOutUser } from "../../utils/firebase";
 import { useNavigate } from "react-router-dom";
 

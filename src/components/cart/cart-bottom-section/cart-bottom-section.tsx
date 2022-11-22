@@ -1,7 +1,7 @@
 import { Container, Row, EmptyMessage } from "./cart-bottom-section.styles";
 import { useNavigate } from "react-router-dom";
-import { useTypedSelector, useTypedDispatch } from "../../../store/hooks";
-import { selectCartTotal, selectCartQuantity, toggleCart } from "../../../store/cart.slice";
+import { useTypedSelector, useTypedDispatch } from "../../../store/typed-hooks";
+import { selectCartTotal, selectCartQuantity, toggleCart } from "../../../store/slices/cart.slice";
 import { Button } from "../../index";
 
 const CartBottomSection = () => {
@@ -40,7 +40,7 @@ const CartBottomSection = () => {
           </Row>
           <Button
             label="Checkout"
-            theme="dark"
+            buttonTheme="dark"
             onClick={() => {
               dispatch(toggleCart());
               currentUser ? navigate("/checkout") : navigate("/sign-in/to-checkout");

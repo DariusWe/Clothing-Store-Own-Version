@@ -1,11 +1,12 @@
 import { Wrapper, SlideMenuContainer, Label, CloseBtn, DarkOverlay } from "./slide-menu.styles";
 import { useRef, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
-import { useTypedDispatch, useTypedSelector } from "../../store/hooks";
-import { toggleCart } from "../../store/cart.slice";
-import { toggleProfileMenu } from "../../store/user.slice";
-import { toggleFavouritesList } from "../../store/favourites.slice";
-import { ProfileMenu, Cart, FavouritesMenu } from "../index";
+import { useTypedDispatch, useTypedSelector } from "../../store/typed-hooks";
+import { toggleCart } from "../../store/slices/cart.slice";
+import { toggleProfileMenu } from "../../store/slices/user.slice";
+import { toggleFavouritesList } from "../../store/slices/favourites.slice";
+import { toggleNavbarSideMobile } from "../../store/slices/navbar-side-mobile.slice";
+import { ProfileMenu, Cart, FavouritesMenu, NavbarSideMobile } from "../index";
 
 /* 
 Notes to CSS-Transition-Group:
@@ -25,7 +26,8 @@ const SlideMenu: React.FC = () => {
   const isCartOpen = useTypedSelector((state) => state.cart.isCartOpen);
   const isProfileMenuOpen = useTypedSelector((state) => state.user.isProfileMenuOpen);
   const isFavouritesOpen = useTypedSelector((state) => state.favourites.isFavouritesOpen);
-  const isAnyMenuOpen = isCartOpen || isProfileMenuOpen || isFavouritesOpen;
+  const isNavbarSideMobileOpen = useTypedSelector((state) => state.navbarSideMobile.isOpen);
+  const isAnyMenuOpen = isCartOpen || isProfileMenuOpen || isFavouritesOpen || isNavbarSideMobileOpen;
   const menuRef = useRef<HTMLDivElement>(null);
 
   ////////////////////////////////////// Outside-click-handler //////////////////////////////////////
@@ -55,6 +57,7 @@ const SlideMenu: React.FC = () => {
     isCartOpen && dispatch(toggleCart());
     isProfileMenuOpen && dispatch(toggleProfileMenu());
     isFavouritesOpen && dispatch(toggleFavouritesList());
+    isNavbarSideMobileOpen && dispatch(toggleNavbarSideMobile());
   };
 
   return (
@@ -77,6 +80,13 @@ const SlideMenu: React.FC = () => {
           <Label>Favourites</Label>
           <CloseBtn className="fa-solid fa-xmark" onClick={closeSlideMenu}></CloseBtn>
           <FavouritesMenu />
+        </SlideMenuContainer>
+      </CSSTransition>
+      <CSSTransition in={isNavbarSideMobileOpen} unmountOnExit timeout={300} classNames="slide-menu">
+        <SlideMenuContainer ref={menuRef}>
+          <Label>Categories</Label>
+          <CloseBtn className="fa-solid fa-xmark" onClick={closeSlideMenu}></CloseBtn>
+          <NavbarSideMobile />
         </SlideMenuContainer>
       </CSSTransition>
       <CSSTransition in={isAnyMenuOpen} unmountOnExit timeout={200} classNames="dark-overlay">

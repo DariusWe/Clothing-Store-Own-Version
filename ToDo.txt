@@ -15,6 +15,8 @@ change toggleCart to closeCart/openCart. This way, outsideClickHandler in slideM
 WHAT I'VE LEARNED LAST TIME:
 #########################################################################################################################
 
+- Put $ in front of properties that get passed to styled components and ONLY to styled components
+
 CSS PSEUDO CLASSES:
 - keyword added to a selector that specifies a special state of the selected element(s)
 - indicated with ":"
@@ -23,6 +25,8 @@ CSS PSEUDO CLASSES:
 CSS PSEUDO ELEMENTS:
 - keyword added to a selector that lets you style a specific part of the selected element(s)
 - indicated with "::"
+- placeholder is a pseudo element. Selection is a pseudo element and lets you style color of marked text.
+- available pseudo elements differ greatly on different browsers
 
 ENV File:
 - To use it, npm package has to be installed (dotenv)
@@ -44,7 +48,7 @@ CLI stands for Command Line Interface
 
 JS can not determine equality for objects. .includes(obj) is therefore not possible.
 
-Placeholder markup can be done via css background-color of that element
+Placeholder markup can be done via css background-color of that element and CSS's aspect-ratio
 
 To play a specific css animation on EVERY click, look here:
 https://stackoverflow.com/questions/4847996/css-animation-onclick 
@@ -52,27 +56,30 @@ https://stackoverflow.com/questions/4847996/css-animation-onclick
 
 
 
-
 TO DO:
 #########################################################################################################################
 
-- rename favourites-menu to favourites-list
-- maybe put filter-item into products-filter-section?
-- navbar-side-link into navbar-side
-- shopping-cart-item into shopping-cart
-- input-field into form folder?
-- put icons into navbar-top-folder
-- put heart icon also into product-item folder
-
-- Continue animations (productItem and SlideMenu, also when deleting items from cart or favourites)
+- Continue making responsive
+- Push
+- can import from /components, no need for /index
+- Background-white: 240, 240, 240
+- Put landingPage images in assets folder?
+- increase size of hamburger menu icon
+- Does normal code inside component excecute every render?
+- Currently setViewport reducer is beeing run thousand times when changing window size. Performance issue?
+- Put constants into state
+- Store typing complete mess. How to do correctly?
+- Maybe forward to .../women when visiting the site and get rid of user-location.slice. Right now, i'm 
+  sometimes using "currentLocation" and useLocation() in the same component (for example navbarSideLink 
+  and mobile counterpart) - which is confusing. I already implemented the start in App.tsx. Plan own commit
+  for this change.
+- After previous step is done, move NavbarSideLink into NavbarSide. No need for extra component i guess.
 - Also make clear which item got added to cart by animation
+- animate dropdownmenus
 - Save Wishlist for users
-- Move Icon components into own folder
 - clean up!
 - Include real world login and register procedure
 - Add more content to checkout process
-- Implement "add to basket" when hovering over product
-- Implement animations and click feedback
 - optimize
 - make Responsive
 - Type payloads in reducers

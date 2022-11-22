@@ -10,12 +10,12 @@ type NavLinkProps = {
 
 export const NavLink = styled.span<NavLinkProps>`
   display: inline-block;
-  color: #111;
-  padding: 2px 0;
+  font-weight: 400;
+  padding: 0.2rem 0;
   &:hover {
     cursor: pointer;
     text-decoration: underline #aaa;
-    text-underline-offset: 4px;
+    text-underline-offset: 0.4rem;
   }
   ${(props) => (props.isActive ? isActiveStyles : null)};
 `;

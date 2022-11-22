@@ -1,11 +1,11 @@
 import { Container, CategoryTitle, CategoryDescription, ProductsContainer } from "./category-page.styles";
 import { useState, useEffect, useLayoutEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
-import { setSortBy, resetColors } from "../../store/filters.slice";
-import type { Item } from "../../store/products.slice";
+import { useTypedSelector, useTypedDispatch } from "../../store/typed-hooks";
+import { setSortBy, resetColors } from "../../store/slices/filters.slice";
+import type { Item } from "../../store/slices/products.slice";
 import { ProductItem, ProductsFilterSection, LoadingSpinner } from "../../components/index";
-import { URL_LOCATION } from "../../constants/URL_LOCATIONS";
+import { URL_LOCATION } from "../../store/slices/user-location.slice";
 
 const CategoryPage = () => {
   console.log("CategoryPage");
@@ -86,6 +86,7 @@ const CategoryPage = () => {
           {filteredProducts.map((product) => (
             <ProductItem key={product.id} product={product} />
           ))}
+
           {filteredProducts.length === 0 ? <span>No items found for the selected filters.</span> : null}
         </ProductsContainer>
       )}

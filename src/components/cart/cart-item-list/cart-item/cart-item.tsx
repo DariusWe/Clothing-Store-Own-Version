@@ -1,7 +1,7 @@
 import { Container, InfoSection, DeleteIcon } from "./cart-item.styles";
-import { increaseQuantity, decreaseQuantity, removeFromCart } from "../../../store/cart.slice";
-import { useTypedDispatch } from "../../../store/hooks";
-import type { CartItem } from "../../../store/cart.slice";
+import { increaseQuantity, decreaseQuantity, removeFromCart } from "../../../../store/slices/cart.slice";
+import { useTypedDispatch } from "../../../../store/typed-hooks";
+import type { CartItem } from "../../../../store/slices/cart.slice";
 
 type CartListItemProps = {
   product: CartItem;

@@ -1,7 +1,7 @@
 import { SideBarContainer, GenderLink, CategoriesList, LoadingSpinnerNavbar } from "./navbar-side.styles";
-import { useTypedSelector } from "../../store/hooks";
+import { useTypedSelector } from "../../store/typed-hooks";
 import { Logo, NavbarSideLink } from "../index";
-import { URL_LOCATION } from "../../constants/URL_LOCATIONS";
+import { URL_LOCATION } from "../../store/slices/user-location.slice";
 
 const NavbarSide = () => {
   console.log("NavbarSide");
@@ -16,10 +16,10 @@ const NavbarSide = () => {
       {currLocation === URL_LOCATION.WOMEN || currLocation === URL_LOCATION.MEN ? (
         <>
           <div>
-            <GenderLink to="/women" fontWeight={currLocation === URL_LOCATION.WOMEN ? "800" : "400"}>
+            <GenderLink to="/women" $fontWeight={currLocation === URL_LOCATION.WOMEN ? "800" : "400"}>
               Women
             </GenderLink>
-            <GenderLink to="/men" fontWeight={currLocation === URL_LOCATION.MEN ? "800" : "400"}>
+            <GenderLink to="/men" $fontWeight={currLocation === URL_LOCATION.MEN ? "800" : "400"}>
               Men
             </GenderLink>
           </div>

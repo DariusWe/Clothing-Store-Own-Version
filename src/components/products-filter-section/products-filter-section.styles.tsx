@@ -4,27 +4,27 @@ export const Container = styled.div`
 `;
 
 export const SelectedFilters = styled.div`
-  margin-top: 20px;
-  font-size: 14.6px;
+  margin-top: 2rem;
+  font-size: 1.46rem;
   p {
     display: inline;
   }
   span {
     display: inline-block;
-    padding-left: 12px;
-    padding-right: 6px;
-    margin: 0 8px;
+    padding-left: 1.2rem;
+    padding-right: 0.6rem;
+    margin: 0.8rem;
     text-transform: capitalize;
     background-color: #f6f6f6;
     //border: 1px solid #ccc;
     border-radius: 0px;
     &:first-of-type {
-      margin-left: 16px;
+      margin-left: 1.6rem;
     }
     i {
         color: #666;
-        padding: 6px;
-        margin-left: 6px;
+        padding: 0.6rem;
+        margin-left: 0.6rem;
         cursor: pointer;
     }
   }

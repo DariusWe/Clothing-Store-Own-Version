@@ -1,12 +1,10 @@
 import { Container, SelectedFilters } from "./products-filter-section.styles";
 import { FilterItem } from "../index";
 import { useSelector } from "react-redux";
-import { setSortBy, setColors } from "../../store/filters.slice";
-import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
+import { setSortBy, setColors, SORT_BY_VALUES, COLOR_FIILTER_VALUES } from "../../store/slices/filters.slice";
+import { useTypedSelector, useTypedDispatch } from "../../store/typed-hooks";
 import { RootStateType } from "../../store/root-reducer";
 import { LIST_TYPES } from "../../constants/LIST_TYPES";
-import { SORT_BY_VALUES } from "../../constants/SORT_BY_FILTER_VALUES";
-import { COLOR_FIILTER_VALUES } from "../../constants/COLOR_FILTER_VALUES";
 
 // To infer the type of the state via useSelector or useTypedSelector, you have to export the RootStateType from the ROOTREDUCER, not
 // from the store (like it's said in the docs). See here for more infos:

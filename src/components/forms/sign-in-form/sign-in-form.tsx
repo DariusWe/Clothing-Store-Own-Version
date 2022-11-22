@@ -36,11 +36,11 @@ const SignInForm = () => {
           <span>Forgot your password?</span>
           <Link to="/sign-in">Reset</Link>
         </ResetPasswordSection>
-        <Button type="submit" label="Sign in" theme="dark" />
+        <Button type="submit" label="Sign in" buttonTheme="dark" />
         <Button
           type="button"
           label="Register"
-          theme="dark"
+          buttonTheme="dark"
           onClick={() => {
             destination === "to-checkout" ? navigate("/sign-up/to-checkout") : navigate("/sign-up");
           }}

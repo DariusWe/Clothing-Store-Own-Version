@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getProductsFromFirestore } from "../utils/firebase";
+import { getProductsFromFirestore } from "../../utils/firebase";
 
 // Declare Item and Category type here or somewhere else?
 

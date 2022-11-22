@@ -1,7 +1,7 @@
 import { StyledHeartIcon } from "./heart-icon-product-card.styles";
-import { useTypedDispatch, useTypedSelector } from "../../../store/hooks";
-import { setFavourites } from "../../../store/favourites.slice";
-import type { Item } from "../../../store/products.slice"; // item good name?
+import { useTypedDispatch, useTypedSelector } from "../../../store/typed-hooks";
+import { setFavourites } from "../../../store/slices/favourites.slice";
+import type { Item } from "../../../store/slices/products.slice"; // item good name?
 
 type HeartIconProps = {
   product: Item;

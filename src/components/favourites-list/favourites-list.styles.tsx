@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0 30px;
+  padding: 0 3rem;
   overflow-y: scroll;
   -ms-overflow-style: none; // IE and Edge
   scrollbar-width: none; // Firefox
@@ -13,25 +13,34 @@ export const Container = styled.div`
     display: none;
   }
   button {
-    padding: 3px 8px;
-    margin-bottom: 8px;
-    font-size: 14px;
+    padding: 0.3rem 0.8rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
     font-weight: 400;
     //border-radius: 0;
     &:nth-child(3) {
-        margin-top: 20px;
+        margin-top: 2rem;
     }
+  }
+  .favourites-item-exit {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .favourites-item-exit-active {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 320ms;
   }
 `;
 
 export const Notice = styled.div`
-margin-top: 5px;
-margin-bottom: 20px;
-padding: 12px 20px 10px 20px;
+margin-top: 0.5rem;
+margin-bottom: 2rem;
+padding: 1.2rem 2rem 1rem 2rem;
 background-color: #eee;
 display: flex;
 align-items: center;
-gap: 20px;
+gap: 2rem;
 i {
   font-size: 24px;
   color: #222;

@@ -2,6 +2,7 @@ import { Container, FilterItemContainer } from "./filter-item.styles";
 import { useState, useRef, useEffect } from "react";
 import { DropDownMenu } from "../../index";
 import type { ProductFilter } from "../products-filter-section";
+import { CSSTransition } from "react-transition-group";
 
 /*
 The FilterItem component is designed to be reused for different use cases. It takes a filter object as an argument, which consists
@@ -50,14 +51,14 @@ const FilterItem = ({ filter }: FilterItemProps) => {
         {label}
         {dropdownIsOpen ? <i className="fa-solid fa-angle-up" /> : <i className="fa-solid fa-angle-down" />}
       </FilterItemContainer>
-      {dropdownIsOpen ? (
+      <CSSTransition in={dropdownIsOpen} unmountOnExit classNames="dropdown" timeout={150}>
         <DropDownMenu
           entries={entries}
           listType={listType}
           currStoreValue={currStoreValue}
           setStoreValue={setStoreValue}
         />
-      ) : null}
+      </CSSTransition>
     </Container>
   );
 };

@@ -1,6 +1,6 @@
 import { Container } from "./cart-item-list.styles";
 import { useState, useRef, useEffect } from "react";
-import { useTypedSelector } from "../../../store/hooks";
+import { useTypedSelector } from "../../../store/typed-hooks";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { CartItem } from "../../index";
 
@@ -35,7 +35,7 @@ const CartList = () => {
           {cartItems
             .map((product) => (
               <CSSTransition key={product.id} timeout={300} classNames="cart-item">
-                <CartItem key={product.id} product={product} />
+                <CartItem product={product} />
               </CSSTransition>
             ))
             .reverse()}

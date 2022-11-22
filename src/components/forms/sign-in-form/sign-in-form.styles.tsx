@@ -1,26 +1,26 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 420px;
-  padding: 60px;
+  width: 42rem;
+  padding: 6rem;
   text-transform: uppercase;
-  // border: 1px solid #ccc;
+  // border: 1px solid #ddd;
   // border-radius: 20px;
   h2 {
-    margin-bottom: 40px;
+    margin-bottom: 4rem;
   }
   button {
     display: block;
-    margin: 10px 0;
+    margin: 1rem 0;
     width: 100%;
   }
 `;
 
 export const ResetPasswordSection = styled.div`
-  font-size: 11px;
-  margin-bottom: 30px;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
   a {
-    margin-left: 10px;
+    margin-left: 1rem;
     text-decoration: underline;
   }
 `;

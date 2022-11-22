@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createSelector } from "reselect";
-import type { Item } from "../store/products.slice";
-import { RootStateType } from "./root-reducer";
+import type { Item } from "./products.slice";
+import { RootStateType } from "../root-reducer";
 
 export interface CartItem extends Item {
   quantity: number;

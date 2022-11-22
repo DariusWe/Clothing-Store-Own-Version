@@ -1,9 +1,10 @@
 import { Container, Notice } from "./favourites-list.styles";
-import { useTypedSelector, useTypedDispatch } from "../../store/hooks";
-import { toggleFavouritesList } from "../../store/favourites.slice";
-import { FavouritesListItem } from "../index";
-import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { useTypedSelector, useTypedDispatch } from "../../store/typed-hooks";
+import { toggleFavouritesList } from "../../store/slices/favourites.slice";
+import { FavouritesListItem } from "../index";
 
 const FavouritesList = () => {
   const favouriteItems = useTypedSelector((state) => state.favourites.items);
@@ -33,9 +34,13 @@ const FavouritesList = () => {
       ) : (
         <Notice>Items that you like are collected here and will be saved for future visits.</Notice>
       )}
-      {favouriteItems.map((item) => (
-        <FavouritesListItem key={item.id} product={item} />
-      ))}
+      <TransitionGroup>
+        {favouriteItems.map((item) => (
+          <CSSTransition key={item.id} unmountOnExit timeout={300} classNames="favourites-item">
+            <FavouritesListItem product={item} />
+          </CSSTransition>
+        ))}
+      </TransitionGroup>
     </Container>
   );
 };

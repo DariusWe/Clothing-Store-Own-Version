@@ -13,7 +13,7 @@ import {
 import { getFirestore, writeBatch, doc, getDoc, setDoc, collection, query, getDocs, orderBy } from "firebase/firestore";
 // eslint-disable-next-line
 import { SHOP_DATA_MEN, SHOP_DATA_WOMEN } from "./shop-data";
-import type { Category } from "../store/products.slice";
+import type { Category } from "../store/slices/products.slice";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAaBvYzxlXFC0-K1fY4O045nBDhDVal3pI",

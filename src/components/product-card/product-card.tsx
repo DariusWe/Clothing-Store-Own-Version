@@ -1,9 +1,9 @@
 import { Container, BottomSection, ProductInfo, ImagePlaceholder } from "./product-card.styles";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, HeartIconProductCard } from "../index";
-import { addItemToCart, toggleCart } from "../../store/cart.slice";
-import { useTypedDispatch } from "../../store/hooks";
-import type { Item } from "../../store/products.slice";
+import { addItemToCart, toggleCart } from "../../store/slices/cart.slice";
+import { useTypedDispatch } from "../../store/typed-hooks";
+import type { Item } from "../../store/slices/products.slice";
 
 type ProductCardProps = {
   product: Item;
@@ -32,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </ProductInfo>
         <Button
           label="ADD TO BAG"
-          theme="light"
+          buttonTheme="light"
           onClick={() => {
             dispatch(addItemToCart(product));
             dispatch(toggleCart());

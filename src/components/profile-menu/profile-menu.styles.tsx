@@ -5,26 +5,24 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0 30px;
+  padding: 0 3rem;
 
   h3 {
     display: flex;
     align-items: center;
-    height: 80px; 
-    font-size: 20px;
+    height: 8rem; 
+    font-size: 2rem;
+    text-transform: capitalize;
     font-weight: 600;
-    color: #222;
     border-bottom: 1px solid #aaa;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
   }
 
   span {
     display: block;
-    padding: 6px 0;
-    font-size: 16px;
-    //border-bottom: 1px solid #aaa;
+    padding: 0.6rem 0;
     &:last-child {
-      margin-top: 20px;
+      margin-top: 2rem;
       font-weight: 600;
       cursor: pointer;
     }

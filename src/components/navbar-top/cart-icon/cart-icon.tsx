@@ -1,6 +1,6 @@
 import { Container, Counter } from "./cart-icon.styles";
-import { toggleCart, selectCartQuantity } from "../../../store/cart.slice";
-import { useTypedSelector, useTypedDispatch } from "../../../store/hooks";
+import { toggleCart, selectCartQuantity } from "../../../store/slices/cart.slice";
+import { useTypedSelector, useTypedDispatch } from "../../../store/typed-hooks";
 
 const CartIcon = () => {
   const cartQuantity = useTypedSelector(selectCartQuantity);

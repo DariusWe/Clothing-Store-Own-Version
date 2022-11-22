@@ -5,32 +5,78 @@
 }
 
 :root {
+  font-size: 62.5%;
+  // 62.5% results in 10px when default font size of browser is 16px. Using absolute value
+  // of 10px instead would be bad accessibility-wise, as won't adapt to users settings.
   --text-color: #222;
+  --text-fontWeight: 400;
+  --background-color: rgb(242, 242, 242);
   --border-light: 1px solid #eee;
-  --font-size: 1px;
+  --mobile-navbar-height: 8.5rem;
+}
+
+@media screen and (max-width: 1280px) {
+  :root {
+    font-size: 60%;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  :root {
+    font-size: 75%;
+  }
 }
 
 body {
-  margin: 0;
-  //padding: 1.4vw 2vw;
-  // font-family: "Ranade", sans-serif;
-  // font-family: "Stardom", sans-serif;
-  // font-family: "Bebas Neue", sans-serif;
-  // font-family: "Excon", sans-serif;
-  // font-family: "Boska", sans-serif;
-  // font-family: "Italiana";
-  // font-family: 'Outfit', sans-serif;
-  // font-family: 'Chillax', sans-serif;
   font-family: "Satoshi", sans-serif;
-  font-size: 15px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #111;
+  overflow-y: scroll;
+  background-color: var(--background-color);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Helvetica", sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: 3.8rem;
+  // css clamp?
+  @media screen and (max-width: 1280px) {
+    font-size: 3.5rem;
+  }
+}
+
+h2 {
+  font-size: 3.2rem;
+  line-height: 3.5rem;
+  @media screen and (max-width: 1280px) {
+    font-size: 3rem;
+    line-height: 3.2rem;
+  }
+}
+
+h3 {
+  font-size: 3rem;
+  line-height: 3.2rem;
 }
 
 a {
   text-decoration: none;
-  color: #111;
+  font-weight: 600;
+  color: #222;
 }
 
-@font-face {
-  font-family: Italiana;
-  src: url(./assets/Italiana-Regular.ttf);
-}
+// font-family: "Ranade", sans-serif;
+// font-family: "Stardom", sans-serif;
+// font-family: "Bebas Neue", sans-serif;
+// font-family: "Excon", sans-serif;
+// font-family: "Boska", sans-serif;
+// font-family: "Italiana";
+// font-family: 'Outfit', sans-serif;
+// font-family: 'Chillax', sans-serif;
+// font-family: 'Switzer', sans-serif;    -- little bit similiar to Helvetica

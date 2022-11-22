@@ -1,13 +1,21 @@
 import styled, { css } from "styled-components";
 
 const lightTheme = css`
-  background-color: white;
+  background-color: var(--background-color);
   border: 1px solid #444;
   color: black;
   &:hover {
     background-color: #222;
     color: white;
     border: 1px solid #222;
+  }
+`;
+
+const lightBorderlessTheme = css`
+  background-color: var(--background-color);
+  color: black;
+  &:hover {
+    background-color: #dedede;
   }
 `;
 
@@ -20,16 +28,16 @@ const darkTheme = css`
 `;
 
 type BtnProps = {
-  theme: "dark" | "light";
+  theme: "dark" | "light" | "lightBorderless";
 };
 
 export const Btn = styled.button<BtnProps>`
   font-family: "Satoshi", sans-serif;
-  border-radius: 26px;
-  padding: 12px 16px;
+  border-radius: 2.6rem;
+  padding: 1.2rem 1.6rem;
   cursor: pointer;
-  border: none;
-  font-size: 15px;
+  font-size: 1.5rem;
   font-weight: 600;
-  ${(props) => (props.theme === "light" ? lightTheme : darkTheme)}
+  border: none;
+  ${(props) => (props.theme === "light" ? lightTheme : props.theme === "lightBorderless" ? lightBorderlessTheme : darkTheme)}
 `;

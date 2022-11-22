@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
 
-const itemRemovedStyles = css`
-  animation-name: asd;
+const listRepaintAnimation = css`
+  animation-name: fadeIn;
   animation-duration: 500ms;
-  @keyframes asd {
+  @keyframes fadeIn {
     0% {
       opacity: 0;
     }
@@ -18,17 +18,17 @@ type ContainerProps = {
 };
 
 export const Container = styled.div<ContainerProps>`
-  height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0 30px;
+  height: 100%;
+  padding: 0 3rem;
   overflow-y: scroll;
+  // Do i really need these:
   -ms-overflow-style: none; // IE and Edge
   scrollbar-width: none; // Firefox
   &::-webkit-scrollbar {
     display: none;
   }
-
   .cart-item-exit {
     transform: translateX(0);
     opacity: 1;
@@ -39,5 +39,5 @@ export const Container = styled.div<ContainerProps>`
     transition: all 320ms;
   }
 
-  ${(props) => (props.itemRemoved ? itemRemovedStyles : null)};
+  ${(props) => (props.itemRemoved ? listRepaintAnimation : null)};
 `;
