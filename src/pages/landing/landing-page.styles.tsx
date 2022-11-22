@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Button } from "../../components";
-import { URL_LOCATION } from "../../store/slices/user-location.slice";
 
 export const ContainerDesktop = styled.div`
   display: flex;
@@ -69,7 +68,7 @@ export const ContainerMobile = styled.div`
 `;
 
 type ContentMobileProps = {
-  userLocation: URL_LOCATION;
+  $currentLocationIsWomen: boolean;
 };
 
 export const ContentMobile = styled.div<ContentMobileProps>`
@@ -86,7 +85,7 @@ export const ContentMobile = styled.div<ContentMobileProps>`
   // margin: 1rem 2.5rem;
   //padding: 0 8vw 6rem 8vw;
   background-image: ${(props) =>
-    props.userLocation === URL_LOCATION.WOMEN
+    props.$currentLocationIsWomen
       ? "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(/product-images/index-women-1.jpg)"
       : "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(/product-images/index-men-1.jpg)"};
   background-size: cover;

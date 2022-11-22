@@ -1,7 +1,7 @@
 import { Container, SelectedFilters } from "./products-filter-section.styles";
 import { FilterItem } from "../index";
 import { useSelector } from "react-redux";
-import { setSortBy, setColors, SORT_BY_VALUES, COLOR_FIILTER_VALUES } from "../../store/slices/filters.slice";
+import { setSortBy, setColors, SORT_BY_VALUE, COLOR_FIILTER_VALUES } from "../../store/slices/filters.slice";
 import { useTypedSelector, useTypedDispatch } from "../../store/typed-hooks";
 import { RootStateType } from "../../store/root-reducer";
 import { LIST_TYPES } from "../../constants/LIST_TYPES";
@@ -30,7 +30,7 @@ const ProductsFilterSection = () => {
     {
       label: "Sort By",
       listType: LIST_TYPES.RADIO,
-      entries: [SORT_BY_VALUES.RECOMMENDED, SORT_BY_VALUES.LOWEST_PRICE, SORT_BY_VALUES.HIGHEST_PRICE],
+      entries: [SORT_BY_VALUE.RECOMMENDED, SORT_BY_VALUE.LOWEST_PRICE, SORT_BY_VALUE.HIGHEST_PRICE],
       currStoreValue: sortBy,
       setStoreValue: (value: string): void => {
         dispatch(setSortBy(value));

@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import { useTypedSelector, useTypedDispatch } from "../../store/typed-hooks";
 import { setSortBy, resetColors } from "../../store/slices/filters.slice";
 import type { Item } from "../../store/slices/products.slice";
-import { ProductItem, ProductsFilterSection, LoadingSpinner } from "../../components/index";
-import { URL_LOCATION } from "../../store/slices/user-location.slice";
+import { ProductItem, ProductsFilterSection, LoadingSpinner } from "../../components";
+import { SORT_BY_VALUE } from "../../store/slices/filters.slice";
 
 const CategoryPage = () => {
   console.log("CategoryPage");
@@ -26,7 +26,7 @@ const CategoryPage = () => {
     // This useEffect runs on mount and then again when women and men products get set or the category changes.
     if (womenCategories.length > 0 && menCategories.length > 0) {
       const categoryProducts =
-        gender === URL_LOCATION.WOMEN
+        gender === "women"
           ? womenCategories.filter((cat) => cat.titleSanitized === urlCategoryName)[0].items
           : menCategories.filter((cat) => cat.titleSanitized === urlCategoryName)[0].items;
       setProducts(categoryProducts);
@@ -40,8 +40,8 @@ const CategoryPage = () => {
     if (colors.length > 0) {
       dispatch(resetColors());
     }
-    if (sortBy !== "recommended") {
-      dispatch(setSortBy("recommended"));
+    if (sortBy !== SORT_BY_VALUE.RECOMMENDED) {
+      dispatch(setSortBy(SORT_BY_VALUE.RECOMMENDED));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urlCategoryName]);
@@ -53,13 +53,13 @@ const CategoryPage = () => {
     if (products.length > 0) {
       const filtered = colors.length > 0 ? products.filter((product) => colors.includes(product.color)) : [...products];
       switch (sortBy) {
-        case "recommended":
+        case SORT_BY_VALUE.RECOMMENDED:
           setFilteredProducts(filtered.sort((a, b) => a.id - b.id));
           break;
-        case "lowest price":
+        case SORT_BY_VALUE.LOWEST_PRICE:
           setFilteredProducts(filtered.sort((a, b) => a.price - b.price));
           break;
-        case "highest price":
+        case SORT_BY_VALUE.HIGHEST_PRICE:
           setFilteredProducts(filtered.sort((a, b) => b.price - a.price));
           break;
         default:

@@ -4,7 +4,7 @@ const ProductPage = () => {
   return (
     <Container>
       <h1>Product page</h1>
-      <p>You've made it to the end! The Product Page isn't implemented yet.</p>
+      <p>This site is work in progress. The product page isn't implemented yet.</p>
     </Container>
   );
 };

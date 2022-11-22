@@ -1,7 +1,6 @@
 import { userReducer } from "./slices/user.slice";
 import { cartReducer } from "./slices/cart.slice";
 import { productsReducer } from "./slices/products.slice";
-import { userLocationReducer } from "./slices/user-location.slice";
 import { filtersReducer } from "./slices/filters.slice";
 import { slideMenuReducer } from "./slices/slide-menu.slice";
 import { favouritesReducer } from "./slices/favourites.slice";
@@ -12,7 +11,6 @@ import { combineReducers } from "redux";
 export const rootReducer = combineReducers({
   user: userReducer,
   cart: cartReducer,
-  userLocation: userLocationReducer,
   products: productsReducer,
   filters: filtersReducer,
   slideMenu: slideMenuReducer,

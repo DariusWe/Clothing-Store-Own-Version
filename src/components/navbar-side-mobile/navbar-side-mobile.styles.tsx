@@ -38,7 +38,7 @@ export const NavItem = styled(Link)<NavItemProps>`
   display: flex;
   justify-content: space-between;
   :hover {
-    background-color: #ececec;
+    background-color: #f6f6f6;
   }
   i {
     color: #666;
@@ -49,7 +49,7 @@ export const NavItem = styled(Link)<NavItemProps>`
     ${(props) =>
     props.$isActive
       ? css`
-          background-color: #ddd;
+          background-color: #ececec;
           font-weight: 600;
         `
       : null}

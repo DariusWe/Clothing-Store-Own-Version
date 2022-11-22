@@ -6,25 +6,45 @@ import {
   LinkToCollection,
   ContainerMobile,
   ContentMobile,
-  StyledButton
+  StyledButton,
 } from "./landing-page.styles";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useTypedSelector } from "../../store/typed-hooks";
-import { URL_LOCATION } from "../../store/slices/user-location.slice";
 import { VIEWPORT_TYPES } from "../../store/slices/current-viewport.slice";
 
 const LandingPage = () => {
   console.log("LandingPage");
+  const [currentLocationIsWomen, setCurrentLocationIsWomen] = useState(true);
   const navigate = useNavigate();
-  const userLocation = useTypedSelector((state) => state.userLocation.userLocation);
+  const urlPath = useLocation().pathname;
   const currentViewport = useTypedSelector((state) => state.currentViewport.type);
-  const currentLocationIsWomen = userLocation === URL_LOCATION.WOMEN;
+
+  useEffect(() => {
+    urlPath.includes("/women") ? setCurrentLocationIsWomen(true) : setCurrentLocationIsWomen(false);
+  }, [urlPath]);
+  /* 
+  Some notes on using useEffect vs running code directly in the component: 
+    - Code inside useEffect will only rerun when dependency value changes. In this case here, when LandingPage gets rerendered because
+      parent rerenders, it will perform better when logic is in useEffect.
+    - Disadvantage: useEffect runs after render, so component will get rendered twice. When running code directly in component, component
+      would only run once.
+  */
+ /*
+  Some notes on using "currentLocationIsWomen" vs using "urlPath.includes("/women")":
+    - Second option would have to be calculated 7 times on each rerender.
+    - With useEffect and useState we have more code, but could still be better performance wise. 
+ */
 
   return currentViewport === VIEWPORT_TYPES.DESKTOP ? (
     <ContainerDesktop>
       <LeftSection>
-        <CSSBackgroundImage src={currentLocationIsWomen ? "/product-images/index-women-1.jpg" : "/product-images/index-men-1.jpg"} />
-        <CSSBackgroundImage src={currentLocationIsWomen ? "/product-images/index-women-2.jpg" : "/product-images/index-men-2.jpg"} />
+        <CSSBackgroundImage
+          src={currentLocationIsWomen ? "/product-images/index-women-1.jpg" : "/product-images/index-men-1.jpg"}
+        />
+        <CSSBackgroundImage
+          src={currentLocationIsWomen ? "/product-images/index-women-2.jpg" : "/product-images/index-men-2.jpg"}
+        />
       </LeftSection>
       <RightSection>
         <h2>{currentLocationIsWomen ? "Spring Collection" : "New Collection"}</h2>
@@ -42,7 +62,7 @@ const LandingPage = () => {
     </ContainerDesktop>
   ) : (
     <ContainerMobile>
-      <ContentMobile userLocation={userLocation}>
+      <ContentMobile $currentLocationIsWomen={currentLocationIsWomen}>
         <h2>{currentLocationIsWomen ? "Spring Collection" : "New Collection"}</h2>
         <span>Designed by Max Mustermann</span>
         <p>

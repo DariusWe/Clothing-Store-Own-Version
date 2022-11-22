@@ -1,10 +1,9 @@
-import { useLocation, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useTypedDispatch } from "./store/typed-hooks";
 import { onAuthStateChangedListener } from "./utils/firebase";
 import { fetchProductsAsync } from "./store/slices/products.slice";
 import { setCurrentUser } from "./store/slices/user.slice";
-import { setUserLocation } from "./store/slices/user-location.slice";
 import { VIEWPORT_TYPES, setViewportType } from "./store/slices/current-viewport.slice";
 import {
   Navigation,
@@ -19,7 +18,6 @@ import {
 const App = () => {
   console.log("App");
   const dispatch = useTypedDispatch();
-  const location = useLocation();
 
   useEffect(() => {
     dispatch(fetchProductsAsync());
@@ -38,12 +36,6 @@ const App = () => {
     return unsubscribe;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    dispatch(setUserLocation(location.pathname));
-    window.scrollTo(0, 0);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location]);
 
   useEffect(() => {
     calcViewport();
@@ -65,8 +57,8 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Navigation />}>
-        {/* <Route index element={<Navigate replace to="/women" />} /> */}
-        <Route index element={<LandingPage />} />
+        <Route index element={<Navigate replace to="/women" />} />
+        {/* <Route index element={<LandingPage />} /> */}
         <Route path=":gender" element={<LandingPage />} />
         <Route path=":gender/:category" element={<CategoryPage />} />
         <Route path=":gender/:category/:product" element={<ProductPage />} />

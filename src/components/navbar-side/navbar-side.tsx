@@ -1,25 +1,25 @@
 import { SideBarContainer, GenderLink, CategoriesList, LoadingSpinnerNavbar } from "./navbar-side.styles";
 import { useTypedSelector } from "../../store/typed-hooks";
 import { Logo, NavbarSideLink } from "../index";
-import { URL_LOCATION } from "../../store/slices/user-location.slice";
+import { useLocation } from "react-router-dom";
 
 const NavbarSide = () => {
   console.log("NavbarSide");
   const womenCategories = useTypedSelector((state) => state.products.womenCategories);
   const menCategories = useTypedSelector((state) => state.products.menCategories);
-  const currLocation = useTypedSelector((state) => state.userLocation.userLocation);
   const ProductsLoading = useTypedSelector((state) => state.products.isLoading);
+  const urlPath = useLocation().pathname;
 
   return (
     <SideBarContainer>
       <Logo />
-      {currLocation === URL_LOCATION.WOMEN || currLocation === URL_LOCATION.MEN ? (
+      {urlPath.includes("/women") || urlPath.includes("/men") ? (
         <>
           <div>
-            <GenderLink to="/women" $fontWeight={currLocation === URL_LOCATION.WOMEN ? "800" : "400"}>
+            <GenderLink to="/women" $fontWeight={urlPath.includes("/women") ? "800" : "400"}>
               Women
             </GenderLink>
-            <GenderLink to="/men" $fontWeight={currLocation === URL_LOCATION.MEN ? "800" : "400"}>
+            <GenderLink to="/men" $fontWeight={urlPath.includes("/men") ? "800" : "400"}>
               Men
             </GenderLink>
           </div>
@@ -27,7 +27,7 @@ const NavbarSide = () => {
             <LoadingSpinnerNavbar />
           ) : (
             <CategoriesList>
-              {currLocation === URL_LOCATION.WOMEN
+              {urlPath.includes("/women")
                 ? womenCategories.map((category) => <NavbarSideLink key={category.id} category={category} />)
                 : menCategories.map((category) => <NavbarSideLink key={category.id} category={category} />)}
             </CategoriesList>

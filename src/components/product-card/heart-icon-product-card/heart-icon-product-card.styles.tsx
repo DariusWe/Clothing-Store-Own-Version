@@ -17,7 +17,7 @@ export const StyledHeartIcon = styled.i<StyledHeartIconProps>`
   top: 1.2rem;
   font-size: 1.8rem;
   color: var(--background-color);
-  color: rgb(244, 244, 244);
+  color: rgb(248, 248, 248);
   padding: 0.4rem;
   cursor: pointer;
   &:hover {

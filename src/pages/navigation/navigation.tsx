@@ -1,7 +1,7 @@
 import React from "react";
 import { MainContainer, ContentArea } from "./navigation.styles";
 import { Outlet } from "react-router-dom";
-import { NavbarSide, NavbarTop, SlideMenu } from "../../components/index";
+import { NavbarSide, NavbarTop, SlideMenu } from "../../components";
 import { useTypedSelector } from "../../store/typed-hooks";
 import { VIEWPORT_TYPES } from "../../store/slices/current-viewport.slice";
 

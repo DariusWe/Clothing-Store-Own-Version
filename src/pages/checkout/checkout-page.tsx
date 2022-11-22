@@ -5,7 +5,7 @@ const CheckoutPage = () => {
   return (
     <Container>
       <h1>Checkout page</h1>
-      <p>You've made it to the end! The checkout process isn't implemented yet.</p>
+      <p>This site is work in progress. The checkout process isn't implemented yet.</p>
     </Container>
   );
 };

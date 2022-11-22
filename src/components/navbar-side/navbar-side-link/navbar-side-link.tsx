@@ -1,6 +1,5 @@
 import { NavLink } from "./navbar-side-link.styles";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useTypedSelector } from "../../../store/typed-hooks";
 import type { Category } from "../../../store/slices/products.slice";
 
 type NavBarSideLinkProps = {
@@ -13,13 +12,13 @@ const NavbarSideLink: React.FC<NavBarSideLinkProps> = ({ category, className }) 
   console.log("NavbarSideLink");
   const { title, titleSanitized } = category;
   const navigate = useNavigate();
-  const location = useLocation();
-  const urlGender = useTypedSelector((state) => state.userLocation.userLocation);
+  const urlPath = useLocation().pathname;
+  const urlGender = urlPath.includes("/women") ? "women" : "men";
 
   return (
     <NavLink
       className={className}
-      isActive={location.pathname.includes(titleSanitized) ? true : false}
+      isActive={urlPath.includes(titleSanitized) ? true : false}
       onClick={() => navigate(`/${urlGender}/${titleSanitized}`)}
     >
       {title}

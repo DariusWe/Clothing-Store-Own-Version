@@ -4,19 +4,19 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const COLOR_FIILTER_VALUES = ["white", "black", "red", "purple", "green", "blue", "orange", "pink"];
 
-export enum SORT_BY_VALUES {
+export enum SORT_BY_VALUE {
   RECOMMENDED = "recommended",
   LOWEST_PRICE = "lowest price",
   HIGHEST_PRICE = "highest price",
 }
 
 type InitialStateType = {
-  sortBy: SORT_BY_VALUES;
+  sortBy: SORT_BY_VALUE;
   colors: string[];
 };
 
 const INITIAL_STATE: InitialStateType = {
-  sortBy: SORT_BY_VALUES.RECOMMENDED,
+  sortBy: SORT_BY_VALUE.RECOMMENDED,
   colors: [],
 };
 

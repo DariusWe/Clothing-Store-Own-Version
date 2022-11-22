@@ -59,12 +59,9 @@ https://stackoverflow.com/questions/4847996/css-animation-onclick
 TO DO:
 #########################################################################################################################
 
-- Continue making responsive
-- Push
-- can import from /components, no need for /index
-- Background-white: 240, 240, 240
-- Put landingPage images in assets folder?
-- increase size of hamburger menu icon
+- Look at landingPage comments and maybe change other components that run code directly oder make too many calculations in render function.
+- Prefix all styledComponents props with $
+- Increase size of hamburger menu icon
 - Does normal code inside component excecute every render?
 - Currently setViewport reducer is beeing run thousand times when changing window size. Performance issue?
 - Put constants into state
@@ -87,6 +84,7 @@ TO DO:
 - Put main colors into index.scss as variables and use these variables in other components:
   https://www.youtube.com/watch?v=IF6k0uZuypA (video with good implementation of best practices)
 - import fontAwesome as components?
+- MVC in React - google and read
 
 TO IMPLEMENT STRIPE YOU NEED TO KNOW NODE.JS AND EXPRESS.JS:
 https://www.youtube.com/watch?v=Oe421EPjeBE
