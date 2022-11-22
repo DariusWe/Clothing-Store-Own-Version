@@ -19,7 +19,7 @@ const AnimationStyles = css`
 
 type HeartIconProps = {
   animate: boolean;
-}
+};
 
 export const StyledHeartIcon = styled.i<HeartIconProps>`
   color: var(--text-color);

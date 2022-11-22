@@ -73,14 +73,20 @@ type ContentMobileProps = {
 };
 
 export const ContentMobile = styled.div<ContentMobileProps>`
+  height: calc(100vh - var(--mobile-navbar-height));
+  padding: 0 10vw;
+
+
+
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  // justify-content: end;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  height: 100vh;
-  margin: 1rem 2.5rem;
-  padding: 0 8vw 6rem 8vw;
+  // height: 100vh;
+  // margin: 1rem 2.5rem;
+  //padding: 0 8vw 6rem 8vw;
   background-image: ${(props) =>
     props.userLocation === URL_LOCATION.WOMEN
       ? "url(/product-images/index-women-1.jpg)"
