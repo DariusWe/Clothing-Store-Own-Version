@@ -8,10 +8,9 @@ export const Container = styled.span`
   font-weight: 600;
   text-transform: uppercase;
   z-index: 2;
-  /* padding: 8px;
-  padding-left: 20px;
-  box-shadow: 5px 5px 10px #f1f1f1;
-  border-radius: 24px; */
+  @media screen and (max-width: 650px) {
+    margin-right: 0.4rem;
+  }
   &:first-child {
     margin-left: -0.5rem;
     padding-left: 0;
@@ -19,7 +18,6 @@ export const Container = styled.span`
   i {
     margin-left: 1rem;
   }
-
   .dropdown-enter {
     max-height: 0;
     opacity: 0;

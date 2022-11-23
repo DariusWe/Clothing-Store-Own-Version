@@ -49,6 +49,9 @@ export const BottomSection = styled.div`
     font-size: 1.15rem;
     font-weight: 500;
     border-color: #ccc;
+    @media screen and (max-width: 650px) {
+      padding: 0.6rem 0.8rem;
+    }
     &:focus {
       animation: buttonPop 0.16s;
     }
@@ -79,6 +82,7 @@ export const ProductInfo = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 45%;
   }
   span:nth-child(2) {
     font-size: 1.32rem;

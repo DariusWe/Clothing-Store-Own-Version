@@ -10,9 +10,13 @@ export const Container = styled.div`
   color: black;
   font-size: 1.5rem;
   font-weight: 400;
-  background-color: white;
+  background-color: var(--background-color);
   box-shadow: 0.4rem 0.4rem 1.5rem rgba(0, 0, 0, 0.08);
   overflow: hidden;
+  @media screen and (max-width: 650px) {
+    min-width: 25rem;
+    left: 0;
+  }
 `;
 
 export const ListItem = styled.li`

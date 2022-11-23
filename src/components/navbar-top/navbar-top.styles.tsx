@@ -29,7 +29,7 @@ export const MobileAndTabletNavbar = styled.div<MobileAndTabletNavbarProps>`
   justify-content: space-between;
   align-items: center;
   padding: 0 5rem 0 3rem;
-  background-color: ${(props) => props.$theme === "light" ? "transparent" : "white"};
+  background-color: ${(props) => props.$theme === "light" ? "transparent" : "var(--background-color)"};
   color: white;
   color: ${(props) => props.$theme === "light" ? "white" : "var(--text-color)"};
   z-index: 3;
