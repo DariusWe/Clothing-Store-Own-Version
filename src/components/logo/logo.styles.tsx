@@ -11,7 +11,7 @@ export const LogoContainer = styled(Link)`
       width: 7.5rem;
     }
     @media screen and (max-width: 650px) {
-      width: 7rem;
+      width: 7.4rem;
     }
   }
 `;

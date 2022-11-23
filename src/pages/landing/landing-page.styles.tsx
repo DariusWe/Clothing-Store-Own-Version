@@ -79,8 +79,8 @@ export const ContainerMobile = styled.div<ContentMobileProps>`
   text-align: center;
   background-image: ${(props) =>
     props.$currentLocationIsWomen
-      ? "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(/product-images/index-women-1.jpg)"
-      : "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(/product-images/index-men-1.jpg)"};
+      ? "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.15)), url(/product-images/index-women-1.jpg)"
+      : "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.15)), url(/product-images/index-men-1.jpg)"};
   background-size: cover;
   box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.1) inset;
   h2 {

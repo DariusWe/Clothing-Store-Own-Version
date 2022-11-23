@@ -37,14 +37,14 @@ export const MobileAndTabletNavbar = styled.div<MobileAndTabletNavbarProps>`
     filter: ${(props) => props.$theme === "light" ? "invert(1)" : "none"};
   }
   @media screen and (max-width: 650px) {
-    padding: 0 3.5rem 0 2rem;
+    padding: 0 2.8rem 0 2.4rem;
   }
 `;
 
 export const RightSection = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   font-size: 2rem;
   margin-right: -0.6rem;
   > * {
@@ -54,5 +54,7 @@ export const RightSection = styled.div`
 
 export const SignInSpan = styled.span`
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.65rem;
+  //font-weight: 500;
+  margin-bottom: 0.1rem;
 `;
