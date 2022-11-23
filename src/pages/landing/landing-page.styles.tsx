@@ -67,7 +67,9 @@ type ContentMobileProps = {
 
 export const ContainerMobile = styled.div<ContentMobileProps>`
   width: 100%;
-  height: calc(100vh - var(--mobile-navbar-height));
+  position: absolute;
+  top: 0;
+  height: 100vh;
   padding: 0 11vw;
   color: white;
   display: flex;

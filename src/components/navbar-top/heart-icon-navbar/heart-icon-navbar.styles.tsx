@@ -22,8 +22,6 @@ type HeartIconProps = {
 };
 
 export const StyledHeartIcon = styled.i<HeartIconProps>`
-  color: var(--text-color);
   cursor: pointer;
-
   ${(props) => props.$animate && AnimationStyles}
 `;

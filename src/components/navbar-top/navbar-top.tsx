@@ -1,7 +1,7 @@
 import React from "react";
 import { DesktopNavbar, MobileAndTabletNavbar, RightSection, SignInSpan } from "./navbar-top.styles";
 import { CartIcon, ProfileIcon, HeartIconNavbar, MenuIcon, Logo } from "../index";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useTypedSelector } from "../../store/typed-hooks";
 import { VIEWPORT_TYPES } from "../../store/slices/current-viewport.slice";
 
@@ -10,6 +10,7 @@ import { VIEWPORT_TYPES } from "../../store/slices/current-viewport.slice";
 const NavbarTop: React.FC = () => {
   console.log("NavbarTop");
   const navigate = useNavigate();
+  const urlPath = useLocation().pathname;
   const currentUser = useTypedSelector((state) => state.user.currentUser);
   const currentViewport = useTypedSelector(state => state.currentViewport.type);
 
@@ -17,15 +18,15 @@ const NavbarTop: React.FC = () => {
     <DesktopNavbar>
       {currentUser ? <ProfileIcon /> : <SignInSpan onClick={() => navigate("/sign-in")}>SIGN IN</SignInSpan>}
       <HeartIconNavbar />
-      <CartIcon />
+      <CartIcon theme="dark" />
     </DesktopNavbar>
   ) : (
-    <MobileAndTabletNavbar>
+    <MobileAndTabletNavbar $theme={urlPath === "/women" || urlPath === "/men" ? "light" : "dark"}>
       <Logo />
       <RightSection>
         {currentUser ? <ProfileIcon /> : <SignInSpan onClick={() => navigate("/sign-in")}>SIGN IN</SignInSpan>}
         <HeartIconNavbar />
-        <CartIcon />
+        <CartIcon theme={urlPath === "/women" || urlPath === "/men" ? "light" : "dark"} />
         <MenuIcon />
       </RightSection>
     </MobileAndTabletNavbar>

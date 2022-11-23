@@ -15,7 +15,11 @@ export const DesktopNavbar = styled.div`
   font-size: 1.8rem;
 `;
 
-export const MobileAndTabletNavbar = styled.div`
+type MobileAndTabletNavbarProps = {
+  $theme: "dark" | "light",
+}
+
+export const MobileAndTabletNavbar = styled.div<MobileAndTabletNavbarProps>`
   position: fixed;
   top: 0;
   left: 0;
@@ -25,10 +29,15 @@ export const MobileAndTabletNavbar = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 5rem 0 3rem;
-  background-color: var(--background-color);
+  background-color: ${(props) => props.$theme === "light" ? "transparent" : "white"};
+  color: white;
+  color: ${(props) => props.$theme === "light" ? "white" : "var(--text-color)"};
   z-index: 3;
+  img {
+    filter: ${(props) => props.$theme === "light" ? "invert(1)" : "none"};
+  }
   @media screen and (max-width: 650px) {
-    padding: 0 4.5rem 0 2.6rem;
+    padding: 0 3.5rem 0 2rem;
   }
 `;
 
