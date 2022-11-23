@@ -11,7 +11,7 @@ export { default as NavbarSide } from "./navbar-side/navbar-side";
 export { default as NavbarSideLink } from "./navbar-side/navbar-side-link/navbar-side-link";
 export { default as NavbarSideMobile } from "./navbar-side-mobile/navbar-side-mobile";
 export { default as NavbarTop } from "./navbar-top/navbar-top";
-export { default as ProductItem } from "./product-card/product-card";
+export { default as ProductCard } from "./product-card/product-card";
 export { default as ProductsFilterSection } from "./products-filter-section/products-filter-section";
 export { default as ProfileIcon } from "./navbar-top/profile-icon/profile-icon";
 export { default as ProfileMenu } from "./profile-menu/profile-menu";

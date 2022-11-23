@@ -5,15 +5,15 @@ export const Container = styled.div`
   margin-left: 3rem;
 `;
 
-type LinkProps = {
-  fontWeight: string;
+type StyledLinkProps = {
+  $fontWeight: string;
 };
 
-export const GenderLink = styled(Link)<LinkProps>`
+export const StyledLink = styled(Link)<StyledLinkProps>`
   display: inline-block;
   margin: 3rem 0;
   text-transform: uppercase;
-  font-weight: ${(props) => props.fontWeight};
+  font-weight: ${(props) => props.$fontWeight};
   &:nth-child(2) {
     margin-left: 2rem;
   }
@@ -27,11 +27,11 @@ export const CategoriesList = styled.div`
   }
 `;
 
-type NavItemProps = {
+type CategoryLinkProps = {
   $isActive: boolean;
 };
 
-export const NavItem = styled(Link)<NavItemProps>`
+export const CategoryLink = styled(Link)<CategoryLinkProps>`
   width: 88%;
   padding: 0.4rem 0;
   font-weight: var(--text-fontWeight);

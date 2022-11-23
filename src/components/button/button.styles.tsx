@@ -28,7 +28,7 @@ const darkTheme = css`
 `;
 
 type BtnProps = {
-  theme: "dark" | "light" | "lightBorderless";
+  $theme: "dark" | "light" | "lightBorderless";
 };
 
 export const Btn = styled.button<BtnProps>`
@@ -39,5 +39,5 @@ export const Btn = styled.button<BtnProps>`
   font-size: 1.5rem;
   font-weight: 600;
   border: none;
-  ${(props) => (props.theme === "light" ? lightTheme : props.theme === "lightBorderless" ? lightBorderlessTheme : darkTheme)}
+  ${(props) => (props.$theme === "light" ? lightTheme : props.$theme === "lightBorderless" ? lightBorderlessTheme : darkTheme)}
 `;

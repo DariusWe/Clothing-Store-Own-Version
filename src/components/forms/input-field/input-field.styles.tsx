@@ -10,7 +10,7 @@ const isActiveStyles = css`
 `;
 
 type LabelProps = {
-  isActive: boolean;
+  $isActive: boolean;
 };
 
 export const Label = styled.label<LabelProps>`
@@ -21,7 +21,7 @@ export const Label = styled.label<LabelProps>`
   margin-top: -2.8rem;
   pointer-events: none;
   transition: 0.3s;
-  ${(props) => (props.isActive ? isActiveStyles : null)};
+  ${(props) => (props.$isActive ? isActiveStyles : null)};
 `;
 
 export const Input = styled.input`

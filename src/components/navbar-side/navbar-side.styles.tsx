@@ -2,7 +2,7 @@ import styled from "styled-components";
 import LoadingSpinner from "../loading-spinner/loading-spinner";
 import { Link } from "react-router-dom";
 
-export const SideBarContainer = styled.div`
+export const Container = styled.div`
   position: sticky;
   position: -webkit-sticky; /* Safari */
   // Edge 15 and earlier Versions also don't support sticky. Alternative Solution?
@@ -16,11 +16,11 @@ export const SideBarContainer = styled.div`
   z-index: 1;
 `;
 
-type LinkProps = {
+type StyledLinkProps = {
   $fontWeight: string;
 };
 
-export const GenderLink = styled(Link)<LinkProps>`
+export const StyledLink = styled(Link)<StyledLinkProps>`
   display: inline-block;
   margin-top: 11rem;
   margin-bottom: 3rem;

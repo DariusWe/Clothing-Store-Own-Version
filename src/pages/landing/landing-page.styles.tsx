@@ -9,13 +9,13 @@ export const ContainerDesktop = styled.div`
   padding: 3rem 4rem;
 `;
 
-export const LeftSection = styled.div`
+export const ImageSection = styled.div`
   height: 100%;
   width: 70%;
 `;
 
 type CSSBackgroundImageProps = {
-  src: string;
+  $src: string;
 };
 
 export const CSSBackgroundImage = styled.span<CSSBackgroundImageProps>`
@@ -24,7 +24,7 @@ export const CSSBackgroundImage = styled.span<CSSBackgroundImageProps>`
   width: 50%;
   background-size: cover;
   background-position: center;
-  background-image: ${(props) => `url(${props.src})`};
+  background-image: ${(props) => `url(${props.$src})`};
   :first-child {
     border-top-left-radius: 0.8rem;
     border-bottom-left-radius: 0.8rem;
@@ -35,7 +35,7 @@ export const CSSBackgroundImage = styled.span<CSSBackgroundImageProps>`
   }
 `;
 
-export const RightSection = styled.div`
+export const Description = styled.div`
   width: 30%;
   height: 100%;
   display: flex;
@@ -61,29 +61,20 @@ export const LinkToCollection = styled.p`
   margin-bottom: 0.6rem;
 `;
 
-export const ContainerMobile = styled.div`
-  width: 100%;
-  height: 100%;
-  color: white;
-`;
-
 type ContentMobileProps = {
   $currentLocationIsWomen: boolean;
 };
 
-export const ContentMobile = styled.div<ContentMobileProps>`
+export const ContainerMobile = styled.div<ContentMobileProps>`
+  width: 100%;
   height: calc(100vh - var(--mobile-navbar-height));
-  padding: 0 10vw;
-
+  padding: 0 11vw;
+  color: white;
   display: flex;
   flex-direction: column;
-  // justify-content: end;
   justify-content: center;
   align-items: center;
   text-align: center;
-  // height: 100vh;
-  // margin: 1rem 2.5rem;
-  //padding: 0 8vw 6rem 8vw;
   background-image: ${(props) =>
     props.$currentLocationIsWomen
       ? "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(/product-images/index-women-1.jpg)"

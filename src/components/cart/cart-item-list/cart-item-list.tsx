@@ -30,7 +30,7 @@ const CartList = () => {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
-    <Container itemRemoved={itemWasRemoved}>
+    <Container $itemRemoved={itemWasRemoved}>
         <TransitionGroup>
           {cartItems
             .map((product) => (

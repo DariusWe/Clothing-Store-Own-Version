@@ -19,7 +19,7 @@ const HeartIconForProductCard: React.FC<HeartIconProps> = ({ product }) => {
       onClick={() => {
         dispatch(setFavourites(product));
       }}
-      isActive={favItems.some((item) => item.id === product.id)}
+      $isActive={favItems.some((item) => item.id === product.id)}
     ></StyledHeartIcon>
   );
 };

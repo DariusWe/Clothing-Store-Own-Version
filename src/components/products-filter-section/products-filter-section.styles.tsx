@@ -16,7 +16,6 @@ export const SelectedFilters = styled.div`
     margin: 0.8rem;
     text-transform: capitalize;
     background-color: #f6f6f6;
-    //border: 1px solid #ccc;
     border-radius: 0px;
     &:first-of-type {
       margin-left: 1.6rem;

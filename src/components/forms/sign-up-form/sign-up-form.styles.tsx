@@ -4,8 +4,6 @@ export const Container = styled.div`
   width: 42rem;
   padding: 6rem;
   text-transform: uppercase;
-  // border: 1px solid #ccc;
-  // border-radius: 20px;
   h2 {
     margin-bottom: 4rem;
   }

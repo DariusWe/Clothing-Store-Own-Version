@@ -18,7 +18,7 @@ const NavbarSideLink: React.FC<NavBarSideLinkProps> = ({ category, className }) 
   return (
     <NavLink
       className={className}
-      isActive={urlPath.includes(titleSanitized) ? true : false}
+      $isActive={urlPath.includes(titleSanitized) ? true : false}
       onClick={() => navigate(`/${urlGender}/${titleSanitized}`)}
     >
       {title}

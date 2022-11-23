@@ -23,7 +23,7 @@ const FilterItem = ({ filter }: FilterItemProps) => {
   const { label, listType, entries, currStoreValue, setStoreValue } = filter;
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  //////////// Following code block is an outside-click-handler. If user clicks outside of this component, close the dropdown.
+  ////////////////////////////////////// Outside-click-handler //////////////////////////////////////
   useEffect(() => {
     dropdownIsOpen && document.addEventListener("mousedown", checkClickLocation);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,7 +43,7 @@ const FilterItem = ({ filter }: FilterItemProps) => {
   const toggleDropdown = () => {
     setDropdownIsOpen(!dropdownIsOpen);
   };
-  ////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <Container ref={dropdownRef}>

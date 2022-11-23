@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useTypedSelector, useTypedDispatch } from "../../store/typed-hooks";
 import { setSortBy, resetColors } from "../../store/slices/filters.slice";
 import type { Item } from "../../store/slices/products.slice";
-import { ProductItem, ProductsFilterSection, LoadingSpinner } from "../../components";
+import { ProductCard, ProductsFilterSection, LoadingSpinner } from "../../components";
 import { SORT_BY_VALUE } from "../../store/slices/filters.slice";
 
 const CategoryPage = () => {
@@ -84,7 +84,7 @@ const CategoryPage = () => {
       ) : (
         <ProductsContainer>
           {filteredProducts.map((product) => (
-            <ProductItem key={product.id} product={product} />
+            <ProductCard key={product.id} product={product} />
           ))}
 
           {filteredProducts.length === 0 ? <span>No items found for the selected filters.</span> : null}

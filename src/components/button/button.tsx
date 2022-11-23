@@ -18,7 +18,7 @@ type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({ label, buttonTheme, ...otherProps }) => {
   console.log("Button");
-  return <Btn {...otherProps} theme={buttonTheme}>{label}</Btn>;
+  return <Btn {...otherProps} $theme={buttonTheme}>{label}</Btn>;
 };
 
 export default Button;

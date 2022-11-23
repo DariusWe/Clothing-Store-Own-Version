@@ -18,7 +18,7 @@ const HeartIconNavbar = () => {
     <StyledHeartIcon
       className="fa-solid fa-heart"
       onClick={() => dispatch(toggleFavouritesList())}
-      animate={likedItems.length > prevLikedItemsLength ? true : false}
+      $animate={likedItems.length > prevLikedItemsLength ? true : false}
     ></StyledHeartIcon>
   );
 };

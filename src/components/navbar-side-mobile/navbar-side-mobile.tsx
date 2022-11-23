@@ -1,4 +1,4 @@
-import { Container, GenderLink, CategoriesList, NavItem } from "./navbar-side-mobile.styles";
+import { Container, StyledLink, CategoriesList, CategoryLink } from "./navbar-side-mobile.styles";
 import { useTypedSelector, useTypedDispatch } from "../../store/typed-hooks";
 import { toggleNavbarSideMobile } from "../../store/slices/navbar-side-mobile.slice";
 import { useLocation } from "react-router-dom";
@@ -13,16 +13,16 @@ const NavbarSideMobile = () => {
 
   return (
     <Container>
-      <GenderLink to="/women" fontWeight={urlGender === "women" ? "800" : "400"}>
+      <StyledLink to="/women" $fontWeight={urlGender === "women" ? "800" : "400"}>
         Women
-      </GenderLink>
-      <GenderLink to="/men" fontWeight={urlGender === "men" ? "800" : "400"}>
+      </StyledLink>
+      <StyledLink to="/men" $fontWeight={urlGender === "men" ? "800" : "400"}>
         Men
-      </GenderLink>
+      </StyledLink>
       <CategoriesList>
         {urlPath.includes("women")
           ? womenCategories.map((category) => (
-              <NavItem
+              <CategoryLink
                 key={category.id}
                 to={`/${urlGender}/${category.titleSanitized}`}
                 onClick={() => dispatch(toggleNavbarSideMobile())}
@@ -30,10 +30,10 @@ const NavbarSideMobile = () => {
               >
                 <span>{category.title}</span>
                 <i className="fa-solid fa-arrow-right"></i>
-              </NavItem>
+              </CategoryLink>
             ))
           : menCategories.map((category) => (
-              <NavItem
+              <CategoryLink
                 key={category.id}
                 to={`/${urlGender}/${category.titleSanitized}`}
                 onClick={() => dispatch(toggleNavbarSideMobile())}
@@ -41,7 +41,7 @@ const NavbarSideMobile = () => {
               >
                 <span>{category.title}</span>
                 <i className="fa-solid fa-arrow-right"></i>
-              </NavItem>
+              </CategoryLink>
             ))}
       </CategoriesList>
     </Container>

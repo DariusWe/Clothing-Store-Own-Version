@@ -21,7 +21,6 @@ export type ProductFilter = {
 const ProductsFilterSection = () => {
   console.log("ProductsFilterSection");
   // Both selecting methods possible. Second one is recommended as you don't have to pass RootStateType into every selector.
-  // First method can be changed to the second one.
   const sortBy = useSelector((state: RootStateType) => state.filters.sortBy);
   const colors = useTypedSelector((state) => state.filters.colors);
   const dispatch = useTypedDispatch();

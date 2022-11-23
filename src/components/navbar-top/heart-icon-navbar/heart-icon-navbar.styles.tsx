@@ -18,12 +18,12 @@ const AnimationStyles = css`
 `;
 
 type HeartIconProps = {
-  animate: boolean;
+  $animate: boolean;
 };
 
 export const StyledHeartIcon = styled.i<HeartIconProps>`
   color: var(--text-color);
   cursor: pointer;
 
-  ${(props) => props.animate && AnimationStyles}
+  ${(props) => props.$animate && AnimationStyles}
 `;

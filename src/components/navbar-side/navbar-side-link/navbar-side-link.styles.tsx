@@ -5,7 +5,7 @@ const isActiveStyles = css`
 `;
 
 type NavLinkProps = {
-  isActive: boolean;
+  $isActive: boolean;
 };
 
 export const NavLink = styled.span<NavLinkProps>`
@@ -17,5 +17,5 @@ export const NavLink = styled.span<NavLinkProps>`
     text-decoration: underline #aaa;
     text-underline-offset: 0.4rem;
   }
-  ${(props) => (props.isActive ? isActiveStyles : null)};
+  ${(props) => (props.$isActive ? isActiveStyles : null)};
 `;

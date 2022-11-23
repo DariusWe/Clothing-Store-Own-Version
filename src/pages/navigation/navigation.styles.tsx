@@ -6,14 +6,14 @@ export const MainContainer = styled.div`
 `;
 
 type ContentAreaProps = {
-  layoutFor: VIEWPORT_TYPES;
+  $layoutFor: VIEWPORT_TYPES;
 };
 
 export const ContentArea = styled.div<ContentAreaProps>`
   width: 100%;
   //overflow-x: hidden;
   ${(props) =>
-    props.layoutFor !== VIEWPORT_TYPES.DESKTOP &&
+    props.$layoutFor !== VIEWPORT_TYPES.DESKTOP &&
     css`
       margin-top: var(--mobile-navbar-height);
     `}

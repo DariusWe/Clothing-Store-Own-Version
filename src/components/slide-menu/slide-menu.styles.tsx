@@ -39,8 +39,7 @@ export const SlideMenuContainer = styled.div`
   min-width: 34rem;
   max-width: 52rem;
   height: 100vh;
-  //background-color: var(--background-color);
-  background-image: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,1) 60%, rgba(255,255,255,0.75));
+  background-color: var(--background-color);
   z-index: 4;
   @media screen and (max-width: 1020px) {
     width: 42vw;

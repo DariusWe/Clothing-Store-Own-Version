@@ -8,7 +8,7 @@ const isActiveStyles = css`
 `;
 
 type StyledHeartIconProps = {
-  isActive: boolean;
+  $isActive: boolean;
 };
 
 export const StyledHeartIcon = styled.i<StyledHeartIconProps>`
@@ -23,7 +23,7 @@ export const StyledHeartIcon = styled.i<StyledHeartIconProps>`
   &:hover {
     color: #444;
   }
-  ${(props) => (props.isActive ? isActiveStyles : null)};
+  ${(props) => (props.$isActive ? isActiveStyles : null)};
   @keyframes heartIconPop {
     0% {
       transform: none;

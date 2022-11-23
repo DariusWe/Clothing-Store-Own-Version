@@ -12,7 +12,7 @@ const Navigation = React.memo(() => {
   return (
     <MainContainer>
       {currentViewport === VIEWPORT_TYPES.DESKTOP && <NavbarSide />}
-      <ContentArea layoutFor={currentViewport}>
+      <ContentArea $layoutFor={currentViewport}>
         <Outlet />
       </ContentArea>
       <NavbarTop />

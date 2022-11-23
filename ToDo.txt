@@ -59,17 +59,16 @@ https://stackoverflow.com/questions/4847996/css-animation-onclick
 TO DO:
 #########################################################################################################################
 
-- Look at landingPage comments and maybe change other components that run code directly oder make too many calculations in render function.
-- Prefix all styledComponents props with $
-- Increase size of hamburger menu icon
+- Increase size of hamburger menu icon and push hamburger icon and logo nearer to edges
+- On mobile, change alignment of add-to-cart-button (vertical instead of horizontal)
+- on mobile, make navbarTop transparent and content white
+- change women pics
+- make dropdowns responsive
+- Increase font size on mobile
 - Does normal code inside component excecute every render?
 - Currently setViewport reducer is beeing run thousand times when changing window size. Performance issue?
 - Put constants into state
 - Store typing complete mess. How to do correctly?
-- Maybe forward to .../women when visiting the site and get rid of user-location.slice. Right now, i'm 
-  sometimes using "currentLocation" and useLocation() in the same component (for example navbarSideLink 
-  and mobile counterpart) - which is confusing. I already implemented the start in App.tsx. Plan own commit
-  for this change.
 - After previous step is done, move NavbarSideLink into NavbarSide. No need for extra component i guess.
 - Also make clear which item got added to cart by animation
 - animate dropdownmenus

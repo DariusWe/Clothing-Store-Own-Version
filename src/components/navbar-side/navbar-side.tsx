@@ -1,4 +1,4 @@
-import { SideBarContainer, GenderLink, CategoriesList, LoadingSpinnerNavbar } from "./navbar-side.styles";
+import { Container, StyledLink, CategoriesList, LoadingSpinnerNavbar } from "./navbar-side.styles";
 import { useTypedSelector } from "../../store/typed-hooks";
 import { Logo, NavbarSideLink } from "../index";
 import { useLocation } from "react-router-dom";
@@ -11,17 +11,17 @@ const NavbarSide = () => {
   const urlPath = useLocation().pathname;
 
   return (
-    <SideBarContainer>
+    <Container>
       <Logo />
       {urlPath.includes("/women") || urlPath.includes("/men") ? (
         <>
           <div>
-            <GenderLink to="/women" $fontWeight={urlPath.includes("/women") ? "800" : "400"}>
+            <StyledLink to="/women" $fontWeight={urlPath.includes("/women") ? "800" : "400"}>
               Women
-            </GenderLink>
-            <GenderLink to="/men" $fontWeight={urlPath.includes("/men") ? "800" : "400"}>
+            </StyledLink>
+            <StyledLink to="/men" $fontWeight={urlPath.includes("/men") ? "800" : "400"}>
               Men
-            </GenderLink>
+            </StyledLink>
           </div>
           {ProductsLoading ? (
             <LoadingSpinnerNavbar />
@@ -34,7 +34,7 @@ const NavbarSide = () => {
           )}
         </>
       ) : null}
-    </SideBarContainer>
+    </Container>
   );
 };
 

@@ -14,7 +14,7 @@ const listRepaintAnimation = css`
 `;
 
 type ContainerProps = {
-  itemRemoved: boolean;
+  $itemRemoved: boolean;
 };
 
 export const Container = styled.div<ContainerProps>`
@@ -39,5 +39,5 @@ export const Container = styled.div<ContainerProps>`
     transition: all 320ms;
   }
 
-  ${(props) => (props.itemRemoved ? listRepaintAnimation : null)};
+  ${(props) => (props.$itemRemoved ? listRepaintAnimation : null)};
 `;
