@@ -10,7 +10,6 @@ type ProductCardProps = {
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  console.log("ProductCard");
   const navigate = useNavigate();
   const { gender, category } = useParams();
   const dispatch = useTypedDispatch();
@@ -21,7 +20,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <img
           src={product.imageUrl}
           alt={product.name}
-          onClick={() => navigate(`/${gender}/${category}/product#id=${product.id}`)}
+          // onClick={() => navigate(`/${gender}/${category}/product#id=${product.id}`)}
         />
       </ImagePlaceholder>
       <HeartIconProductCard product={product} />

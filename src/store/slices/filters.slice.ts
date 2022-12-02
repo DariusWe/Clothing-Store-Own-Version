@@ -1,33 +1,40 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-// ToDo: Define payload types and other "any"-types
+export enum COLOR_FIILTER_VALUES {
+  WHITE = "white", 
+  BLACK = "black", 
+  RED = "red", 
+  PURPLE = "purple", 
+  GREEN = "green", 
+  BLUE = "blue", 
+  ORANGE = "orange", 
+  PINK = "pink"
+};
 
-export const COLOR_FIILTER_VALUES = ["white", "black", "red", "purple", "green", "blue", "orange", "pink"];
-
-export enum SORT_BY_VALUE {
+export enum SORT_BY_VALUES {
   RECOMMENDED = "recommended",
   LOWEST_PRICE = "lowest price",
   HIGHEST_PRICE = "highest price",
 }
 
-type InitialStateType = {
-  sortBy: SORT_BY_VALUE;
-  colors: string[];
+type SliceState = {
+  sortBy: SORT_BY_VALUES;
+  colors: COLOR_FIILTER_VALUES[];
 };
 
-const INITIAL_STATE: InitialStateType = {
-  sortBy: SORT_BY_VALUE.RECOMMENDED,
+const initialState: SliceState = {
+  sortBy: SORT_BY_VALUES.RECOMMENDED,
   colors: [],
 };
 
 const filtersSlice = createSlice({
   name: "filters",
-  initialState: INITIAL_STATE,
+  initialState: initialState,
   reducers: {
-    setSortBy: (state, { payload }) => {
+    setSortBy: (state, { payload }: PayloadAction<SORT_BY_VALUES>) => {
       state.sortBy = payload;
     },
-    setColors: (state, { payload }) => {
+    setColors: (state, { payload }: PayloadAction<COLOR_FIILTER_VALUES>) => {
       if (state.colors.includes(payload)) {
         state.colors = state.colors.filter((value) => value !== payload);
       } else {

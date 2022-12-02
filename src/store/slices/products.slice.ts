@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getProductsFromFirestore } from "../../utils/firebase";
+import { getProductsFromFirestore } from "../../utils/firebase.utils";
 
 // Declare Item and Category type here or somewhere else?
 
@@ -24,8 +24,13 @@ type SliceState = {
   isLoading: boolean;
 };
 
-// The return statement in the catch block is to get rid of typescript warning. Probably not best practice. Remove to see warning.
-// Improve error handling.
+const initialState: SliceState = {
+  womenCategories: [],
+  menCategories: [],
+  isLoading: false,
+};
+
+// The return statement in the catch block is to get rid of typescript warning. Improve error handling.
 
 export const fetchProductsAsync = createAsyncThunk("products/FETCH_PRODUCTS", async () => {
   try {
@@ -43,11 +48,7 @@ export const fetchProductsAsync = createAsyncThunk("products/FETCH_PRODUCTS", as
 
 const productsSlice = createSlice({
   name: "products",
-  initialState: {
-    womenCategories: [],
-    menCategories: [],
-    isLoading: false,
-  } as SliceState,
+  initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchProductsAsync.pending, (state) => {

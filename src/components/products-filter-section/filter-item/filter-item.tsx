@@ -9,16 +9,12 @@ The FilterItem component is designed to be reused for different use cases. It ta
 of a label, the listType (radio, checkbox, ...), the menu entries, the currently active menu entries and a function to set the store 
 value. The component renders the label of the filter and - once the user clicks the label - a dropdown menu with all the entries.
 */
-// Notes to useRef: The useRef Hook is useful to reference DOM objects and is used here to detect clicks outside of this component.
-// The useRef Hook can only reference DOM objects, not components. To reference DOM objects in a child component, use forwardRef.
-// The useRef Hook will not rerender the component when it changes.
 
 type FilterItemProps = {
   filter: ProductFilter;
 };
 
 const FilterItem = ({ filter }: FilterItemProps) => {
-  console.log("FilterItem");
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
   const { label, listType, entries, currStoreValue, setStoreValue } = filter;
   const dropdownRef = useRef<HTMLDivElement>(null);

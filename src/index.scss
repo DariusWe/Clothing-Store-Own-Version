@@ -10,9 +10,17 @@
   // of 10px instead would be bad accessibility-wise, as won't adapt to users settings.
   --text-color: #222;
   --text-fontWeight: 400;
-  --background-color: rgb(248, 248, 248);
+  --background-color: rgb(246, 246, 246);
   --border-light: 1px solid #eee;
   --mobile-navbar-height: 8.5rem;
+  --font-size-xxl: 3.8rem;
+  --font-size-xl: 3.2rem;
+  --font-size-l: 2.8rem;
+  --font-size-m: 1.5rem;
+  --font-size-s: 1.4rem;
+  --font-size-xs: 1.2rem;
+  --font-size-xxs: 1.1rem;
+
 }
 
 @media screen and (max-width: 1280px) {

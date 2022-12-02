@@ -15,6 +15,10 @@ change toggleCart to closeCart/openCart. This way, outsideClickHandler in slideM
 WHAT I'VE LEARNED LAST TIME:
 #########################################################################################################################
 
+- JS fetch will return a promise, which will result in a error or in a response. Error will only occur if there
+  are network problems. If you fetch data that doesn't exist, but the url is correct, it won't throw an error.
+  status codes 200 - 299 is ok status
+
 - Put $ in front of properties that get passed to styled components and ONLY to styled components
 
 CSS PSEUDO CLASSES:
@@ -59,19 +63,12 @@ https://stackoverflow.com/questions/4847996/css-animation-onclick
 TO DO:
 #########################################################################################################################
 
-- Increase size of hamburger menu icon and push hamburger icon and logo nearer to edges
-- On mobile, change alignment of add-to-cart-button (vertical instead of horizontal)
-- on mobile, make navbarTop transparent and content white
-- change women pics
-- make dropdowns responsive
+- more errors and hints when filling out the forms.
 - Increase font size on mobile
 - Does normal code inside component excecute every render?
 - Currently setViewport reducer is beeing run thousand times when changing window size. Performance issue?
-- Put constants into state
 - Store typing complete mess. How to do correctly?
 - After previous step is done, move NavbarSideLink into NavbarSide. No need for extra component i guess.
-- Also make clear which item got added to cart by animation
-- animate dropdownmenus
 - Save Wishlist for users
 - clean up!
 - Include real world login and register procedure
@@ -84,6 +81,7 @@ TO DO:
   https://www.youtube.com/watch?v=IF6k0uZuypA (video with good implementation of best practices)
 - import fontAwesome as components?
 - MVC in React - google and read
+- To learn API's, use youtube apis and integrate functionality into site, they are documented well.
 
 TO IMPLEMENT STRIPE YOU NEED TO KNOW NODE.JS AND EXPRESS.JS:
 https://www.youtube.com/watch?v=Oe421EPjeBE

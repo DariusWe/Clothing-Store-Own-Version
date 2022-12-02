@@ -8,7 +8,6 @@ type CartListItemProps = {
 };
 
 const CartListItem: React.FC<CartListItemProps> = ({ product }) => {
-  console.log("CartListItem");
   const dispatch = useTypedDispatch();
 
   return (

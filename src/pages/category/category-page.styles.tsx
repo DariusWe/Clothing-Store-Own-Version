@@ -10,6 +10,9 @@ export const Container = styled.div`
 
 export const CategoryTitle = styled.h1`
   margin-bottom: 1rem;
+  @media screen and (max-width: 650px) {
+    font-size: var(--font-size-xl);
+  }
 `;
 
 export const CategoryDescription = styled.p`

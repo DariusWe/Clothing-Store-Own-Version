@@ -1,24 +1,12 @@
 import { Container, ListItem } from "./dropdown.styles";
 import { LIST_TYPES } from "../../constants/LIST_TYPES";
-/* 
-The DropdownMenu component is designed to be reused for different use cases. Input arguments:
-  - the menu entries (as an array)
-  - the list type (radio, checkbox, ...)
-  - a dispatch function (that defines what happens when user clicks an menu entry)
-  - a selector function (to retrieve the currently selected menu entries)
-*/
+import type { ProductFilter } from "../products-filter-section/products-filter-section";
 
 // ToDo: Maybe more elegant solution for the return code?
 
-type DropDownProps = {
-  listType: LIST_TYPES;
-  entries: string[];
-  currStoreValue: string | string[];
-  setStoreValue: (value: string) => void;
-};
+type DropDownProps = Omit<ProductFilter, "label">;
 
 const DropDownMenu = ({ entries = [], listType = LIST_TYPES.NONE, currStoreValue, setStoreValue }: DropDownProps) => {
-  console.log("DropDownMenu");
   return (
     <Container>
       {listType === LIST_TYPES.NONE &&

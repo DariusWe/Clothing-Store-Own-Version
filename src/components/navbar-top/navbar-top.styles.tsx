@@ -54,7 +54,9 @@ export const RightSection = styled.div`
 
 export const SignInSpan = styled.span`
   cursor: pointer;
-  font-size: 1.65rem;
-  //font-weight: 500;
-  margin-bottom: 0.1rem;
+  font-size: 1.55rem;
+  @media screen and (max-width: 650px) {
+    font-size: 1.65rem;
+    margin-bottom: 0.1rem;
+  }
 `;

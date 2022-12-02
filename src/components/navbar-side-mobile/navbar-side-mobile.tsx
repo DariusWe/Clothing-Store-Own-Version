@@ -4,7 +4,6 @@ import { toggleNavbarSideMobile } from "../../store/slices/navbar-side-mobile.sl
 import { useLocation } from "react-router-dom";
 
 const NavbarSideMobile = () => {
-  console.log("NavbarSideMobile");
   const dispatch = useTypedDispatch();
   const womenCategories = useTypedSelector((state) => state.products.womenCategories);
   const menCategories = useTypedSelector((state) => state.products.menCategories);

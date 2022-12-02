@@ -1,5 +1,7 @@
 /*
-
+  This temporary data structure was used only once to push the products to the database. To change items in the database:
+    1. Change items here and push them to the db via commitBatch() in the firebase utils file.
+    2. Change them directly in firestore and then update them here (keep in snyc)
 */
 
 export const SHOP_DATA_MEN = [

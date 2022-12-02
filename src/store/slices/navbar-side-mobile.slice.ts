@@ -1,16 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const INITIAL_STATE = {
+type SliceState = {
+  isOpen: boolean;
+};
+
+const initialState: SliceState = {
   isOpen: false,
 };
 
 const navbarSideMobileSlice = createSlice({
   name: "navbarSideMobile",
-  initialState: INITIAL_STATE,
+  initialState: initialState,
   reducers: {
     toggleNavbarSideMobile: (state) => {
       state.isOpen = !state.isOpen;
-      console.log(state.isOpen);
     },
   },
 });

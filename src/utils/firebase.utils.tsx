@@ -64,7 +64,7 @@ tmpFunc2();
 
 // Creating a batch and commiting it to the db:
 // eslint-disable-next-line
-const tmpFunc3 = async () => {
+const commitBatch = async () => {
   const batch = writeBatch(db);
   SHOP_DATA_MEN.forEach((category) => {
     const docRef = doc(db, "product-categories-men", category.title);
@@ -72,7 +72,7 @@ const tmpFunc3 = async () => {
   });
   await batch.commit();
 };
-//tmpFunc3();
+//commitBatch();
 
 // ---------------------------------------------------------------------------------------------
 

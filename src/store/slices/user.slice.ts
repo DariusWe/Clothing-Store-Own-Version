@@ -1,9 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-// Define CurrentUser type here or better somewhere else?
-
-type CurrentUser = {
-  uid: null | number;
+export type CurrentUser = {
+  uid: string;
   email: string;
   displayName: string;
 } | null;
@@ -13,23 +11,21 @@ type SliceState = {
   isProfileMenuOpen: boolean;
 };
 
+const initialState: SliceState = {
+  currentUser: null,
+  isProfileMenuOpen: false,
+};
+
 const userSlice = createSlice({
   name: "user",
-  initialState: {
-    currentUser: {
-      uid: null,
-      email: "",
-      displayName: "",
-    },
-    isProfileMenuOpen: false,
-  } as SliceState,
+  initialState: initialState,
   reducers: {
-    setCurrentUser: (state, action) => {
-      state.currentUser = action.payload;
+    setCurrentUser: (state, {payload}: PayloadAction<CurrentUser>) => {
+      state.currentUser = payload;
     },
-    setDisplayName: (state, action) => {
+    setDisplayName: (state, {payload}: PayloadAction<string>) => {
       if (state.currentUser) {
-        state.currentUser.displayName = action.payload;
+        state.currentUser.displayName = payload;
       }
     },
     toggleProfileMenu: (state) => {

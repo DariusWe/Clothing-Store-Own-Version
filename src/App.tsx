@@ -1,9 +1,10 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useTypedDispatch } from "./store/typed-hooks";
-import { onAuthStateChangedListener } from "./utils/firebase";
+import { onAuthStateChangedListener } from "./utils/firebase.utils";
 import { fetchProductsAsync } from "./store/slices/products.slice";
 import { setCurrentUser } from "./store/slices/user.slice";
+import type { CurrentUser } from "./store/slices/user.slice";
 import { VIEWPORT_TYPES, setViewportType } from "./store/slices/current-viewport.slice";
 import {
   Navigation,
@@ -16,7 +17,6 @@ import {
 } from "./pages/index";
 
 const App = () => {
-  console.log("App");
   const dispatch = useTypedDispatch();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const App = () => {
     const unsubscribe = onAuthStateChangedListener((userInstance) => {
       if (userInstance) {
         const { uid, email, displayName } = userInstance;
-        dispatch(setCurrentUser({ uid, email, displayName }));
+        dispatch(setCurrentUser({ uid, email, displayName } as CurrentUser));
       } else {
         dispatch(setCurrentUser(null));
       }
@@ -58,7 +58,6 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Navigation />}>
         <Route index element={<Navigate replace to="/women" />} />
-        {/* <Route index element={<LandingPage />} /> */}
         <Route path=":gender" element={<LandingPage />} />
         <Route path=":gender/:category" element={<CategoryPage />} />
         <Route path=":gender/:category/:product" element={<ProductPage />} />

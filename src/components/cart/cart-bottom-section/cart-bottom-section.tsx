@@ -12,8 +12,6 @@ const CartBottomSection = () => {
   const dispatch = useTypedDispatch();
   const navigate = useNavigate();
 
-  // {cartItems.length > 0 ? <CartBottomSection /> : <EmptyMessage>Your shopping cart is empty</EmptyMessage>}
-
   return (
     <>
       {cartItems.length > 0 ? (

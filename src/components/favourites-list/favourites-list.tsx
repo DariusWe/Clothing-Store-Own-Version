@@ -1,3 +1,5 @@
+// This feature is work in progress
+
 import { Container, Notice } from "./favourites-list.styles";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -20,7 +22,7 @@ const FavouritesList = () => {
 
   return (
     <Container>
-      {!currentUser ? (
+      {/* {!currentUser ? (
         <Notice>
           <i className="fa-solid fa-circle-info"></i>
           <span>
@@ -33,7 +35,13 @@ const FavouritesList = () => {
         </Notice>
       ) : (
         <Notice>Items that you like are collected here and will be saved for future visits.</Notice>
-      )}
+      )} */}
+      <Notice>
+        <i className="fa-solid fa-circle-info"></i>
+        <span>
+          At the current state, items listed here will not be saved for future visits. This feature will be added soon.
+        </span>
+      </Notice>
       <TransitionGroup>
         {favouriteItems.map((item) => (
           <CSSTransition key={item.id} unmountOnExit timeout={300} classNames="favourites-item">

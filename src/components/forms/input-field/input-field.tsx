@@ -8,7 +8,6 @@ type Props = {
 }
 
 const InputField: React.FC<Props> = ({label, id, type }) => {
-  console.log("InputField");
   const [value, setValue] = useState("");
   
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {

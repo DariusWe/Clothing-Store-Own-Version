@@ -38,7 +38,7 @@ export const CategoryLink = styled(Link)<CategoryLinkProps>`
   display: flex;
   justify-content: space-between;
   :hover {
-    background-color: #f6f6f6;
+    background-color: #f0f0f0;
   }
   i {
     color: #666;
@@ -49,7 +49,7 @@ export const CategoryLink = styled(Link)<CategoryLinkProps>`
     ${(props) =>
     props.$isActive
       ? css`
-          background-color: #ececec;
+          background-color: #e8e8e8;
           font-weight: 600;
         `
       : null}

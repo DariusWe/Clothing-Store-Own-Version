@@ -1,10 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+type SliceState = {
+  isSlideMenuOpen: boolean;
+};
+
+const initialState: SliceState = {
+  isSlideMenuOpen: false,
+};
+
 const slideMenuSlice = createSlice({
   name: "slideMenu",
-  initialState: {
-    isSlideMenuOpen: false,
-  },
+  initialState: initialState,
   reducers: {
     toggleSlideMenu: (state) => {
       state.isSlideMenuOpen = !state.isSlideMenuOpen;

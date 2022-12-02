@@ -4,7 +4,6 @@ import { Logo, NavbarSideLink } from "../index";
 import { useLocation } from "react-router-dom";
 
 const NavbarSide = () => {
-  console.log("NavbarSide");
   const womenCategories = useTypedSelector((state) => state.products.womenCategories);
   const menCategories = useTypedSelector((state) => state.products.menCategories);
   const ProductsLoading = useTypedSelector((state) => state.products.isLoading);

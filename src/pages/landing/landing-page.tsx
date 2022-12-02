@@ -13,7 +13,6 @@ import { useTypedSelector } from "../../store/typed-hooks";
 import { VIEWPORT_TYPES } from "../../store/slices/current-viewport.slice";
 
 const LandingPage = () => {
-  console.log("LandingPage");
   const [currentLocationIsWomen, setCurrentLocationIsWomen] = useState(true);
   const navigate = useNavigate();
   const urlPath = useLocation().pathname;
@@ -24,10 +23,10 @@ const LandingPage = () => {
   }, [urlPath]);
   /* 
   Some notes on using useEffect vs running code directly in the component: 
-    - Code inside useEffect will only rerun when dependency value changes. In this case here, when LandingPage gets rerendered because
-      parent rerenders, it will perform better when logic is in useEffect.
-    - Disadvantage: useEffect runs after render, so component will get rendered twice. When running code directly in component, component
-      would only run once.
+    - Code inside useEffect will only rerun when dependency value changes. It won't run when component rerenders because of 
+      parent component rerendering.
+    - Disadvantage: useEffect runs after render, so component will get rendered twice. When running code directly in component, 
+      component would only run once.
   */
   /*
   Some notes on using "currentLocationIsWomen" vs using "urlPath.includes("/women")":

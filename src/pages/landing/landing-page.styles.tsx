@@ -77,6 +77,7 @@ export const ContainerMobile = styled.div<ContentMobileProps>`
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: gray;
   background-image: ${(props) =>
     props.$currentLocationIsWomen
       ? "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.15)), url(/product-images/index-women-1.jpg)"

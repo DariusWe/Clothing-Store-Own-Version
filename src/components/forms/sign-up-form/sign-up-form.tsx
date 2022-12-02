@@ -1,24 +1,19 @@
-// This component is probably using the same styles as sign-in-form. How to solve?
-
 import { Container, LoginSection } from "./sign-up-form.styles";
 import { useNavigate, Link, useParams } from "react-router-dom";
-import { firebaseCreateUserWithEmailAndPassword } from "../../../utils/firebase";
+import { firebaseCreateUserWithEmailAndPassword } from "../../../utils/firebase.utils";
 import { useTypedDispatch } from "../../../store/typed-hooks";
 import { setDisplayName } from "../../../store/slices/user.slice";
 import { InputField, Button } from "../../index";
 
-// Course is leveraging another typescript solution. This one here is just 20% of lines of code, but is it best practice?
+// Course is leveraging another typescript solution. This one here is just 20% of lines of code.
 
 const SignUpForm = () => {
-  console.log("SignUpForm");
   const navigate = useNavigate();
   const dispatch = useTypedDispatch();
   const { destination } = useParams();
 
   const signUp: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    // e.target is by default of type EventTarget. But EventTarget has not the properties of an HTMLFormElement (like value or elements)
-    // We have to cast it as HTMLFormElement
     const target = e.target as HTMLFormElement;
     const displayName: string = target["displayName"].value;
     const email: string = target["email"].value;
@@ -40,7 +35,7 @@ const SignUpForm = () => {
 
   return (
     <Container>
-      <h2>Register</h2>
+      <h1>Register</h1>
       <form onSubmit={signUp}>
         <InputField type="text" label="Full name" id="displayName" />
         <InputField type="email" label="Email" id="email" />

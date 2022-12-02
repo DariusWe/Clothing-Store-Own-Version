@@ -5,10 +5,9 @@ import { useTypedSelector, useTypedDispatch } from "../../store/typed-hooks";
 import { setSortBy, resetColors } from "../../store/slices/filters.slice";
 import type { Item } from "../../store/slices/products.slice";
 import { ProductCard, ProductsFilterSection, LoadingSpinner } from "../../components";
-import { SORT_BY_VALUE } from "../../store/slices/filters.slice";
+import { SORT_BY_VALUES, COLOR_FIILTER_VALUES } from "../../store/slices/filters.slice";
 
 const CategoryPage = () => {
-  console.log("CategoryPage");
   const [products, setProducts] = useState<Item[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Item[]>([]);
   const { gender, category: urlCategoryName } = useParams();
@@ -21,9 +20,6 @@ const CategoryPage = () => {
 
   useLayoutEffect(() => {
     // useLayoutEffect because otherwise bugs when changing category while filters active.
-    // Depending on URL params "gender" and "category" push the corresponding products into local state.
-    // Initialize the filteredProducts state variable as the filtered products get rendered.
-    // This useEffect runs on mount and then again when women and men products get set or the category changes.
     if (womenCategories.length > 0 && menCategories.length > 0) {
       const categoryProducts =
         gender === "women"
@@ -36,12 +32,11 @@ const CategoryPage = () => {
   }, [womenCategories, menCategories, urlCategoryName]);
 
   useEffect(() => {
-    // Everytime the user navigates to another category, reset all filters:
     if (colors.length > 0) {
       dispatch(resetColors());
     }
-    if (sortBy !== SORT_BY_VALUE.RECOMMENDED) {
-      dispatch(setSortBy(SORT_BY_VALUE.RECOMMENDED));
+    if (sortBy !== SORT_BY_VALUES.RECOMMENDED) {
+      dispatch(setSortBy(SORT_BY_VALUES.RECOMMENDED));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urlCategoryName]);
@@ -51,15 +46,15 @@ const CategoryPage = () => {
     // Only run logic if there are actual products. Without this if statement products on the first load will be an empty array.
     // Should be fixed: the following line does not detect products with more than one color.
     if (products.length > 0) {
-      const filtered = colors.length > 0 ? products.filter((product) => colors.includes(product.color)) : [...products];
+      const filtered = colors.length > 0 ? products.filter((product) => colors.includes(product.color as COLOR_FIILTER_VALUES)) : [...products];
       switch (sortBy) {
-        case SORT_BY_VALUE.RECOMMENDED:
+        case SORT_BY_VALUES.RECOMMENDED:
           setFilteredProducts(filtered.sort((a, b) => a.id - b.id));
           break;
-        case SORT_BY_VALUE.LOWEST_PRICE:
+        case SORT_BY_VALUES.LOWEST_PRICE:
           setFilteredProducts(filtered.sort((a, b) => a.price - b.price));
           break;
-        case SORT_BY_VALUE.HIGHEST_PRICE:
+        case SORT_BY_VALUES.HIGHEST_PRICE:
           setFilteredProducts(filtered.sort((a, b) => b.price - a.price));
           break;
         default:

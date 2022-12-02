@@ -1,11 +1,10 @@
 import { Container } from "./profile-menu.styles";
 import { useTypedSelector, useTypedDispatch } from "../../store/typed-hooks";
 import { toggleProfileMenu } from "../../store/slices/user.slice";
-import { signOutUser } from "../../utils/firebase";
+import { signOutUser } from "../../utils/firebase.utils";
 import { useNavigate } from "react-router-dom";
 
 const ProfileMenu = () => {
-  console.log("ProfileMenu");
   const currentUser = useTypedSelector((state) => state.user.currentUser);
   const dispatch = useTypedDispatch();
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export enum VIEWPORT_TYPES {
   DESKTOP = "desktop",
@@ -7,27 +7,26 @@ export enum VIEWPORT_TYPES {
 }
 
 /*
-Why use enums when you could just define "type: "desktop" | "tablet" | "mobile" in the INITIAL_STATE?
-One reason is if you do an equality check like in landing-page.tsx. Without the VIEWPORT_TYPES you would have
-to compare to a string and you would have to look up the possible values of that string. Also, if the possible
-values change, you might not get an error in some environments (here you would get the warning "Comparison will always result in true...",
-but when working with enums you would get a more descriptive error)
+In comparison to some components (for example button component) i use enum here to define the possible string values
+instead of directly assigning "type: "desktop" | "tablet" | "mobile" in the SliceState type. Reason for this inconsistency
+is that i want to work with both solutions to learn about practical advantages/disadvantages of each one. Some reasons for
+not using enum can be found in button.tsx file.
 */
 
 type SliceState = {
   type: VIEWPORT_TYPES;
 };
 
-const INITIAL_STATE = {
+const initialState: SliceState = {
   type: VIEWPORT_TYPES.DESKTOP,
 };
 
 const currentViewportSlice = createSlice({
   name: "currentViewport",
-  initialState: INITIAL_STATE as SliceState,
+  initialState: initialState,
   reducers: {
-    setViewportType: (state, { payload }) => {
-      state.type = payload;
+    setViewportType: (state, action: PayloadAction<VIEWPORT_TYPES>) => {
+      state.type = action.payload;
     },
   },
 });

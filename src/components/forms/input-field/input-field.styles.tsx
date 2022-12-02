@@ -1,12 +1,12 @@
 import styled, { css } from "styled-components";
 
 export const Group = styled.div`
-  margin: 2rem 0;
+  margin: 2.8rem 0;
 `;
 
 const isActiveStyles = css`
-  margin-top: -4.8rem;
-  font-size: 1.2rem;
+  margin-top: -4.2rem;
+  font-size: var(--font-size-xxs);
 `;
 
 type LabelProps = {
@@ -17,6 +17,7 @@ export const Label = styled.label<LabelProps>`
   display: block;
   position: absolute;
   font-size: inherit;
+  font-size: var(--font-size-s);
   color: #666;
   margin-top: -2.8rem;
   pointer-events: none;
@@ -30,7 +31,7 @@ export const Input = styled.input`
   border-bottom: 1px solid #888;
   background-color: transparent;
   width: 100%;
-  line-height: 2.8rem;
+  line-height: 2.6rem;
   font-size: inherit;
   &:focus ~ label {
     ${isActiveStyles};

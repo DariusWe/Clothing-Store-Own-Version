@@ -6,7 +6,6 @@ import { useTypedSelector } from "../../store/typed-hooks";
 import { VIEWPORT_TYPES } from "../../store/slices/current-viewport.slice";
 
 const Navigation = React.memo(() => {
-  console.log("Navigation");
   const currentViewport = useTypedSelector((state) => state.currentViewport.type);
 
   return (

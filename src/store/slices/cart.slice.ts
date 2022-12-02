@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { createSelector } from "reselect";
 import type { Item } from "./products.slice";
-import { RootStateType } from "../root-reducer";
+import { RootStateType } from "../store";
 
 export interface CartItem extends Item {
   quantity: number;
@@ -12,14 +12,16 @@ type SliceState = {
   isCartOpen: boolean;
 };
 
+const initialState: SliceState = {
+  cartItems: [],
+  isCartOpen: false,
+};
+
 const cartSlice = createSlice({
   name: "cart",
-  initialState: {
-    cartItems: [],
-    isCartOpen: false,
-  } as SliceState,
+  initialState: initialState,
   reducers: {
-    addItemToCart: (state, { payload: newItem }) => {
+    addItemToCart: (state, { payload: newItem }: PayloadAction<Item>) => {
       const itemAlreadyExists = state.cartItems.some((item) => item.id === newItem.id);
       if (itemAlreadyExists) {
         const itemThatExists = state.cartItems.filter((item) => item.id === newItem.id)[0];
@@ -29,12 +31,12 @@ const cartSlice = createSlice({
         state.cartItems = [...state.cartItems, { ...newItem, quantity: 1 }];
       }
     },
-    increaseQuantity: (state, { payload: itemToIncrease }) => {
+    increaseQuantity: (state, { payload: itemToIncrease }: PayloadAction<Item>) => {
       state.cartItems = state.cartItems.map((item) =>
         item.id === itemToIncrease.id ? { ...item, quantity: item.quantity + 1 } : item
       );
     },
-    decreaseQuantity: (state, { payload: itemToDecrease }) => {
+    decreaseQuantity: (state, { payload: itemToDecrease }: PayloadAction<Item>) => {
       const itemQuantity = state.cartItems.filter((item) => item.id === itemToDecrease.id)[0].quantity;
       state.cartItems =
         itemQuantity > 1
@@ -43,7 +45,7 @@ const cartSlice = createSlice({
             )
           : state.cartItems.filter((item) => item.id !== itemToDecrease.id);
     },
-    removeFromCart: (state, { payload: itemToRemove }) => {
+    removeFromCart: (state, { payload: itemToRemove }: PayloadAction<Item>) => {
       state.cartItems = state.cartItems.filter((item) => item.id !== itemToRemove.id);
     },
     toggleCart: (state) => {
@@ -71,7 +73,7 @@ export const selectCartItems = (state: RootStateType) => state.cart.cartItems;
 export const selectIsCartOpen = (state: RootStateType) => state.cart.isCartOpen;
 
 // selectCartTotal and selectCartQuantity leverage time consuming calculations AND always return a new reference.
-// Memoization is needed here.
+// Memoization is useful here.
 export const selectCartTotal = createSelector([selectCartItems], (cartItems) => {
   return cartItems.reduce((total, item) => total + item.quantity * item.price, 0).toFixed(2);
 });

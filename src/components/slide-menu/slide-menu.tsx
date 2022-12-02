@@ -10,18 +10,17 @@ import { ProfileMenu, Cart, FavouritesMenu, NavbarSideMobile } from "../index";
 
 /* 
 Notes to CSS-Transition-Group:
-To animate a component on mount AND unmount, you have to use react-css-transition-group. This "library" basically introduces
+To animate a component on mount AND UNMOUNT, you have to use react-css-transition-group. This "library" basically introduces
 new lifecycle stages to components, which you can use to toggle classnames. Animations and transitions are still done via CSS.
-Important is the exit and exit-active stage: Component moves from exit to exit-active stage in a specified time frame, in which
+Important are the exit and exit-active stages: Component moves from exit to exit-active stage in a specified time frame, in which
 the animation happens. In this time frame the component and its children are NOT frozen, meaning that content in the children
 can unmount while the animation is happening. For that reason i cannot pass the child component to the SlideMenu dynamically
 (it would unmount while animation is still running), i have to explicitly hardcode it into the CSSTransition wrapper 
 component - and therefore i need three seperate blocks of code to implement the same animation to every MenuSlide child, see 
-down below. 
+return statement. 
 */
 
 const SlideMenu: React.FC = () => {
-  console.log("SlideMenu");
   const dispatch = useTypedDispatch();
   const isCartOpen = useTypedSelector((state) => state.cart.isCartOpen);
   const isProfileMenuOpen = useTypedSelector((state) => state.user.isProfileMenuOpen);

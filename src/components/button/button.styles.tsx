@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { ButtonProps } from "./button";
 
 const lightTheme = css`
   background-color: var(--background-color);
@@ -28,7 +29,7 @@ const darkTheme = css`
 `;
 
 type BtnProps = {
-  $theme: "dark" | "light" | "lightBorderless";
+  $theme: ButtonProps["buttonTheme"];
 };
 
 export const Btn = styled.button<BtnProps>`
