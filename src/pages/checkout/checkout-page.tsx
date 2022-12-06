@@ -6,7 +6,7 @@ const CheckoutPage = () => {
     <Container>
       <h1>Checkout page</h1>
       <p>This site is work in progress. The checkout process isn't implemented yet.</p>
-      {/* <PaymentForm /> */}
+      <PaymentForm />
     </Container>
   );
 };

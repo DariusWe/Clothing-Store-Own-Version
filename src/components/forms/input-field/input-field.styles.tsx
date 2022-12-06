@@ -25,7 +25,7 @@ export const Label = styled.label<LabelProps>`
   ${(props) => (props.$isActive ? isActiveStyles : null)};
 `;
 
-export const Input = styled.input`
+export const Inpuut = styled.input`
   border: none;
   outline: none;
   border-bottom: 1px solid #888;

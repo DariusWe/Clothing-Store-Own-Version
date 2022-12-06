@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { VIEWPORT_TYPES } from "../../store/slices/current-viewport.slice";
 
-export const MainContainer = styled.div`
+export const Container = styled.div`
   display: flex;
 `;
 

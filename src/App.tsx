@@ -21,8 +21,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchProductsAsync());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((userInstance) => {
@@ -34,25 +33,22 @@ const App = () => {
       }
     });
     return unsubscribe;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
-    calcViewport();
+    const calcViewport = () => {
+      window.innerWidth < 650
+        ? dispatch(setViewportType(VIEWPORT_TYPES.MOBILE))
+        : window.innerWidth < 1020
+        ? dispatch(setViewportType(VIEWPORT_TYPES.TABLET))
+        : dispatch(setViewportType(VIEWPORT_TYPES.DESKTOP));
+    };
+    calcViewport(); // Execute on first render
     window.addEventListener("resize", calcViewport);
     return () => {
       window.removeEventListener("resize", calcViewport);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const calcViewport = () => {
-    window.innerWidth < 650
-      ? dispatch(setViewportType(VIEWPORT_TYPES.MOBILE))
-      : window.innerWidth < 1020
-      ? dispatch(setViewportType(VIEWPORT_TYPES.TABLET))
-      : dispatch(setViewportType(VIEWPORT_TYPES.DESKTOP));
-  };
+  }, [dispatch]);
 
   return (
     <Routes>

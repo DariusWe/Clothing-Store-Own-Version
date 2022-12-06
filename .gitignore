@@ -27,3 +27,5 @@ yarn-error.log*
 .env
 ToDo.txt
 ProjectNotes.txt
+# Local Netlify folder
+.netlify

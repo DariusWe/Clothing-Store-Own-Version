@@ -15,7 +15,7 @@ root.render(
     <BrowserRouter>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <Elements stripe={stripePromise} >
+          <Elements stripe={stripePromise}>
             <App />
           </Elements>
         </PersistGate>

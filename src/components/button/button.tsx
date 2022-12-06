@@ -2,6 +2,7 @@ import { Btn } from "./button.styles";
 
 export type ButtonProps = {
   label: string,
+  isLoading?: boolean,
   buttonTheme: "dark" | "light" | "lightBorderless",
   // Another (saver) solution is to pass these strings as an enum. This way you won't have a chance
   // to spell the value incorrect. BUT, typescript will do autocompletion and throw good errors anyways.
@@ -10,8 +11,8 @@ export type ButtonProps = {
   // of using enum here.
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button: React.FC<ButtonProps> = ({ label, buttonTheme, ...otherProps }) => {
-  return <Btn {...otherProps} $theme={buttonTheme}>{label}</Btn>;
+const Button: React.FC<ButtonProps> = ({ label, buttonTheme, isLoading = false, ...otherProps }) => {
+  return <Btn {...otherProps} $theme={buttonTheme} $disabled={isLoading} disabled={isLoading}>{label}</Btn>;
 };
 
 export default Button;

@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { Container, FilterItemContainer } from "./filter-item.styles";
 import { useState, useRef, useEffect } from "react";
 import { DropDownMenu } from "../../index";
@@ -19,26 +20,26 @@ const FilterItem = ({ filter }: FilterItemProps) => {
   const { label, listType, entries, currStoreValue, setStoreValue } = filter;
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  ////////////////////////////////////// Outside-click-handler //////////////////////////////////////
-  useEffect(() => {
-    dropdownIsOpen && document.addEventListener("mousedown", checkClickLocation);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  const toggleDropdown = useCallback(() => {
+    // If not using useCallback, this function would be recreated on every render
+    // This would lead to useEffect (see below) also beeing run on every render
+    setDropdownIsOpen(!dropdownIsOpen);
   }, [dropdownIsOpen]);
 
-  const checkClickLocation = (e: MouseEvent) => {
-    // Typescript complains that e.target is not of type Node, but contains() expects type Node input.
-    // instanceof checks if e.target is an instance of Node. If it is, the e.target is of type Node
-    if (e.target instanceof Node) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        document.removeEventListener("mousedown", checkClickLocation);
-        toggleDropdown();
-      }
-    }
-  };
+  ////////////////////////////////////// Outside-click-handler //////////////////////////////////////
 
-  const toggleDropdown = () => {
-    setDropdownIsOpen(!dropdownIsOpen);
-  };
+  useEffect(() => {
+    const checkClickLocation = (e: MouseEvent) => {
+      if (e.target instanceof Node) {
+        if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+          document.removeEventListener("mousedown", checkClickLocation);
+          toggleDropdown();
+        }
+      }
+    };
+    dropdownIsOpen && document.addEventListener("mousedown", checkClickLocation);
+  }, [dropdownIsOpen, toggleDropdown]);
+
   /////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
@@ -47,7 +48,7 @@ const FilterItem = ({ filter }: FilterItemProps) => {
         {label}
         {dropdownIsOpen ? <i className="fa-solid fa-angle-up" /> : <i className="fa-solid fa-angle-down" />}
       </FilterItemContainer>
-      <CSSTransition in={dropdownIsOpen} unmountOnExit classNames="dropdown" timeout={150}>
+      <CSSTransition in={dropdownIsOpen} unmountOnExit classNames="dropdown" timeout={50}>
         <DropDownMenu
           entries={entries}
           listType={listType}

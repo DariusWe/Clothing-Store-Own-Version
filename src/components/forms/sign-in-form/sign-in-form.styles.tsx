@@ -4,6 +4,7 @@ export const Container = styled.div`
   width: 42rem;
   padding: 6rem;
   text-transform: uppercase;
+  background-color: #ececec;
   h1 {
     margin-bottom: 4rem;
     font-size: var(--font-size-xl);

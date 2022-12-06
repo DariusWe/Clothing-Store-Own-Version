@@ -1,5 +1,5 @@
 import { Wrapper, SlideMenuContainer, Label, CloseBtn, DarkOverlay } from "./slide-menu.styles";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useTypedDispatch, useTypedSelector } from "../../store/typed-hooks";
 import { toggleCart } from "../../store/slices/cart.slice";
@@ -29,35 +29,34 @@ const SlideMenu: React.FC = () => {
   const isAnyMenuOpen = isCartOpen || isProfileMenuOpen || isFavouritesOpen || isNavbarSideMobileOpen;
   const menuRef = useRef<HTMLDivElement>(null);
 
+  const closeSlideMenu = useCallback(() => {
+    // If not using useCallback, this function would be recreated on every render
+    // This would lead to useEffect (see below) also beeing run on every render
+    isCartOpen && dispatch(toggleCart());
+    isProfileMenuOpen && dispatch(toggleProfileMenu());
+    isFavouritesOpen && dispatch(toggleFavouritesList());
+    isNavbarSideMobileOpen && dispatch(toggleNavbarSideMobile());
+  }, [isCartOpen, isProfileMenuOpen, isFavouritesOpen, isNavbarSideMobileOpen, dispatch]);
+
   ////////////////////////////////////// Outside-click-handler //////////////////////////////////////
 
   useEffect(() => {
+    const checkClickLocation = (e: MouseEvent) => {
+      if (e.target instanceof Node) {
+        if (menuRef.current && !menuRef.current.contains(e.target)) {
+          closeSlideMenu();
+        }
+      }
+    };
     isAnyMenuOpen
       ? document.addEventListener("mousedown", checkClickLocation)
       : document.removeEventListener("mousedown", checkClickLocation);
     return () => {
       document.removeEventListener("mousedown", checkClickLocation);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAnyMenuOpen]);
-
-  // Typing checkClickLocation like below correct?
-  const checkClickLocation = (e: MouseEvent) => {
-    if (e.target instanceof Node) {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
-        closeSlideMenu();
-      }
-    }
-  };
+  }, [isAnyMenuOpen, closeSlideMenu]);
 
   /////////////////////////////////////////////////////////////////////////////////////////////////
-
-  const closeSlideMenu = () => {
-    isCartOpen && dispatch(toggleCart());
-    isProfileMenuOpen && dispatch(toggleProfileMenu());
-    isFavouritesOpen && dispatch(toggleFavouritesList());
-    isNavbarSideMobileOpen && dispatch(toggleNavbarSideMobile());
-  };
 
   return (
     <Wrapper>

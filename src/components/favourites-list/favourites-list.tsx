@@ -2,16 +2,16 @@
 
 import { Container, Notice } from "./favourites-list.styles";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { useTypedSelector, useTypedDispatch } from "../../store/typed-hooks";
-import { toggleFavouritesList } from "../../store/slices/favourites.slice";
+import { useTypedSelector } from "../../store/typed-hooks";
+// import { toggleFavouritesList } from "../../store/slices/favourites.slice";
 import { FavouritesListItem } from "../index";
 
 const FavouritesList = () => {
   const favouriteItems = useTypedSelector((state) => state.favourites.items);
-  const currentUser = useTypedSelector((state) => state.user.currentUser);
-  const dispatch = useTypedDispatch();
+  // const currentUser = useTypedSelector((state) => state.user.currentUser);
+  // const dispatch = useTypedDispatch();
 
   useEffect(() => {
     // save list to database

@@ -28,25 +28,22 @@ const CategoryPage = () => {
       setProducts(categoryProducts);
       setFilteredProducts(categoryProducts);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [womenCategories, menCategories, urlCategoryName]);
+  }, [womenCategories, menCategories, urlCategoryName, gender]);
 
   useEffect(() => {
-    if (colors.length > 0) {
-      dispatch(resetColors());
-    }
-    if (sortBy !== SORT_BY_VALUES.RECOMMENDED) {
-      dispatch(setSortBy(SORT_BY_VALUES.RECOMMENDED));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [urlCategoryName]);
+    dispatch(resetColors());
+    dispatch(setSortBy(SORT_BY_VALUES.RECOMMENDED));
+  }, [urlCategoryName, dispatch]);
 
   useEffect(() => {
     // Whenever some filter gets applied by the user, run this useEffect. Filter first, then sort the filtered selection.
     // Only run logic if there are actual products. Without this if statement products on the first load will be an empty array.
-    // Should be fixed: the following line does not detect products with more than one color.
+    // ToDo: The following color filter does not detect products with more than one color yet.
     if (products.length > 0) {
-      const filtered = colors.length > 0 ? products.filter((product) => colors.includes(product.color as COLOR_FIILTER_VALUES)) : [...products];
+      const filtered =
+        colors.length > 0
+          ? products.filter((product) => colors.includes(product.color as COLOR_FIILTER_VALUES))
+          : [...products];
       switch (sortBy) {
         case SORT_BY_VALUES.RECOMMENDED:
           setFilteredProducts(filtered.sort((a, b) => a.id - b.id));
@@ -61,8 +58,7 @@ const CategoryPage = () => {
           break;
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [colors, sortBy]);
+  }, [colors, sortBy, products]);
 
   return (
     <Container>

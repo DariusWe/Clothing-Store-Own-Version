@@ -20,22 +20,18 @@ export const Container = styled.span`
   }
   .dropdown-enter {
     max-height: 0;
-    opacity: 0;
   }
   .dropdown-enter-active {
-    transition: all 150ms;
+    transition: all 50ms;
     transition-timing-function: ease-in;
     max-height: 42rem;
-    opacity: 1;
   }
   .dropdown-exit {
     max-height: 42rem;
-    opacity: 1;
   }
   .dropdown-exit-active {
-    transition: all 150ms;
+    transition: all 50ms;
     max-height: 0;
-    opacity: 0;
   }
 `;
 

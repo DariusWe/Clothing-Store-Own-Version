@@ -1,5 +1,5 @@
 import React from "react";
-import { MainContainer, ContentArea } from "./navigation.styles";
+import { Container, ContentArea } from "./navigation.styles";
 import { Outlet } from "react-router-dom";
 import { NavbarSide, NavbarTop, SlideMenu } from "../../components";
 import { useTypedSelector } from "../../store/typed-hooks";
@@ -9,14 +9,14 @@ const Navigation = React.memo(() => {
   const currentViewport = useTypedSelector((state) => state.currentViewport.type);
 
   return (
-    <MainContainer>
+    <Container>
       {currentViewport === VIEWPORT_TYPES.DESKTOP && <NavbarSide />}
       <ContentArea $layoutFor={currentViewport}>
         <Outlet />
       </ContentArea>
       <NavbarTop />
       <SlideMenu />
-    </MainContainer>
+    </Container>
   );
 });
 
