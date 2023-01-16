@@ -1,7 +1,9 @@
-# Clothing store built with react and redux
-
-This project (work-in-progress) was built alongside to the course "Complete React Developer in 2023 (w/ Redux, Hooks, GraphQL)" by Zero To Mastery on Udemy for the purpose of learning React and the whole ecosystem around it. It's featuring an online clothing store with a login and signup system (via Firebase) and a firestore database to store products and product-related information. Routing is done with React Router, state management via Redux Toolkit (although i also learned React Context API and Redux Core extensively throughout the project). Redux-persist is used to store global app state in the clients local storage. The whole app is written in Typescript. Styling is done via styled components (i'm not a fan of it and might switch to Tailwind CSS in the future) and SCSS. The app is fully responsive and features animations and transitions created with React Transition Group. The images are taken from hm.com and asos asos.com.
-
-Stripe API to allow payments and some other minor features (for example the product page) will be implemented in the near future.
+# Shopping platform built with react and redux
 
 Check it out here: https://rad-centaur-dd67dd.netlify.app
+
+A fully responsive online shopping platform built alongside my journey of learning react and the ecosystem around it. It features a login-system (Firebase Auth) and a database (Firestore) to store all the products and product related information. Global app state is managed with Redux Toolkit - after learning and leveraging React Context API and core Redux before. For styling I am currently using Styled Components (i'm not a fan of it and might switch to Tailwind CSS in the future) in combination with SCSS as well as React Transition Group to trigger animations and transitions. The whole app is built using Typescript. Images are taken from different online shopping platforms (like Asos and H&M).
+
+The visual design is mostly shaped by two decisions: When viewing the site on desktop, I wanted to use the whole height of the user's viewport to display the content of the page, meaning the navigation would live on the side. This way the users view isn't blocked by a Header section that takes up 50 % of the height (like it often is the case). The second decision that shaped the design of this app was to go with a very minimalistic approach. Meaning less borders, less background colors, less shadows. Trying to indicate sections just by placing the content on an "invisible grid". This approach was more of an experiment as i like minimalistic design, but i think it worked out better than expected.
+
+This app is work in progress. Right now i'm working on implementing a checkout procedure and the stripe API to allow (test) payments.
