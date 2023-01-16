@@ -1,3 +1,4 @@
+// WORK IN PROGESS
 import { useState, useEffect } from "react";
 import { useTypedSelector } from "../../../store/typed-hooks";
 import { selectCartTotal } from "../../../store/slices/cart.slice";
