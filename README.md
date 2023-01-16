@@ -1,4 +1,4 @@
-# Shopping platform built with react and redux
+## Responsive online store built with Typescript and React, Redux and Firebase. 
 
 Check it out here: https://rad-centaur-dd67dd.netlify.app
 
