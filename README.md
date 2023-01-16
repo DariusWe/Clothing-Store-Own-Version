@@ -1,4 +1,4 @@
-## Responsive online store built with Typescript and React, Redux and Firebase. 
+## Online clothing store built with Typescript and React, Redux and Firebase. 
 
 Check it out here: https://rad-centaur-dd67dd.netlify.app
 
