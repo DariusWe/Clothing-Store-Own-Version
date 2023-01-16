@@ -1,5 +1,4 @@
-// This feature is work in progress
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTypedSelector } from "../../../store/typed-hooks";
 import { selectCartTotal } from "../../../store/slices/cart.slice";
 import { Form } from "./payment-form.styles";
@@ -9,30 +8,33 @@ import { Button } from "../../index";
 const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
-  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
-  const amount = useTypedSelector(selectCartTotal);
-  const currentUser = useTypedSelector(state => state.user.currentUser)
+  const [clientSecret, setClientSecret] = useState("");
+  const [processing, setProcessing] = useState(false);
+  const cartTotal = useTypedSelector(selectCartTotal);
+  const currentUser = useTypedSelector((state) => state.user.currentUser);
 
-  const paymentHandler = async (e) => {
-    e.preventDefault();
-
-    if (!stripe || !elements) {
-      return;
-    }
-
-    setIsProcessingPayment(true);
-
-    const response = await fetch("/.netlify/functions/create-payment-intent", {
+  useEffect(() => {
+    // Create PaymentIntent as soon as the page loads
+    fetch("/.netlify/functions/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ amount: amount * 100 }),
-    }).then((res) => res.json());
+      body: JSON.stringify({ amount: Math.round(cartTotal * 100) }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setClientSecret(data.clientSecret);
+      });
+  }, [cartTotal]);
 
-    const clientSecret = response.paymentIntent.client_secret;
-
-    const paymentResult = await stripe.confirmCardPayment(clientSecret, {
+  const paymentHandler = async (e) => {
+    e.preventDefault();
+    setProcessing(true);
+    console.log(clientSecret);
+    const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
@@ -41,14 +43,12 @@ const PaymentForm = () => {
       },
     });
 
-    setIsProcessingPayment(false);
-
-    if (paymentResult.error) {
-      alert(`Payment not successful. Error message: ${paymentResult.error.message}`);
+    if (payload.error) {
+      alert(`Payment failed ${payload.error.message}`);
+      setProcessing(false);
     } else {
-      if (paymentResult.paymentIntent.status === "succeeded") {
-        alert("Payment successful");
-      }
+      alert("Payment Success");
+      setProcessing(false);
     }
   };
 
@@ -56,7 +56,7 @@ const PaymentForm = () => {
     <Form onSubmit={paymentHandler}>
       <span>Credit Card Payment:</span>
       <CardElement />
-      <Button isLoading={isProcessingPayment} label="Pay now" buttonTheme="dark" />
+      <Button isLoading={processing} label="Pay now" buttonTheme="dark" />
     </Form>
   );
 };
