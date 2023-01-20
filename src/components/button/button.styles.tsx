@@ -29,6 +29,7 @@ const darkTheme = css`
 `;
 
 const disabledStyles = css`
+
   background: repeating-linear-gradient(-48deg, #9e9e9e 0px, #9e9e9e 5px, #8f8f8f 5px, #8f8f8f 10px);
   &:hover {
     background: repeating-linear-gradient(-48deg, #9e9e9e 0px, #9e9e9e 5px, #8f8f8f 5px, #8f8f8f 10px);

@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 42rem;
-  padding: 6rem;
+  padding: 5.5rem 6rem;
   text-transform: uppercase;
+  background-color: #f0f0f0;
   h1 {
     margin-bottom: 4rem;
     font-size: var(--font-size-xl);

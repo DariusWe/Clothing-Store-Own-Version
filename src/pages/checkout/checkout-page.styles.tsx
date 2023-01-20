@@ -5,10 +5,22 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  padding: 0 20px;
+`;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  p {
+    margin-top: 15px;
+    margin-bottom: 35px;
+    text-align: center;
+  }
 `;
