@@ -1,18 +1,20 @@
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./index.scss";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import { store, persistor } from "./store/store";
-import { PersistGate } from "redux-persist/integration/react";
-import { Elements } from "@stripe/react-stripe-js";
-import { stripePromise } from "./utils/stripe.utils";
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import './index.scss'
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { store, persistor } from './store/store'
+import { PersistGate } from 'redux-persist/integration/react'
+import { Elements } from '@stripe/react-stripe-js'
+import { stripePromise } from './utils/stripe.utils'
+import ScrollToTop from './components/scroll-to-top/scroll-top-top'
 
-const root = ReactDOM.createRoot(document.getElementById("root") as Element);
+const root = ReactDOM.createRoot(document.getElementById('root') as Element)
 
 root.render(
   <>
     <BrowserRouter>
+      <ScrollToTop />
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Elements stripe={stripePromise}>
@@ -22,4 +24,4 @@ root.render(
       </Provider>
     </BrowserRouter>
   </>
-);
+)

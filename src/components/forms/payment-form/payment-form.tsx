@@ -36,7 +36,6 @@ const PaymentForm = () => {
       })
       .then((data) => {
         setClientSecret(data.clientSecret);
-        console.log("client secret received: ", data.clientSecret);
       });
   }, [cartTotal]);
 
